@@ -1,0 +1,19 @@
+{
+  "name": "ask-om-dch",
+  "version": "1.0.0",
+  "description": "online shopping app with cypress",
+  "main": "index.js",
+  "scripts": {
+    "runner": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cypress typescript testing"
+  },
+  "author": "Carmen Palsario",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.2.0",
+    "typescript": "^4.9.4"
+  }
+}
