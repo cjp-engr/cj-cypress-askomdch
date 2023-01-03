@@ -1,0 +1,14 @@
+{
+    "registeredUserNameOrEmail": "c@c.com",
+    "registeredPassword": "Test750!!",
+    "invalidUserNameOrEmail": "invalid",
+    "invalidPassword": "qwqwqqwq",
+    "accountLink": "account/",
+    "accountOrdersLink": "account/orders/",
+    "accountDownloadsLink": "account/downloads/",
+    "accountAddressesLink": "account/edit-address/",
+    "accountBillingAddressLink": "account/edit-address/billing/",
+    "accountShippingAddressLink": "account/edit-address/shipping/",
+    "accountAccountDetailsLink": "account/edit-account/",
+    "accountLogoutLink": ""
+}
