@@ -1,0 +1,7 @@
+Account
+
+Login Scenario
+1. The login attempt should be successful after the user entered a valid email or username and password
+2. The login attempt should fail after the user entered an unregistered email or username
+3. The login attempt should fail after the user entered valid a email or username but empty password
+4. The login attempt should fail after the user entered an unregistered email or username but empty password

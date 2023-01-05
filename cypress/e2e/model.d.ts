@@ -1,8 +1,7 @@
 export interface AccountTestData {
     registeredUserNameOrEmail: string;
     registeredPassword: string;
-    invalidUserNameOrEmail: string;
-    invalidPassword: string;
+    unregisteredUserNameOrEmail: string;
     accountLink: string;
     accountOrdersLink: string;
     accountDownloadsLink: string;
@@ -10,4 +9,8 @@ export interface AccountTestData {
     accountBillingAddressLink: string;
     accountShippingAddressLink: string;
     accountAccountDetailsLink: string;
+    accountLogoutLink: string;
+    dashboardSecondBodyText: string;
+    unregisteredErrorMessage: string;
+    passwordEmptyErrorMessage: string;
 }

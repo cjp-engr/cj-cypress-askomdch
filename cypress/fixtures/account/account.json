@@ -1,7 +1,7 @@
 {
     "registeredUserNameOrEmail": "c@c.com",
     "registeredPassword": "Test750!!",
-    "invalidUserNameOrEmail": "invalid",
+    "unregisteredUserNameOrEmail": "unregistered",
     "invalidPassword": "qwqwqqwq",
     "accountLink": "account/",
     "accountOrdersLink": "account/orders/",
@@ -10,5 +10,8 @@
     "accountBillingAddressLink": "account/edit-address/billing/",
     "accountShippingAddressLink": "account/edit-address/shipping/",
     "accountAccountDetailsLink": "account/edit-account/",
-    "accountLogoutLink": ""
+    "accountLogoutLink": "",
+    "dashboardSecondBodyText": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.",
+    "unregisteredErrorMessage": "Error: The username unregistered is not registered on this site. If you are unsure of your username, try your email address instead.",
+    "passwordEmptyErrorMessage": "Error: The password field is empty."
 }

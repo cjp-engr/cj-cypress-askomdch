@@ -15,10 +15,12 @@ class Account extends Main {
     private registerButton: string = "button[value='Register']";
 
     //todo
-    private errorMessageText: string = "";
+    private errorMessageText: string = "ul[role='alert'] li";
 
     private dashboardNavigationLink: string = ".woocommerce-MyAccount-navigation-link--dashboard";
     private dashboardLogOutLink: string = "p:nth-child(2) > a[href*='logout']:nth-child(3)";
+    private dashboardFirstBodyText: string = "div.woocommerce-MyAccount-content p:nth-child(2)";
+    private dashboardSecondBodyText: string = "div.woocommerce-MyAccount-content p:nth-child(3)";
 
     private ordersNavigationLink: string = ".woocommerce-MyAccount-navigation-link--orders";
     private noOrderHasBeenMadeYetText: string = "";
@@ -120,6 +122,14 @@ class Account extends Main {
 
     get dashboardLogOutLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.dashboardLogOutLink);
+    }
+
+    get dashboardFirstBodyTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.dashboardFirstBodyText);
+    }
+
+    get dashboardSecondBodyTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.dashboardSecondBodyText);
     }
 
     get ordersNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
