@@ -1,8 +1,13 @@
 {
-    "registeredUserNameOrEmail": "c@c.com",
-    "registeredPassword": "Test750!!",
-    "unregisteredUserNameOrEmail": "unregistered",
-    "invalidPassword": "qwqwqqwq",
+    "hello": {
+        "hi": "myTest"
+    },
+    "credentials": {
+        "registeredUserNameOrEmail": "c@c.com",
+        "registeredPassword": "Test750!!",
+        "unregisteredUserNameOrEmail": "unregistered",
+        "invalidPassword": "qwqwqqwq"
+    },
     "accountLink": "account/",
     "accountOrdersLink": "account/orders/",
     "accountDownloadsLink": "account/downloads/",
