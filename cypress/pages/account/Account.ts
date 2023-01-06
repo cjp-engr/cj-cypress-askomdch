@@ -34,44 +34,44 @@ class Account extends Main {
     private downloadsNavigationLink: string = ".woocommerce-MyAccount-navigation-link--downloads";
     private noDownloadsAvailableYetText: string = "";
 
-    private addressesNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-address";
-    private billingAddressText: string = "";
-    private billingAddressAddButton: string = "a[href*='/edit-address/billing']";
-    private billingAddressFirstNameTextField: string = "#billing_first_name";
-    private billingAddressLastNameTextField: string = "#billing_last_name";
-    private billingAddressCompanyNameTextField: string = "#billing_company";
-    private billingAddressCountryRegionSelectField: string = "select[name='billing_country']";
-    private billingAddressStreetAddressFirstTextField: string = "#billing_address_1";
-    private billingAddressStreetAddressSecondTextField: string = "#billing_address_2";
-    private billingAddressTownCityTextField: string = "#billing_city";
-    private billingAddressStateSelectField: string = "#billing_state";
-    private billingAddressZipCodeTextField: string = "#billing_postcode";
-    private billingAddressPhoneTextField: string = "#billing_phone";
-    private billingAddressEmailAddressTextField: string = "#billing_email";
-    private billingAddressSaveAddressButton: string = "button[name='save_address']";
+    // private addressesNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-address";
+    // private billingAddressText: string = "";
+    // private billingAddressAddButton: string = "a[href*='/edit-address/billing']";
+    // private billingAddressFirstNameTextField: string = "#billing_first_name";
+    // private billingAddressLastNameTextField: string = "#billing_last_name";
+    // private billingAddressCompanyNameTextField: string = "#billing_company";
+    // private billingAddressCountryRegionSelectField: string = "select[name='billing_country']";
+    // private billingAddressStreetAddressFirstTextField: string = "#billing_address_1";
+    // private billingAddressStreetAddressSecondTextField: string = "#billing_address_2";
+    // private billingAddressTownCityTextField: string = "#billing_city";
+    // private billingAddressStateSelectField: string = "#billing_state";
+    // private billingAddressZipCodeTextField: string = "#billing_postcode";
+    // private billingAddressPhoneTextField: string = "#billing_phone";
+    // private billingAddressEmailAddressTextField: string = "#billing_email";
+    // private billingAddressSaveAddressButton: string = "button[name='save_address']";
 
-    private shippingAddressText: string = "";
-    private shippingAddressAddButton: string = "a[href*='/edit-address/shipping']";
-    private shippingAddressFirstNameTextField: string = "#shipping_first_name";
-    private shippingAddressLastNameTextField: string = "#shipping_last_name";
-    private shippingAddressCompanyNameTextField: string = "#shipping_company";
-    private shippingAddressCountryRegionSelectField: string = "select[name='shipping_country']";
-    private shippingAddressStreetAddressFirstTextField: string = "#shipping_address_1";
-    private shippingAddressStreetAddressSecondTextField: string = "#shipping_address_2";
-    private shippingAddressTownCityTextField: string = "#shipping_city";
-    private shippingAddressStateSelectField: string = "#shipping_state";
-    private shippingAddressZipCodeTextField: string = "#shipping_postcode";
-    private shippingAddressSaveAddressButton: string = "button[name='save_address']";
+    // private shippingAddressText: string = "";
+    // private shippingAddressAddButton: string = "a[href*='/edit-address/shipping']";
+    // private shippingAddressFirstNameTextField: string = "#shipping_first_name";
+    // private shippingAddressLastNameTextField: string = "#shipping_last_name";
+    // private shippingAddressCompanyNameTextField: string = "#shipping_company";
+    // private shippingAddressCountryRegionSelectField: string = "select[name='shipping_country']";
+    // private shippingAddressStreetAddressFirstTextField: string = "#shipping_address_1";
+    // private shippingAddressStreetAddressSecondTextField: string = "#shipping_address_2";
+    // private shippingAddressTownCityTextField: string = "#shipping_city";
+    // private shippingAddressStateSelectField: string = "#shipping_state";
+    // private shippingAddressZipCodeTextField: string = "#shipping_postcode";
+    // private shippingAddressSaveAddressButton: string = "button[name='save_address']";
 
-    private accountDetailsNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-account";
-    private accountDetailsFirstNameTextField: string = "#account_first_name";
-    private accountDetailsLastNameTextField: string = "#account_last_name";
-    private accountDetailsDisplayNameTextField: string = "#account_display_name";
-    private accountDetailsEmailAddressTextField: string = "#account_email";
-    private accountDetailsCurrentPasswordTextField: string = "#password_current";
-    private accountDetailsNewPasswordTextField: string = "#password_1";
-    private accountDetailsConfirmNewPasswordTextField: string = "#password_2";
-    private accountDetailsSaveChangesButton: string = "button[value='Save changes']";
+    // private accountDetailsNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-account";
+    // private accountDetailsFirstNameTextField: string = "#account_first_name";
+    // private accountDetailsLastNameTextField: string = "#account_last_name";
+    // private accountDetailsDisplayNameTextField: string = "#account_display_name";
+    // private accountDetailsEmailAddressTextField: string = "#account_email";
+    // private accountDetailsCurrentPasswordTextField: string = "#password_current";
+    // private accountDetailsNewPasswordTextField: string = "#password_1";
+    // private accountDetailsConfirmNewPasswordTextField: string = "#password_2";
+    // private accountDetailsSaveChangesButton: string = "button[value='Save changes']";
 
     private logoutNavigationLink: string = ".woocommerce-MyAccount-navigation-link--customer-logout";
 
@@ -173,142 +173,142 @@ class Account extends Main {
         return cy.get(this.noDownloadsAvailableYetText);
     }
 
-    get addressesNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.addressesNavigationLink);
-    }
+    // get addressesNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.addressesNavigationLink);
+    // }
 
-    get billingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressText);
-    }
-    get billingAddressAddButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressAddButton);
-    }
+    // get billingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressText);
+    // }
+    // get billingAddressAddButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressAddButton);
+    // }
 
-    get billingAddressFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressFirstNameTextField);
-    }
+    // get billingAddressFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressFirstNameTextField);
+    // }
 
-    get billingAddressLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressLastNameTextField);
-    }
+    // get billingAddressLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressLastNameTextField);
+    // }
 
-    get billingAddressCompanyNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressCompanyNameTextField);
-    }
+    // get billingAddressCompanyNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressCompanyNameTextField);
+    // }
 
-    get billingAddressCountryRegionSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressCountryRegionSelectField);
-    }
-    get billingAddressStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressStreetAddressFirstTextField);
-    }
+    // get billingAddressCountryRegionSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressCountryRegionSelectField);
+    // }
+    // get billingAddressStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressStreetAddressFirstTextField);
+    // }
 
-    get billingAddressStreetAddressSecondTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressStreetAddressSecondTextField);
-    }
+    // get billingAddressStreetAddressSecondTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressStreetAddressSecondTextField);
+    // }
 
-    get billingAddressTownCityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressTownCityTextField);
-    }
+    // get billingAddressTownCityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressTownCityTextField);
+    // }
 
-    get billingAddressStateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressStateSelectField);
-    }
+    // get billingAddressStateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressStateSelectField);
+    // }
 
-    get billingAddressZipCodeTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressZipCodeTextField);
-    }
-    get billingAddressPhoneTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressPhoneTextField);
-    }
+    // get billingAddressZipCodeTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressZipCodeTextField);
+    // }
+    // get billingAddressPhoneTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressPhoneTextField);
+    // }
 
-    get billingAddressEmailAddressTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressEmailAddressTextField);
-    }
+    // get billingAddressEmailAddressTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressEmailAddressTextField);
+    // }
 
-    get billingAddressSaveAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.billingAddressSaveAddressButton);
-    }
+    // get billingAddressSaveAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.billingAddressSaveAddressButton);
+    // }
 
-    get shippingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressText);
-    }
+    // get shippingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressText);
+    // }
 
-    get shippingAddressAddButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressAddButton);
-    }
-    get shippingAddressFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressFirstNameTextField);
-    }
+    // get shippingAddressAddButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressAddButton);
+    // }
+    // get shippingAddressFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressFirstNameTextField);
+    // }
 
-    get shippingAddressLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressLastNameTextField);
-    }
+    // get shippingAddressLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressLastNameTextField);
+    // }
 
-    get shippingAddressCompanyNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressCompanyNameTextField);
-    }
+    // get shippingAddressCompanyNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressCompanyNameTextField);
+    // }
 
-    get shippingAddressCountryRegionSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressCountryRegionSelectField);
-    }
+    // get shippingAddressCountryRegionSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressCountryRegionSelectField);
+    // }
 
-    get shippingAddressStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressStreetAddressFirstTextField);
-    }
-    get shippingAddressStreetAddressSecondTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressStreetAddressSecondTextField);
-    }
+    // get shippingAddressStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressStreetAddressFirstTextField);
+    // }
+    // get shippingAddressStreetAddressSecondTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressStreetAddressSecondTextField);
+    // }
 
-    get shippingAddressTownCityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressTownCityTextField);
-    }
+    // get shippingAddressTownCityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressTownCityTextField);
+    // }
 
-    get shippingAddressStateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressStateSelectField);
-    }
+    // get shippingAddressStateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressStateSelectField);
+    // }
 
-    get shippingAddressZipCodeTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressZipCodeTextField);
-    }
+    // get shippingAddressZipCodeTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressZipCodeTextField);
+    // }
 
-    get shippingAddressSaveAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingAddressSaveAddressButton);
-    }
-    get accountDetailsNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsNavigationLink);
-    }
+    // get shippingAddressSaveAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.shippingAddressSaveAddressButton);
+    // }
+    // get accountDetailsNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsNavigationLink);
+    // }
 
-    get accountDetailsFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsFirstNameTextField);
-    }
+    // get accountDetailsFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsFirstNameTextField);
+    // }
 
-    get accountDetailsLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsLastNameTextField);
-    }
+    // get accountDetailsLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsLastNameTextField);
+    // }
 
-    get accountDetailsDisplayNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsDisplayNameTextField);
-    }
+    // get accountDetailsDisplayNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsDisplayNameTextField);
+    // }
 
-    get accountDetailsEmailAddressTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsEmailAddressTextField);
-    }
+    // get accountDetailsEmailAddressTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsEmailAddressTextField);
+    // }
 
-    get accountDetailsCurrentPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsCurrentPasswordTextField);
-    }
+    // get accountDetailsCurrentPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsCurrentPasswordTextField);
+    // }
 
-    get accountDetailsNewPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsNewPasswordTextField);
-    }
-    get accountDetailsConfirmNewPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsConfirmNewPasswordTextField);
-    }
+    // get accountDetailsNewPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsNewPasswordTextField);
+    // }
+    // get accountDetailsConfirmNewPasswordTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsConfirmNewPasswordTextField);
+    // }
 
-    get accountDetailsSaveChangesButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.accountDetailsSaveChangesButton);
-    }
+    // get accountDetailsSaveChangesButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.accountDetailsSaveChangesButton);
+    // }
 
     get logoutNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.logoutNavigationLink);

@@ -241,4 +241,14 @@ describe('Account Page', function () {
             });
         });
     });
+
+
+    describe('Logged in account page scenario', () => {
+        beforeEach(() => {
+
+        });
+        it('', function () {
+
+        });
+    });
 });
