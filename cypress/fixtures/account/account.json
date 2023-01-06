@@ -8,7 +8,11 @@
         "registeredPassword": "Test750!!",
         "unregisteredEmail": "q@q.com",
         "unregisteredUsername": "unregistered",
-        "invalidPassword": "qwqwqqwq"
+        "invalidEmail": "invalid",
+        "invalidPassword": "qwqwqqwq",
+        "registeringEmail": "d@d.com",
+        "registeringUsername": "dj",
+        "registeringPassword": "Test750!!"
     },
     "links": {
         "account": "account/",
@@ -24,7 +28,12 @@
         "unregistered": "Error: The username unregistered is not registered on this site. If you are unsure of your username, try your email address instead.",
         "passwordEmpty": "Error: The password field is empty.",
         "username": "Error: Username is required.",
-        "resetPassword": "Invalid username or email."
+        "resetPassword": "Invalid username or email.",
+        "registeringEmptyPassword": "Please enter an account password.",
+        "registeringEmptyEmail": "Please provide a valid email address.",
+        "registeringEmptyUsername": "Please enter a valid account username.",
+        "registeringExistingUsername": "An account is already registered with that username. Please choose another.",
+        "registeringExistingEmail": "An account is already registered with your email address."
     },
     "successMessage": {
         "sentEmail": "Password reset email has been sent."

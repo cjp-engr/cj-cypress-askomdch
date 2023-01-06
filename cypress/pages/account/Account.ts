@@ -20,7 +20,7 @@ class Account extends Main {
     private resetPasswordSentEmailText: string = "div[role='alert']";
     private resetPasswordErrorMessageText: string = "ul[role='alert'] li";
 
-    //todo
+    //error message for both login and register
     private errorMessageText: string = "ul[role='alert'] li";
 
     private dashboardNavigationLink: string = ".woocommerce-MyAccount-navigation-link--dashboard";

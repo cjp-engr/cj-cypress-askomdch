@@ -18,12 +18,16 @@ Reset password
 
 Register
 username, email address password
-1. Registration should be successful after entering a valid username, email address and password
-2. Registration should fail after the user entered a valid username, email address but with empty password
-3. Registration should fail after the user entered a valid username and password but with empty email address
-4. Registration should fail after the user entered a valid username but with empty email address and password
-5. Registration should fail after the user entered a valid email address and password but with empty username
-6. Registration should fail after the user entered a valid username and password but with empty email address
-7. Registration should fail after the user entered a valid username and email address but with empty password
-8. Registration should fail due to empty username, email address and password
-9. Registration should fail after the user entered an invalid email address
+1. Registration should be successful after entering a valid username, email address and password - done
+2. Registration should fail after the user entered a valid username, email address but with empty password - done
+3. Registration should fail after the user entered a valid username and password but with empty email address - done
+4. Registration should fail after the user entered a valid username but with empty email address and password - done
+5. Registration should fail after the user entered a valid email address and password but with empty username - done
+6. Registration should fail after the user entered a valid username and password but with empty email address - done
+7. Registration should fail after the user entered a valid password but with empty username and password - done
+8. Registration should fail due to empty username, email address and password - done
+9. Registration should fail after the user entered an invalid email address - skip
+10. Registration should fail after the user entered an existing username - done
+11. Registration should fail after the user entered an existing email address - done
+12. Registration should fail after the user entered an existing username and email address - done
+
