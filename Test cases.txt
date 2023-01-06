@@ -5,12 +5,15 @@ Login Scenario
 2. The login attempt should fail after the user entered an unregistered email or username - done
 3. The login attempt should fail after the user entered valid a email or username but empty password - done
 4. The login attempt should fail after the user entered an unregistered email or username but empty password - done
-5. The login attempt should fail due to empty username or email address and password
+5. The login attempt should fail due to empty username or email address and password - done
 
 
 Reset password
-1. The email should be sent after the user entered a registered email
-2. The email should not be sent after the user entered an unregistered email
+1. The user should be redirected to the reset password page after clicking the "Lost your password" link - done
+2. The email should be sent after the user entered a registered email - done
+3. The email should not be sent after the user entered an unregistered email - done
+4. The email should be sent after the user entered a registered username - done
+5. The email should not be sent after the user entered an unregistered username - done
 
 
 Register

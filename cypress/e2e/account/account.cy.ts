@@ -4,17 +4,18 @@ import { AccountTestData } from "../model";
 describe('Account Page', function () {
     beforeEach(function () {
         cy.fixture('account/account').as('account');
+
     });
     describe('Login Scenario', function () {
 
         beforeEach(function () {
             cy.visitOnlineStore();
+            AccountPage.navigationBarAccountElement.click();
         });
 
         it('1. The login attempt should be successful after the user entered a valid email or username and password', function () {
             cy.get<AccountTestData>('@account').then((data) => {
-                cy.log(data.hello['hi']);
-                AccountPage.navigationBarAccountElement.click();
+
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['registeredUserNameOrEmail']);
                 AccountPage.loginPasswordTextFieldElement.type(data.credentials['registeredPassword']);
                 AccountPage.loginRememberMeCheckBoxElement.click();
@@ -26,7 +27,7 @@ describe('Account Page', function () {
 
         it('2. The login attempt should fail after the user entered an unregistered email or username', function () {
             cy.get<AccountTestData>('@account').then((data) => {
-                AccountPage.navigationBarAccountElement.click();
+
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['unregisteredUserNameOrEmail']);
                 AccountPage.loginPasswordTextFieldElement.type(data.credentials['registeredPassword']);
                 AccountPage.loginRememberMeCheckBoxElement.click();
@@ -38,7 +39,7 @@ describe('Account Page', function () {
 
         it('3. The login attempt should fail after the user entered valid a email or username but empty password', function () {
             cy.get<AccountTestData>('@account').then((data) => {
-                AccountPage.navigationBarAccountElement.click();
+
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['registeredUserNameOrEmail']);
                 AccountPage.loginRememberMeCheckBoxElement.click();
                 AccountPage.loginButtonElement.contains('Log in').click();
@@ -49,7 +50,7 @@ describe('Account Page', function () {
 
         it('4. The login attempt should fail after the user entered an unregistered email or username but empty password', function () {
             cy.get<AccountTestData>('@account').then((data) => {
-                AccountPage.navigationBarAccountElement.click();
+
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['unregisteredUserNameOrEmail']);
                 AccountPage.loginPasswordTextFieldElement.type(data.credentials['registeredPassword']);
                 AccountPage.loginRememberMeCheckBoxElement.click();
@@ -61,7 +62,7 @@ describe('Account Page', function () {
 
         it('5. The login attempt should fail due to empty username or email address and password', function () {
             cy.get<AccountTestData>('@account').then((data) => {
-                AccountPage.navigationBarAccountElement.click();
+
                 AccountPage.loginRememberMeCheckBoxElement.click();
                 AccountPage.loginButtonElement.contains('Log in').click();
                 AccountPage.errorMessageTextElement.should('contain.text', data.errorMessage['username']);
@@ -123,6 +124,11 @@ describe('Account Page', function () {
 
 
     describe('Registration Scenario', function () {
+        beforeEach(function () {
+            cy.visitOnlineStore();
+            AccountPage.navigationBarAccountElement.click();
+        });
+
         it('1. Registration should be successful after entering a valid username, email address and password', function () {
 
         });
