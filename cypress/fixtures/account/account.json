@@ -3,20 +3,34 @@
         "hi": "myTest"
     },
     "credentials": {
-        "registeredUserNameOrEmail": "c@c.com",
+        "registeredEmail": "c@c.com",
+        "registeredUsername": "cj",
         "registeredPassword": "Test750!!",
-        "unregisteredUserNameOrEmail": "unregistered",
+        "unregisteredEmail": "q@q.com",
+        "unregisteredUsername": "unregistered",
         "invalidPassword": "qwqwqqwq"
     },
-    "accountLink": "account/",
-    "accountOrdersLink": "account/orders/",
-    "accountDownloadsLink": "account/downloads/",
-    "accountAddressesLink": "account/edit-address/",
-    "accountBillingAddressLink": "account/edit-address/billing/",
-    "accountShippingAddressLink": "account/edit-address/shipping/",
-    "accountAccountDetailsLink": "account/edit-account/",
-    "accountLogoutLink": "",
-    "dashboardSecondBodyText": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.",
-    "unregisteredErrorMessage": "Error: The username unregistered is not registered on this site. If you are unsure of your username, try your email address instead.",
-    "passwordEmptyErrorMessage": "Error: The password field is empty."
+    "links": {
+        "account": "account/",
+        "accountOrders": "account/orders/",
+        "accountDownloads": "account/downloads/",
+        "accountAddresses": "account/edit-address/",
+        "accountBillingAddress": "account/edit-address/billing/",
+        "accountShippingAddress": "account/edit-address/shipping/",
+        "accountAccountDetails": "account/edit-account/",
+        "accountLogout": ""
+    },
+    "errorMessage": {
+        "unregistered": "Error: The username unregistered is not registered on this site. If you are unsure of your username, try your email address instead.",
+        "passwordEmpty": "Error: The password field is empty.",
+        "username": "Error: Username is required.",
+        "resetPassword": "Invalid username or email."
+    },
+    "successMessage": {
+        "sentEmail": "Password reset email has been sent."
+    },
+    "text": {
+        "resetPasswordBody": "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.",
+        "dashboardSecondBody": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details."
+    }
 }

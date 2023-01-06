@@ -1,7 +1,26 @@
 Account
 
 Login Scenario
-1. The login attempt should be successful after the user entered a valid email or username and password
-2. The login attempt should fail after the user entered an unregistered email or username
-3. The login attempt should fail after the user entered valid a email or username but empty password
-4. The login attempt should fail after the user entered an unregistered email or username but empty password
+1. The login attempt should be successful after the user entered a valid email or username and password - done
+2. The login attempt should fail after the user entered an unregistered email or username - done
+3. The login attempt should fail after the user entered valid a email or username but empty password - done
+4. The login attempt should fail after the user entered an unregistered email or username but empty password - done
+5. The login attempt should fail due to empty username or email address and password
+
+
+Reset password
+1. The email should be sent after the user entered a registered email
+2. The email should not be sent after the user entered an unregistered email
+
+
+Register
+username, email address password
+1. Registration should be successful after entering a valid username, email address and password
+2. Registration should fail after the user entered a valid username, email address but with empty password
+3. Registration should fail after the user entered a valid username and password but with empty email address
+4. Registration should fail after the user entered a valid username but with empty email address and password
+5. Registration should fail after the user entered a valid email address and password but with empty username
+6. Registration should fail after the user entered a valid username and password but with empty email address
+7. Registration should fail after the user entered a valid username and email address but with empty password
+8. Registration should fail due to empty username, email address and password
+9. Registration should fail after the user entered an invalid email address

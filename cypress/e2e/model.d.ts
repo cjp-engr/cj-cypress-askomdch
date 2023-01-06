@@ -1,21 +1,9 @@
-export interface AccountTestData extends AccountErrorMessage, AccountLinks {
+export interface AccountTestData {
+    hello: any;
     credentials: any;
-    accountLogoutLink: string;
-    dashboardSecondBodyText: string;
-    hello: string;
+    links: any;
+    errorMessage: any;
+    successMessage: any;
+    text: any;
 }
 
-interface AccountErrorMessage {
-    unregisteredErrorMessage: string;
-    passwordEmptyErrorMessage: string;
-}
-
-interface AccountLinks {
-    accountLink: string;
-    accountOrdersLink: string;
-    accountDownloadsLink: string;
-    accountAddressesLink: string;
-    accountBillingAddressLink: string;
-    accountShippingAddressLink: string;
-    accountAccountDetailsLink: string;
-}
