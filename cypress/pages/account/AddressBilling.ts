@@ -31,6 +31,19 @@ class AddressBilling extends Account {
 
     private billingAddressDetailsText: string = ".woocommerce-Address.u-column1 address";
 
+    getAllData(firstName: string, lastName: string, companyName: string, countryRegion: string, streetAddressFirst: string, streetAddressSecond: string, townCity: string, stateCounty: string, postalCodeZip: string, phone: string,) {
+        AddressBillingPage.firstNameTextFieldElement.type(firstName);
+        AddressBillingPage.lastNameTextFieldElement.type(lastName);
+        AddressBillingPage.companyNameTextFieldElement.type(companyName);
+        AddressBillingPage.countryRegionSelectFieldElement.select(countryRegion);
+        AddressBillingPage.streetAddressFirstTextFieldElement.type(streetAddressFirst);
+        AddressBillingPage.streetAddressSecondTextFieldElement.type(streetAddressSecond);
+        AddressBillingPage.townCityTextFieldElement.type(townCity);
+        AddressBillingPage.stateSelectFieldElement.select(stateCounty);
+        AddressBillingPage.zipCodeTextFieldElement.type(postalCodeZip);
+        AddressBillingPage.phoneTextFieldElement.type(phone);
+    }
+
     clearAllFields() {
         AddressBillingPage.firstNameTextFieldElement.clear();
         AddressBillingPage.lastNameTextFieldElement.clear();

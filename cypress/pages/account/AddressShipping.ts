@@ -1,4 +1,6 @@
-class AddressShipping {
+import { Account } from "./Account";
+
+class AddressShipping extends Account {
     private addressesNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-address";
     private shippingAddressText: string = "";
     private shippingAddButton: string = "a[href*='/edit-address/shipping']";
