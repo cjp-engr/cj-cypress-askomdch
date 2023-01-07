@@ -8,7 +8,8 @@
         "registeredPassword": "Test750!!",
         "unregisteredEmail": "q@q.com",
         "unregisteredUsername": "unregistered",
-        "invalidEmail": "invalid",
+        "invalidEmail_1": "invalid",
+        "invalidEmail_2": "invalid@invalid",
         "invalidPassword": "qwqwqqwq",
         "registeringEmail": "d@d.com",
         "registeringUsername": "dj",
@@ -32,7 +33,8 @@
         "registeringEmptyEmail": "Please provide a valid email address.",
         "registeringEmptyUsername": "Please enter a valid account username.",
         "registeringExistingUsername": "An account is already registered with that username. Please choose another.",
-        "registeringExistingEmail": "An account is already registered with your email address."
+        "registeringExistingEmail": "An account is already registered with your email address.",
+        "registeringInvalidEmail": "Please include an '@' in the email address. 'invalid' is missing an '@'."
     },
     "text": {
         "dashboardSecondBody": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details."

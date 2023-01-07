@@ -170,14 +170,26 @@ describe('Account Page', function () {
             });
         });
 
-        //todo
-        it.skip('9. Registration should fail after the user entered an invalid email address', function () {
+
+        it('9. Registration should fail after the user entered an invalid email address - "invalid"', function () {
             cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
-                AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['invalidEmail']);
+                AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['invalidEmail_1']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
+                AccountPage.registerEmailAddressTextFieldElement.invoke('prop', 'validationMessage')
+                    .then((validationMessage) => {
+                        expect(validationMessage).to.contain(data.errorMessage['registeringInvalidEmail']);
+                    });
+            });
+        });
 
+        it('9-1. Registration should fail after the user entered an invalid email address - "invalid@invalid"', function () {
+            cy.get<AccountTD>('@account').then((data) => {
+                AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
+                AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['invalidEmail_2']);
+                AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
+                AccountPage.registerButtonElement.contains('Register').click();
                 AccountPage.errorMessageTextElement.should('contain.text', data.errorMessage['registeringEmptyEmail']);
             });
         });

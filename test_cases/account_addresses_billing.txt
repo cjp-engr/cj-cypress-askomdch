@@ -8,6 +8,7 @@
 8. The information should not be saved if the "postcode/zip" is empty and the other required fields are filled
 9. The information should not be saved if the "email address" is empty and the other required fields are filled
 10. The information should be saved succesfully after the user entered data to all the required fields but all the optional fields are empty
+10-1. The information should not be saved if all the required fields are empty
 11. The information should not be saved if the "first name" and "last name" are empty and the other required fields are filled
 12. The information should not be saved if the "first name" and "country/region" are empty and the other required fields are filled
 13. The information should not be saved if the "first name" and "street address" are empty and the other required fields are filled
@@ -63,4 +64,4 @@
 63. The information should not be saved if the "email address" and "town/city" are empty and the other required fields are filled
 64. The information should not be saved if the "email address" and "state/county" are empty and the other required fields are filled
 65. The information should not be saved if the "email address" and "postcode/zip" are empty and the other required fields are filled
-1000. The information should not be saved if all the required fields are empty
+1000. 
