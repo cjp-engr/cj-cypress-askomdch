@@ -7,6 +7,9 @@ export default defineConfig({
     },
     env: {
       onlineStore: 'https://askomdch.com/',
+      email: 'c@c.com',
+      username: 'cj',
+      password: 'Test750!!'
     },
     viewportHeight: 1080,
     viewportWidth: 1920,

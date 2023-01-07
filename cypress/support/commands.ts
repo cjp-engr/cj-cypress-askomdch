@@ -31,11 +31,19 @@ Cypress.Commands.add('visitOnlineStore', () => {
     cy.visit(`${Cypress.env('onlineStore')}`);
 });
 
+Cypress.Commands.add('login', () => {
+    cy.visit(`${Cypress.env('onlineStore')}`);
+    cy.visit(`${Cypress.env('onlineStore')}account`);
+    cy.get('#username').type(`${Cypress.env('email')}`);
+    cy.get('#password').type(`${Cypress.env('password')}`);
+    cy.get(`button[value='Log in']`).click();
+});
+
 declare global {
     namespace Cypress {
         interface Chainable {
             visitOnlineStore(): Chainable<void>
-            //   login(email: string, password: string): Chainable<void>
+            login(): Chainable<void>
             //   drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
             //   dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
             //   visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>

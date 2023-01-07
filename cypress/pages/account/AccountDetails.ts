@@ -1,4 +1,6 @@
-class AccountDetails {
+import { Account } from "./Account";
+
+class AccountDetails extends Account {
     private navigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-account";
     private firstNameTextField: string = "#account_first_name";
     private lastNameTextField: string = "#account_last_name";
@@ -8,6 +10,20 @@ class AccountDetails {
     private newPasswordTextField: string = "#password_1";
     private confirmNewPasswordTextField: string = "#password_2";
     private saveChangesButton: string = "button[value='Save changes']";
+
+    private successMessageText: string = "div[role='alert']";
+
+    private firstNameErrorMessageText: string = "li[data-id='account_first_name']";
+    private lastNameErrorMessageText: string = "li[data-id='account_last_name']";
+    private displayNameErrorMessageText: string = "li[data-id='account_display_name']";
+    private emailAddressErrorMessageText: string = "li[data-id='account_email']";
+
+    clearAllTheFields() {
+        AccountDetailsPage.firstNameTextFieldElement.clear();
+        AccountDetailsPage.lastNameTextFieldElement.clear();
+        AccountDetailsPage.displayNameTextFieldElement.clear();
+        AccountDetailsPage.emailAddressTextFieldElement.clear();
+    }
 
     get navigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.navigationLink);
@@ -42,6 +58,26 @@ class AccountDetails {
 
     get saveChangesButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.saveChangesButton);
+    }
+
+    get firstNameErrorMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstNameErrorMessageText);
+    }
+
+    get lastNameErrorMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.lastNameErrorMessageText);
+    }
+
+    get displayNameErrorMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.displayNameErrorMessageText);
+    }
+
+    get emailAddressErrorMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.emailAddressErrorMessageText);
+    }
+
+    get successMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.successMessageText);
     }
 }
 

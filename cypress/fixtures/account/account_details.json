@@ -1,0 +1,25 @@
+{
+    "data": [
+        {
+            "valid": true,
+            "firstName": "CJ",
+            "lastName": "CJ",
+            "displayName": "CJ",
+            "emailAddress": "c@c.com"
+        },
+        {
+            "valid": false,
+            "firstName": "invalid",
+            "lastName": "invalid",
+            "displayName": "invalid",
+            "emailAddress": "invalid"
+        }
+    ],
+    "errorMessage": {
+        "firstName": "First name is a required field.",
+        "lastName": "Last name is a required field.",
+        "displayName": "Display name is a required field.",
+        "emailAddress": "Email address is a required field."
+    },
+    "successMessage": "Account details changed successfully."
+}

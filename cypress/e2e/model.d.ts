@@ -7,3 +7,16 @@ export interface AccountTestData {
     text: any;
 }
 
+export interface AccountDetailsTestData {
+    errorMessage: any;
+    successMessage: string;
+}
+
+export interface AccountDetailsUserData {
+    valid: boolean;
+    firstName: string;
+    lastName: string;
+    displayName: string;
+    emailAddress: string;
+}
+
