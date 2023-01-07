@@ -1,0 +1,10 @@
+1. The information should be saved succesfully after the user entered data to all the required fields
+2. The information should not be saved if the "first name" is empty and the other required fields are filled
+3. The information should not be saved if the last name" is empty and the other required fields are filled
+4. The information should not be saved if the "country/region" is empty and the other required fields are filled
+5. The information should not be saved if the "street address first field" is empty and the other required fields are filled
+6. The information should not be saved if the "town/city" is empty and the other required fields are filled
+7. The information should not be saved if the "state" is empty and the other required fields are filled
+8. The information should not be saved if the "zip code" is empty and the other required fields are filled
+9. The information should not be saved if the "email address" is empty and the other required fields are filled
+10. The information should be saved succesfully after the user entered data to all the required fields but all the optional fields are empty

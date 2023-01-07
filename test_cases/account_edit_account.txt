@@ -34,3 +34,6 @@ f l d e
 15. The changes should not be saved after the user user entered a valid "email address" but with empty "first name", "last name" and "display name" - done
 16. The changes should not be saved due to all required fields are empty - done
 
+Password
+1. 
+
