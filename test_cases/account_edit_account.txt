@@ -17,7 +17,7 @@ f l d e
 1 1 1 0 2
 1 1 1 1 1 
 
-1. The changes should be saved successfully after the user entered data to all the required fields - done
+1. The changes should be saved successfully if all the required fields are filled and email is not changed - done
 2. The changes should not be saved after the user user entered a valid "first name", "last name" and "display name" but with empty "email address" - done
 3. The changes should not be saved after the user user entered a valid "first name", "last name" and "email address" but with empty "display name" - done
 4. The changes should not be saved after the user user entered a valid "first name" and "last name" but with empty "display name" and "email address" - done

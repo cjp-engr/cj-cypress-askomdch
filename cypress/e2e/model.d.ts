@@ -1,4 +1,5 @@
-export interface AccountTestData {
+//TD => TestData
+export interface AccountTD {
     hello: any;
     credentials: any;
     links: any;
@@ -7,16 +8,26 @@ export interface AccountTestData {
     text: any;
 }
 
-export interface AccountDetailsTestData {
+export interface AccountDetailsTD {
     errorMessage: any;
     successMessage: string;
 }
 
-export interface AccountDetailsUserData {
+export interface AccountLostPasswordTD {
+    bodyText: string;
+    successMessage: string;
+    errorMessage: string;
+    unregisteredEmail: string;
+    unregisteredUsername: string;
+}
+
+export interface AccountDetailsUserTD {
     valid: boolean;
     firstName: string;
     lastName: string;
     displayName: string;
     emailAddress: string;
 }
+
+export interface AccountAddressBillingTD { }
 

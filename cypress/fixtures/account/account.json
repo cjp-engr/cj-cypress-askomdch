@@ -3,8 +3,8 @@
         "hi": "myTest"
     },
     "credentials": {
-        "registeredEmail": "c@c.com",
-        "registeredUsername": "cj",
+        "registeredEmail": "cj75yo@gmail.com",
+        "registeredUsername": "cj75yo",
         "registeredPassword": "Test750!!",
         "unregisteredEmail": "q@q.com",
         "unregisteredUsername": "unregistered",
@@ -28,18 +28,13 @@
         "unregistered": "Error: The username unregistered is not registered on this site. If you are unsure of your username, try your email address instead.",
         "passwordEmpty": "Error: The password field is empty.",
         "username": "Error: Username is required.",
-        "resetPassword": "Invalid username or email.",
         "registeringEmptyPassword": "Please enter an account password.",
         "registeringEmptyEmail": "Please provide a valid email address.",
         "registeringEmptyUsername": "Please enter a valid account username.",
         "registeringExistingUsername": "An account is already registered with that username. Please choose another.",
         "registeringExistingEmail": "An account is already registered with your email address."
     },
-    "successMessage": {
-        "sentEmail": "Password reset email has been sent."
-    },
     "text": {
-        "resetPasswordBody": "Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.",
         "dashboardSecondBody": "From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details."
     }
 }

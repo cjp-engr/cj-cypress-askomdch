@@ -1,5 +1,5 @@
 import { AccountPage } from "../../pages/account/Account";
-import { AccountTestData } from "../model";
+import { AccountTD } from "../model";
 
 describe('Account Page', function () {
     beforeEach(function () {
@@ -14,12 +14,12 @@ describe('Account Page', function () {
         });
 
         it('1. The login attempt should be successful after the user entered a valid email or username and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
 
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.clear();
                 AccountPage.loginPasswordTextFieldElement.clear();
 
-                AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['registeredUserNameOrEmail']);
+                AccountPage.loginUsernameOrEmailAddressTextFieldElement.type(data.credentials['registeredEmail']);
                 AccountPage.loginPasswordTextFieldElement.type(data.credentials['registeredPassword']);
                 AccountPage.loginRememberMeCheckBoxElement.click();
                 AccountPage.loginButtonElement.contains('Log in').click();
@@ -29,7 +29,7 @@ describe('Account Page', function () {
         });
 
         it('2. The login attempt should fail after the user entered an unregistered email or username', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
 
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.clear();
                 AccountPage.loginPasswordTextFieldElement.clear();
@@ -44,7 +44,7 @@ describe('Account Page', function () {
         });
 
         it('3. The login attempt should fail after the user entered valid a email or username but empty password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
 
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.clear();
                 AccountPage.loginPasswordTextFieldElement.clear();
@@ -58,7 +58,7 @@ describe('Account Page', function () {
         });
 
         it('4. The login attempt should fail after the user entered an unregistered email or username but empty password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
 
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.clear();
                 AccountPage.loginPasswordTextFieldElement.clear();
@@ -73,7 +73,7 @@ describe('Account Page', function () {
         });
 
         it('5. The login attempt should fail due to empty username or email address and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
 
                 AccountPage.loginUsernameOrEmailAddressTextFieldElement.clear();
                 AccountPage.loginPasswordTextFieldElement.clear();
@@ -93,19 +93,19 @@ describe('Account Page', function () {
         });
 
         it.skip('1. Registration should be successful after entering a valid username, email address and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeringEmail']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
                 //password
-                AccountPage.errorMessageTextElement.should('contain.text', data.errorMessage['registeringEmptyPassword']);
+                //todo
             });
 
         });
 
         it('2. Registration should fail after the user entered a valid username, email address but with empty password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeringEmail']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -115,7 +115,7 @@ describe('Account Page', function () {
         });
 
         it('3. Registration should fail after the user entered a valid username and password but with empty email address', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -125,7 +125,7 @@ describe('Account Page', function () {
         });
 
         it('4. Registration should fail after the user entered a valid username but with empty email address and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerButtonElement.contains('Register').click();
 
@@ -134,7 +134,7 @@ describe('Account Page', function () {
         });
 
         it('5. Registration should fail after the user entered a valid email address and password but with empty username', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeringEmail']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -144,7 +144,7 @@ describe('Account Page', function () {
         });
 
         it('6. Registration should fail after the user entered a valid username and password but with empty email address', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -154,7 +154,7 @@ describe('Account Page', function () {
         });
 
         it('7. Registration should fail after the user entered a valid password but with empty username and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
                 AccountPage.registerButtonElement.contains('Register').click();
 
@@ -163,7 +163,7 @@ describe('Account Page', function () {
         });
 
         it('8. Registration should fail due to empty username, email address and password', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerButtonElement.contains('Register').click();
 
                 AccountPage.errorMessageTextElement.should('contain.text', data.errorMessage['registeringEmptyEmail']);
@@ -172,7 +172,7 @@ describe('Account Page', function () {
 
         //todo
         it.skip('9. Registration should fail after the user entered an invalid email address', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['invalidEmail']);
                 AccountPage.registerPasswordTextFieldElement.type(data.credentials['registeringPassword']);
@@ -183,7 +183,7 @@ describe('Account Page', function () {
         });
 
         it('10. Registration should fail after the user entered an existing username', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeredUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeringEmail']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -193,7 +193,7 @@ describe('Account Page', function () {
         });
 
         it('11. Registration should fail after the user entered an existing email address', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeredEmail']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -203,7 +203,7 @@ describe('Account Page', function () {
         });
 
         it('12. Registration should fail after the user entered an existing username and email address', function () {
-            cy.get<AccountTestData>('@account').then((data) => {
+            cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeredUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['registeredEmail']);
                 AccountPage.registerButtonElement.contains('Register').click();
@@ -212,20 +212,11 @@ describe('Account Page', function () {
             });
         });
 
-        it.only('13. All the fields should be empty upon visiting the account page', function () {
+        it('13. All the fields should be empty upon visiting the account page', function () {
             AccountPage.registerUsernameTextFieldElement.should('contain.text', '');
             AccountPage.registerEmailAddressTextFieldElement.should('contain.text', '');
             AccountPage.registerPasswordTextFieldElement.should('contain.text', '');
         });
     });
 
-
-    describe('Logged in account page scenario', () => {
-        beforeEach(() => {
-
-        });
-        it('', function () {
-
-        });
-    });
 });
