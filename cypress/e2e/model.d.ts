@@ -29,5 +29,10 @@ export interface AccountDetailsUserTD {
     emailAddress: string;
 }
 
-export interface AccountAddressBillingTD { }
+export interface AccountAddressBillingTD {
+    user: any;
+    links: any;
+    successMessage: string;
+    errorMessage: string;
+}
 

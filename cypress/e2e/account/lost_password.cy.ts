@@ -6,7 +6,7 @@ describe('Lost Password Page', () => {
     describe('Reset Password Scenario', function () {
 
         beforeEach(function () {
-            cy.fixture('account/account').as('account');
+            cy.fixture('account/account.json').as('account');
             cy.visitOnlineStore();
             LostPasswordPage.navigationBarAccountElement.click();
             LostPasswordPage.loginLostYourPasswordLinkElement.click();

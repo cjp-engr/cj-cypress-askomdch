@@ -28,22 +28,6 @@ class Account extends Main {
     private downloadsNavigationLink: string = ".woocommerce-MyAccount-navigation-link--downloads";
     private noDownloadsAvailableYetText: string = "";
 
-    // private addressesNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-address";
-    // private billingAddressText: string = "";
-    // private billingAddressAddButton: string = "a[href*='/edit-address/billing']";
-    // private billingAddressFirstNameTextField: string = "#billing_first_name";
-    // private billingAddressLastNameTextField: string = "#billing_last_name";
-    // private billingAddressCompanyNameTextField: string = "#billing_company";
-    // private billingAddressCountryRegionSelectField: string = "select[name='billing_country']";
-    // private billingAddressStreetAddressFirstTextField: string = "#billing_address_1";
-    // private billingAddressStreetAddressSecondTextField: string = "#billing_address_2";
-    // private billingAddressTownCityTextField: string = "#billing_city";
-    // private billingAddressStateSelectField: string = "#billing_state";
-    // private billingAddressZipCodeTextField: string = "#billing_postcode";
-    // private billingAddressPhoneTextField: string = "#billing_phone";
-    // private billingAddressEmailAddressTextField: string = "#billing_email";
-    // private billingAddressSaveAddressButton: string = "button[name='save_address']";
-
     // private shippingAddressText: string = "";
     // private shippingAddressAddButton: string = "a[href*='/edit-address/shipping']";
     // private shippingAddressFirstNameTextField: string = "#shipping_first_name";
@@ -146,63 +130,6 @@ class Account extends Main {
     get noDownloadsAvailableYetTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.noDownloadsAvailableYetText);
     }
-
-    // get addressesNavigationLinkElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.addressesNavigationLink);
-    // }
-
-    // get billingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressText);
-    // }
-    // get billingAddressAddButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressAddButton);
-    // }
-
-    // get billingAddressFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressFirstNameTextField);
-    // }
-
-    // get billingAddressLastNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressLastNameTextField);
-    // }
-
-    // get billingAddressCompanyNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressCompanyNameTextField);
-    // }
-
-    // get billingAddressCountryRegionSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressCountryRegionSelectField);
-    // }
-    // get billingAddressStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressStreetAddressFirstTextField);
-    // }
-
-    // get billingAddressStreetAddressSecondTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressStreetAddressSecondTextField);
-    // }
-
-    // get billingAddressTownCityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressTownCityTextField);
-    // }
-
-    // get billingAddressStateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressStateSelectField);
-    // }
-
-    // get billingAddressZipCodeTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressZipCodeTextField);
-    // }
-    // get billingAddressPhoneTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressPhoneTextField);
-    // }
-
-    // get billingAddressEmailAddressTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressEmailAddressTextField);
-    // }
-
-    // get billingAddressSaveAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get(this.billingAddressSaveAddressButton);
-    // }
 
     // get shippingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
     //     return cy.get(this.shippingAddressText);

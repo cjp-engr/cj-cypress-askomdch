@@ -3,7 +3,7 @@ import { AccountTD } from "../model";
 
 describe('Account Page', function () {
     beforeEach(function () {
-        cy.fixture('account/account').as('account');
+        cy.fixture('account/account.json').as('account');
 
     });
     describe('Login Scenario', function () {

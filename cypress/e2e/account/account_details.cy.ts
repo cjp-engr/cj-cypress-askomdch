@@ -15,7 +15,7 @@ describe('Edit Account Page', () => {
             AccountDetailsPage.navigationLinkElement.click();
         });
 
-        it.only('1. The changes should be saved successfully if all the required fields are filled and email is not changed', function () {
+        it('1. The changes should be saved successfully if all the required fields are filled and email is not changed', function () {
 
             AccountDetailsPage.firstNameTextFieldElement.clear();
             AccountDetailsPage.lastNameTextFieldElement.clear();

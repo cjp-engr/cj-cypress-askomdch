@@ -1,4 +1,4 @@
-1. The information should be saved succesfully after the user entered data to all the required fields
+1. The information should be saved succesfully after the user entered data to all the required and optional fields
 2. The information should not be saved if the "first name" is empty and the other required fields are filled
 3. The information should not be saved if the last name" is empty and the other required fields are filled
 4. The information should not be saved if the "country/region" is empty and the other required fields are filled
