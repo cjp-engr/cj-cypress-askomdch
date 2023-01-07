@@ -17,20 +17,20 @@ f l d e
 1 1 1 0 2
 1 1 1 1 1 
 
-1. The changes should be saved successfully after the user entered data to all the required fields
-2. The changes should not be saved after the user user entered a valid "first name", "last name" and "display name" but with empty "email address"
-3. The changes should not be saved after the user user entered a valid "first name", "last name" and "email address" but with empty "display name"
-4. The changes should not be saved after the user user entered a valid "first name" and "last name" but with empty "display name" and "email address"
-5. The changes should not be saved after the user user entered a valid "first name", "display name" and "email address" but with empty "last name"
-6. The changes should not be saved after the user user entered a valid "first name" and "display name" but with empty "last name" and "email address"
-7. The changes should not be saved after the user user entered a valid "first name" and "email address" but with empty "last name" and "display name"
-8. The changes should not be saved after the user user entered a valid "first name" but with empty "last name", "display name" and "email address"
-9. The changes should not be saved after the user user entered a valid "last name", "display name" and "email address" but with empty "first name"
-10. The changes should not be saved after the user user entered a valid "last name" and "display name" but with empty "first name" and "email address"
-11. The changes should not be saved after the user user entered a valid "last name" and "email address" but with empty "first name" and "display name"
-12. The changes should not be saved after the user user entered a valid "last name" but with empty "first name", "display name" and "email address"
-13. The changes should not be saved after the user user entered a valid "display name" and "email address" but with empty "first name" and "last name"
-14. The changes should not be saved after the user user entered a valid "display name" but with empty "first name", "last name" and "email address"
-15. The changes should not be saved after the user user entered a valid "email address" but with empty "first name", "last name" and "display name"
-16. The changes should not be saved due to all required fields are empty
+1. The changes should be saved successfully after the user entered data to all the required fields - done
+2. The changes should not be saved after the user user entered a valid "first name", "last name" and "display name" but with empty "email address" - done
+3. The changes should not be saved after the user user entered a valid "first name", "last name" and "email address" but with empty "display name" - done
+4. The changes should not be saved after the user user entered a valid "first name" and "last name" but with empty "display name" and "email address" - done
+5. The changes should not be saved after the user user entered a valid "first name", "display name" and "email address" but with empty "last name" - done
+6. The changes should not be saved after the user user entered a valid "first name" and "display name" but with empty "last name" and "email address" - done
+7. The changes should not be saved after the user user entered a valid "first name" and "email address" but with empty "last name" and "display name" - done
+8. The changes should not be saved after the user user entered a valid "first name" but with empty "last name", "display name" and "email address" - done
+9. The changes should not be saved after the user user entered a valid "last name", "display name" and "email address" but with empty "first name" - done
+10. The changes should not be saved after the user user entered a valid "last name" and "display name" but with empty "first name" and "email address" - done
+11. The changes should not be saved after the user user entered a valid "last name" and "email address" but with empty "first name" and "display name" - done
+12. The changes should not be saved after the user user entered a valid "last name" but with empty "first name", "display name" and "email address" - done
+13. The changes should not be saved after the user user entered a valid "display name" and "email address" but with empty "first name" and "last name" - done
+14. The changes should not be saved after the user user entered a valid "display name" but with empty "first name", "last name" and "email address" - done
+15. The changes should not be saved after the user user entered a valid "email address" but with empty "first name", "last name" and "display name" - done
+16. The changes should not be saved due to all required fields are empty - done
 
