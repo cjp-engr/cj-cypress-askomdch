@@ -23,8 +23,8 @@
         "countryRegion": "Country / Region is a required field.",
         "streetAddressFirst": "Street address is a required field.",
         "townCity": "Town / City is a required field.",
-        "stateCounty": "State / County is a required field.",
-        "postalCodeZip": "Postcode / ZIP is a required field.",
+        "stateCounty": "State is a required field.",
+        "postalCodeZip": "ZIP Code is a required field.",
         "emailAddress": "Email address is a required field."
     }
 }
