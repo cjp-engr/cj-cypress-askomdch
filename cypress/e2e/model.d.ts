@@ -36,3 +36,10 @@ export interface AccountAddressBillingTD {
     errorMessage: string;
 }
 
+export interface AccountAddressShippingTD {
+    user: any;
+    links: any;
+    successMessage: string;
+    errorMessage: string;
+}
+

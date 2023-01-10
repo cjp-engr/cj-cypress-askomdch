@@ -42,7 +42,7 @@ describe('Account Billing Address Page', () => {
 
         });
 
-        it('2. The information should not be saved if the "first name" is empty but the other required fields are filled', () => {
+        it('2. The information should not be saved if the "first name" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -64,7 +64,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('3. The information should not be saved if the "last name" is empty but the other required fields are filled', () => {
+        it('3. The information should not be saved if the "last name" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -86,7 +86,9 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('4. The information should not be saved if the "country/region" is empty but the other required fields are filled', () => {
+        // *If no "country / region" is selected, the error message is "State is a required field."
+        // *If there is "country / region" selected, the error message is "State / County is a required field."
+        it('4. The information should not be saved if the "country/region" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -104,11 +106,11 @@ describe('Account Billing Address Page', () => {
                 AddressBillingPage.saveAddressButtonElement.click();
 
                 AddressBillingPage.countryRegionErrorMessageTextElement.should('contain.text', data.errorMessage['countryRegion']);
-                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty']);
+                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCountyWithoutCountry']);
             });
         });
 
-        it('5. The information should not be saved if the "street address first field" is empty but the other required fields are filled', () => {
+        it('5. The information should not be saved if the "street address first field" is empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
 
@@ -129,7 +131,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('6. The information should not be saved if the "town/city" is empty but the other required fields are filled', () => {
+        it('6. The information should not be saved if the "town/city" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -150,10 +152,10 @@ describe('Account Billing Address Page', () => {
 
             });
         });
-        //! -- The error message here is inconsistent. 
-        // ! -- Sometimes it displays "State / Country is a required field." 
-        // ! -- Sometimes it displays "State is a required field." 
-        it('7. The information should not be saved if the "state/county" is empty but the other required fields are filled', () => {
+
+        // *If no "country / region" is selected, the error message is "State is a required field."
+        // *If there is "country / region" selected, the error message is "State / County is a required field."
+        it('7. The information should not be saved if the "state/county" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -161,7 +163,7 @@ describe('Account Billing Address Page', () => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
                 AddressBillingPage.lastNameTextFieldElement.type(data.user['lastName']);
                 AddressBillingPage.companyNameTextFieldElement.type(data.user['companyName']);
-                AddressBillingPage.countryRegionSelectFieldElement.select(data.user['countryRegion']);
+                // AddressBillingPage.countryRegionSelectFieldElement.select(data.user['countryRegion']);
                 AddressBillingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressBillingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressBillingPage.townCityTextFieldElement.type(data.user['townCity']);
@@ -170,15 +172,14 @@ describe('Account Billing Address Page', () => {
                 AddressBillingPage.phoneTextFieldElement.type(data.user['phone']);
                 AddressBillingPage.saveAddressButtonElement.click();
 
-                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty']);
+                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty'][0]);
 
             });
         });
 
-        //! -- The error message here is inconsistent. 
-        // ! -- Sometimes it displays "Postcode / ZIP is a required field." 
-        // ! -- Sometimes it displays "ZIP Code is a required field." 
-        it('8. The information should not be saved if the "postcode/zip" is empty but the other required fields are filled', () => {
+        // *If no "country / region" is selected, the error message is "ZIP Code is a required field."
+        // *If there is "country / region" selected, the error message is "Postcode / ZIP is a required field."
+        it('8. The information should not be saved if the "postcode/zip" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -200,7 +201,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('9. The information should not be saved if the "email address" is empty but the other required fields are filled', () => {
+        it('9. The information should not be saved if the "email address" is empty and the other required fields are filled', () => {
 
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -255,6 +256,10 @@ describe('Account Billing Address Page', () => {
             });
         });
 
+        // *If no "country / region" is selected, the error message is "State is a required field."
+        // *If there is "country / region" selected, the error message is "State / County is a required field."
+        // *If no "country / region" is selected, the error message is "ZIP Code is a required field."
+        // *If there is "country / region" selected, the error message is "Postcode / ZIP is a required field."
         it('10-1. The information should not be saved if all the required fields are empty', () => {
 
             AddressBillingPage.clearAllFields();
@@ -267,8 +272,8 @@ describe('Account Billing Address Page', () => {
                 AddressBillingPage.countryRegionErrorMessageTextElement.should('contain.text', data.errorMessage['countryRegion']);
                 AddressBillingPage.streetAddressErrorMessageTextElement.should('contain.text', data.errorMessage['streetAddressFirst']);
                 AddressBillingPage.townCityErrorMessageTextElement.should('contain.text', data.errorMessage['townCity']);
-                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty']);
-                AddressBillingPage.zipCodeErrorMessageTextElement.should('contain.text', data.errorMessage['postalCodeZip']);
+                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCountyWithoutCountry']);
+                AddressBillingPage.zipCodeErrorMessageTextElement.should('contain.text', data.errorMessage['postalCodeZipWithoutCountry']);
                 AddressBillingPage.emailAddressErrorMessageTextElement.should('contain.text', data.errorMessage['emailAddress']);
 
             });

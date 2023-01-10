@@ -11,7 +11,7 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addButtonElement.click();
         });
 
-        it('38. The information should not be saved if the "town/city" and "first name" are empty but the other required fields are filled', () => {
+        it('38. The information should not be saved if the "town/city" and "first name" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 // AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -32,7 +32,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('39. The information should not be saved if the "town/city" and "last name" are empty but the other required fields are filled', () => {
+        it('39. The information should not be saved if the "town/city" and "last name" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -53,7 +53,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('40. The information should not be saved if the "town/city" and "country/region" are empty but the other required fields are filled', () => {
+        it('40. The information should not be saved if the "town/city" and "country/region" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -69,13 +69,13 @@ describe('Account Billing Address Page', () => {
                 AddressBillingPage.saveAddressButtonElement.click();
 
                 AddressBillingPage.countryRegionErrorMessageTextElement.should('contain.text', data.errorMessage['countryRegion']);
-                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty']);
+                AddressBillingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCountyWithoutCountry']);
                 AddressBillingPage.townCityErrorMessageTextElement.should('contain.text', data.errorMessage['townCity']);
 
             });
         });
 
-        it('41. The information should not be saved if the "town/city" and "street address" are empty but the other required fields are filled', () => {
+        it('41. The information should not be saved if the "town/city" and "street address" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -96,10 +96,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        //! -- The error message here is inconsistent. 
-        // ! -- Sometimes it displays "State / Country is a required field." 
-        // ! -- Sometimes it displays "State is a required field." 
-        it('42. The information should not be saved if the "town/city" and "state/county" are empty but the other required fields are filled', () => {
+        it('42. The information should not be saved if the "town/city" and "state/county" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -120,10 +117,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        //! -- The error message here is inconsistent. 
-        // ! -- Sometimes it displays "Postcode / ZIP is a required field." 
-        // ! -- Sometimes it displays "ZIP Code is a required field." 
-        it('43. The information should not be saved if the "town/city" and "postcode/zip" are empty but the other required fields are filled', () => {
+        it('43. The information should not be saved if the "town/city" and "postcode/zip" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -144,7 +138,7 @@ describe('Account Billing Address Page', () => {
             });
         });
 
-        it('44. The information should not be saved if the "town/city" and "email address" are empty but the other required fields are filled', () => {
+        it('44. The information should not be saved if the "town/city" and "email address" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
                 AddressBillingPage.firstNameTextFieldElement.type(data.user['firstName']);

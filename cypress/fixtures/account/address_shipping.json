@@ -1,11 +1,29 @@
 {
-    "firstName": "",
-    "lastName": "",
-    "companyName": "",
-    "countryRegion": "",
-    "streetAddressFirst": "",
-    "streetAddressSecond": "",
-    "townCity": "",
-    "state": "",
-    "zipCode": ""
+    "user": {
+        "firstName": "CJ",
+        "lastName": "CJ",
+        "companyName": "Secret",
+        "countryRegion": "Philippines",
+        "streetAddressFirst": "143 Test Test Address 1",
+        "streetAddressSecond": "Test Address 2",
+        "townCity": "Qwerty",
+        "state": "Agusan del Norte",
+        "zipCode": "9999"
+    },
+    "links": {
+        "edit-address": "https://askomdch.com/account/edit-address/",
+        "billing": "https://askomdch.com/account/edit-address/shipping/"
+    },
+    "successMessage": "Address changed successfully.",
+    "errorMessage": {
+        "firstName": "First name is a required field.",
+        "lastName": "Last name is a required field.",
+        "countryRegion": "Country / Region is a required field.",
+        "streetAddressFirst": "Street address is a required field.",
+        "townCity": "Town / City is a required field.",
+        "stateCounty": "State / County is a required field.",
+        "stateCountyWithoutCountry": "State is a required field.",
+        "postalCodeZip": "Postcode / ZIP is a required field.",
+        "postalCodeZipWithoutCountry": "ZIP Code is a required field."
+    }
 }
