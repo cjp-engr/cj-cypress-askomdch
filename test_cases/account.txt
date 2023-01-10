@@ -17,7 +17,8 @@ username, email address password
 6. Registration should fail after the user entered a valid username and password but with empty email address - done
 7. Registration should fail after the user entered a valid password but with empty username and password - done
 8. Registration should fail due to empty username, email address and password - done
-9. Registration should fail after the user entered an invalid email address - skip
+9. 9. Registration should fail after the user entered an invalid email address - "invalid" - done
+9-1. Registration should fail after the user entered an invalid email address - "invalid@invalid" - done
 10. Registration should fail after the user entered an existing username - done
 11. Registration should fail after the user entered an existing email address - done
 12. Registration should fail after the user entered an existing username and email address - done

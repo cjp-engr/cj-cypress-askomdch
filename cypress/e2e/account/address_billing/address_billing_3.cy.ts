@@ -78,6 +78,9 @@ describe('Account Billing Address Page', () => {
             });
         });
 
+        //! -- The error message here is inconsistent. 
+        // ! -- Sometimes it displays "State / Country is a required field." 
+        // ! -- Sometimes it displays "State is a required field." 
         it('21. The information should not be saved if the "last name" and "state/county" are empty but the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
@@ -99,6 +102,9 @@ describe('Account Billing Address Page', () => {
             });
         });
 
+        //! -- The error message here is inconsistent. 
+        // ! -- Sometimes it displays "Postcode / ZIP is a required field." 
+        // ! -- Sometimes it displays "ZIP Code is a required field." 
         it('22. The information should not be saved if the "last name" and "postcode/zip" are empty but the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
