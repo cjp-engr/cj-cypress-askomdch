@@ -7,8 +7,8 @@
         "streetAddressFirst": "143 Test Test Address 1",
         "streetAddressSecond": "Test Address 2",
         "townCity": "Qwerty",
-        "state": "Agusan del Norte",
-        "zipCode": "9999"
+        "stateCounty": "Agusan del Norte",
+        "postalCodeZip": "9999"
     },
     "links": {
         "edit-address": "https://askomdch.com/account/edit-address/",

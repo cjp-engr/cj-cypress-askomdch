@@ -50,9 +50,10 @@
 44. The information should not be saved if the "state" and "town/city" are empty and the other required fields are filled
 45. The information should not be saved if the "state" and "zip" are empty and the other required fields are filled
 
-46. The information should not be saved if the "zip" and "last name" are empty and the other required fields are filled
-47. The information should not be saved if the "zip" and "country/region" are empty and the other required fields are filled
-48. The information should not be saved if the "zip" and "street address first field" are empty and the other required fields are filled
-49. The information should not be saved if the "zip" and "town/city" are empty and the other required fields are filled
-50. The information should not be saved if the "zip" and "state" are empty and the other required fields are filled
+46. The information should not be saved if the "zip" and "first name" are empty and the other required fields are filled
+47. The information should not be saved if the "zip" and "last name" are empty and the other required fields are filled
+48. The information should not be saved if the "zip" and "country/region" are empty and the other required fields are filled
+49. The information should not be saved if the "zip" and "street address first field" are empty and the other required fields are filled
+50. The information should not be saved if the "zip" and "town/city" are empty and the other required fields are filled
+51. The information should not be saved if the "zip" and "state" are empty and the other required fields are filled
 

@@ -10,7 +10,7 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.addButtonElement.click();
         });
 
-        it.only('1. The information should be saved succesfully after the user entered data to all the required and optional fields', () => {
+        it('1. The information should be saved succesfully after the user entered data to all the required and optional fields', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {
                 AddressShippingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -20,15 +20,23 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
 
                 cy.url().should('contain', data.links['edit-address']);
                 AddressShippingPage.successMessageTextElement.should('contain.text', data.successMessage);
 
-                //todo
-                //assertion for 
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['firstName']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['lastName']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['companyName']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['countryRegion']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['streetAddressFirst']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['streetAddressSecond']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['townCity']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['stateCounty']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['postalCodeZip']);
+
             });
         });
 
@@ -42,9 +50,11 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.firstNameErrorMessageTextElement.should('contain.text', data.errorMessage['firstName']);
             });
 
         });
@@ -59,12 +69,16 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.lastNameErrorMessageTextElement.should('contain.text', data.errorMessage['lastName']);
             });
         });
 
+        // *If no "country / region" is selected, the error message is "State is a required field."
+        // *If there is "country / region" selected, the error message is "State / County is a required field."
         it('4. The information should not be saved if the "country/region" is empty and the other required fields are filled', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {
@@ -76,8 +90,11 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
                 // AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.countryRegionErrorMessageTextElement.should('contain.text', data.errorMessage['countryRegion']);
+                AddressShippingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCountyWithoutCountry']);
             });
         });
 
@@ -91,9 +108,11 @@ describe('Account Shipping Address Page', () => {
                 // AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.streetAddressErrorMessageTextElement.should('contain.text', data.errorMessage['streetAddressFirst']);
             });
         });
 
@@ -107,9 +126,11 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 // AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.townCityErrorMessageTextElement.should('contain.text', data.errorMessage['townCity']);
             });
         });
 
@@ -124,8 +145,10 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
                 // AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCounty']);
             });
         });
 
@@ -139,9 +162,11 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
                 // AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.zipCodeErrorMessageTextElement.should('contain.text', data.errorMessage['postalCodeZip']);
             });
         });
 
@@ -149,10 +174,19 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                AddressShippingPage.firstNameErrorMessageTextElement.should('contain.text', data.errorMessage['firstName']);
+                AddressShippingPage.lastNameErrorMessageTextElement.should('contain.text', data.errorMessage['lastName']);
+                AddressShippingPage.countryRegionErrorMessageTextElement.should('contain.text', data.errorMessage['countryRegion']);
+                AddressShippingPage.streetAddressErrorMessageTextElement.should('contain.text', data.errorMessage['streetAddressFirst']);
+                AddressShippingPage.townCityErrorMessageTextElement.should('contain.text', data.errorMessage['townCity']);
+                AddressShippingPage.stateErrorMessageTextElement.should('contain.text', data.errorMessage['stateCountyWithoutCountry']);
+                AddressShippingPage.zipCodeErrorMessageTextElement.should('contain.text', data.errorMessage['postalCodeZipWithoutCountry']);
+
             });
         });
 
-        it('10. The information should be saved succesfully after the user entered data to all the required fields but all the optional fields are empty', () => {
+        it.only('10. The information should be saved succesfully after the user entered data to all the required fields but all the optional fields are empty', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {
                 AddressShippingPage.firstNameTextFieldElement.type(data.user['firstName']);
@@ -162,9 +196,23 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.streetAddressFirstTextFieldElement.type(data.user['streetAddressFirst']);
                 // AddressShippingPage.streetAddressSecondTextFieldElement.type(data.user['streetAddressSecond']);
                 AddressShippingPage.townCityTextFieldElement.type(data.user['townCity']);
-                AddressShippingPage.stateSelectFieldElement.select(data.user['state']);
-                AddressShippingPage.zipCodeTextFieldElement.type(data.user['zipCode']);
+                AddressShippingPage.stateSelectFieldElement.select(data.user['stateCounty']);
+                AddressShippingPage.zipCodeTextFieldElement.type(data.user['postalCodeZip']);
                 AddressShippingPage.saveAddressButtonElement.click();
+
+                cy.url().should('contain', data.links['edit-address']);
+                AddressShippingPage.successMessageTextElement.should('contain.text', data.successMessage);
+
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['firstName']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['lastName']);
+                // AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['companyName']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['countryRegion']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['streetAddressFirst']);
+                // AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['streetAddressSecond']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['townCity']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['stateCounty']);
+                AddressShippingPage.shippingAddressDetailsTextElement.should('contain.text', data.user['postalCodeZip']);
+
             });
         });
     });

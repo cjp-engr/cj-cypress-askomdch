@@ -120,6 +120,11 @@ class AddressShipping extends Account {
     get zipCodeErrorMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.zipCodeErrorMessageText);
     }
+
+    get shippingAddressDetailsTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingAddressDetailsText);
+    }
+
 }
 
 export const AddressShippingPage = new AddressShipping();
