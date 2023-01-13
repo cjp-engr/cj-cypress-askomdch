@@ -4,7 +4,7 @@
         "Blue Tshirt",
         "Red Shoes"
     ],
-    "defaultSortingPageOne": [
+    "defaultSorting": [
         "Anchor Bracelet",
         "Basic Blue Jeans",
         "Black Over-the-shoulder Handbag",
@@ -12,7 +12,12 @@
         "Blue Shoes",
         "Blue Tshirt",
         "Boho Bangle Bracelet",
-        "Dark Brown Jeans"
+        "Dark Brown Jeans",
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Green Tshirt",
+        "Red Shoes"
     ],
     "defaultSortingPageTwo": [
         "Dark Grey Jeans",
@@ -21,7 +26,7 @@
         "Green Tshirt",
         "Red Shoes"
     ],
-    "sortPopularityPageOne": [
+    "sortPopularity": [
         "Basic Blue Jeans",
         "Blue Shoes",
         "Anchor Bracelet",
@@ -29,7 +34,12 @@
         "Blue Tshirt",
         "Boho Bangle Bracelet",
         "Faint Blue Jeans",
-        "Blue Denim Shorts"
+        "Blue Denim Shorts",
+        "Dark Brown Jeans",
+        "Black Over-the-shoulder Handbag",
+        "Dark Grey Jeans",
+        "Red Shoes",
+        "Green Tshirt"
     ],
     "sortPopularityPageTwo": [
         "Dark Brown Jeans",
@@ -37,5 +47,70 @@
         "Dark Grey Jeans",
         "Red Shoes",
         "Green Tshirt"
-    ]
+    ],
+    "sortByAverageRating": [
+        "Blue Shoes",
+        "Red Shoes",
+        "Dark Brown Jeans",
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Blue Denim Shorts",
+        "Basic Blue Jeans",
+        "Green Tshirt",
+        "Boho Bangle Bracelet",
+        "Anchor Bracelet",
+        "Blue Tshirt",
+        "Black Over-the-shoulder Handbag"
+    ],
+    "sortByLatest": [
+        "Blue Shoes",
+        "Red Shoes",
+        "Dark Brown Jeans",
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Blue Denim Shorts",
+        "Basic Blue Jeans",
+        "Green Tshirt",
+        "Boho Bangle Bracelet",
+        "Anchor Bracelet",
+        "Blue Tshirt",
+        "Black Over-the-shoulder Handbag"
+    ],
+    "sortByPriceLowToHigh": [
+        "Anchor Bracelet",
+        "Green Tshirt",
+        "Boho Bangle Bracelet",
+        "Basic Blue Jeans",
+        "Red Shoes",
+        "Blue Tshirt",
+        "Blue Denim Shorts",
+        "Blue Shoes",
+        "Black Over-the-shoulder Handbag",
+        "Faint Blue Jeans",
+        "Denim Blue Jeans",
+        "Dark Grey Jeans",
+        "Dark Brown Jeans"
+    ],
+    "sortByPriceHighToLow": [
+        "Dark Brown Jeans",
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Black Over-the-shoulder Handbag",
+        "Blue Shoes",
+        "Blue Denim Shorts",
+        "Blue Tshirt",
+        "Red Shoes",
+        "Basic Blue Jeans",
+        "Boho Bangle Bracelet",
+        "Green Tshirt",
+        "Anchor Bracelet"
+    ],
+    "searchProduct": {
+        "denimWithMultipleSpace": "denim        ",
+        "blue": "blue",
+        "Dark Grey Jeans": "Dark Grey Jeans"
+    }
 }

@@ -44,10 +44,16 @@ export interface AccountAddressShippingTD {
 }
 
 export interface StoreTD {
+    searchProduct: any;
+}
+
+export interface StoreSortingTD {
     bestSellers: string[];
-    defaultSortingPageOne: string[];
-    defaultSortingPageTwo: string[];
-    sortPopularityPageOne: string[];
-    sortPopularityPageTwo: string[];
+    defaultSorting: string[];
+    sortPopularity: string[];
+    sortByAverageRating: string[];
+    sortByLatest: string[];
+    sortByPriceLowToHigh: string[];
+    sortByPriceHighToLow: string[];
 }
 

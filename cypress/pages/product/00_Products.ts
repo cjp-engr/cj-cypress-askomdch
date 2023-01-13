@@ -34,7 +34,7 @@ class Products extends Main {
     private sortByPriceHighToLowText: string = "price-desc";
     //end - sorting
 
-    private productImages: string = ".astra-shop-thumbnail-wrap";
+    private allProductImages: string = ".astra-shop-thumbnail-wrap";
     private allProductNameText: string = ".woocommerce-loop-product__title";
     private allProductCategoriesText: string = ".ast-woo-product-category";
     // private allProductPricesWithSaleText: string = "div.astra-shop-summary-wrap > span.price > ins > span > bdi";
@@ -46,6 +46,18 @@ class Products extends Main {
     private pageOneButton: string = "ul > li:nth-child(2) > a[href*='page/1/']";
     private pageTwoButton: string = "ul > li:nth-child(2) > a[href*='page/2/']";
 
+    get searchProductsTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.searchProductsTextField);
+    }
+
+    get searchButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.searchButton);
+    }
+
+    get productHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productHeaderText);
+    }
+
     get sortingFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.sortingField);
     }
@@ -55,27 +67,22 @@ class Products extends Main {
     }
 
     get sortByPopularityTextOptionValue(): string {
-        // return cy.get(this.sortByPopularityText);
         return this.sortByPopularityText;
     }
 
     get sortByAverageRatingTextOptionValue(): string {
-        // return cy.get(this.sortByAverageRatingText);
         return this.sortByAverageRatingText;
     }
 
     get sortByLatestTextOptionValue(): string {
-        // return cy.get(this.sortByLatestText);
         return this.sortByLatestText;
     }
 
     get sortByPriceLowToHighTextOptionValue(): string {
-        // return cy.get(this.sortByPriceLowToHighText);
         return this.sortByPriceLowToHighText;
     }
 
     get sortByPriceHighToLowTextOptionValue(): string {
-        // return cy.get(this.sortByPriceHighToLowText);
         return this.sortByPriceHighToLowText;
     }
 
