@@ -1,5 +1,5 @@
-import { AccountDetailsPage } from "../../pages/account/AccountDetails";
-import { AccountDetailsTD, AccountDetailsUserTD } from "../model";
+import { AccountDetailsPage } from "../../../pages/account/AccountDetails";
+import { AccountDetailsTD, AccountDetailsUserTD } from "../../model";
 
 describe('Edit Account Page', () => {
 

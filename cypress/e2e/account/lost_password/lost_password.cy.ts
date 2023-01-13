@@ -1,5 +1,5 @@
-import { LostPasswordPage } from "../../pages/account/LostPassword";
-import { AccountLostPasswordTD } from "../model";
+import { LostPasswordPage } from "../../../pages/account/LostPassword";
+import { AccountLostPasswordTD } from "../../model";
 
 describe('Lost Password Page', () => {
 

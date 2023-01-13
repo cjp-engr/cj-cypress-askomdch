@@ -9,22 +9,22 @@ Done - 7. After selecting the "Sort by price: low to high", the product prices s
 Done - 8. After selecting the "Sort by price: high to low", the products prices should be sorted according to price from high to low
 
 Searh products
-1. After entering the "denimWithMultipleSpace" to text field and clicking the Search, the products that contains "denim" should be displayed
-2. After entering the "blue" to text field and clicking the Search, the products that contains "blue" should be displayed
-3. After entering the "Dark Grey Jeans" to text field and clicking the Search, the products that contains "Dark Grey Jeans" should be displayed
+Done - 1. After entering the "denimWithMultipleSpace" to text field and clicking the Search, the products that contains "denim" should be displayed
+Done - 2. After entering the "blue" to text field and clicking the Search, the products that contains "blue" should be displayed
+Done - 3. 3. After entering the "Dark Grey Jeans" to text field and clicking the Search, the user should be redirected to "product\'s info page"
 
 Browse by categories
-1. After selecting the "Accessories", only the products that are under accessories should be displayed
-2. After selecting the "Men", only the products that are under men should be displayed
-3. After selecting the "Men's Jeans", only the products that are under men's jean should be displayed
-4. After selecting the "Men's Shirts", only the products that are under men's shirts should be displayed
-5. After selecting the "Men's Shoes", only the products that are under men's shoes should be displayed
-6. After selecting the "Purses And Handbags", only the products that are under purses and handbags should be displayed
-7. After selecting the "Women", only the products that are under women should be displayed
-8. After selecting the "Women's Jeans", only the products that are under women's jean should be displayed
-9. After selecting the "Women's Shirts", only the products that are under women's shirts should be displayed
-10. After selecting the "Women's Shoes", only the products that are under women's shoes should be displayed
-11. After unselecting any selected category, the products that are under different categories should be displayed
+1. After selecting the "Accessories", the url field should display the Accessories link
+2. After selecting the "Men", the url field should display the Men link
+3. After selecting the "Men's Jeans", the url field should display the Men's Jeans link
+4. After selecting the "Men's Shirts", the url field should display the Men's Shirts link
+5. After selecting the "Men's Shoes", the url field should display the Men's Shoes link
+6. After selecting the "Purses And Handbags", the url field should display the Purses And Handbags link
+7. After selecting the "Women", the url field should display the Women link
+8. After selecting the "Women's Jeans", the url field should display the Women's Jeans link
+9. After selecting the "Women's Shirts", the url field should display the Women's Shirts link
+10. After selecting the "Women's Shoes", the url field should display the Women's Shoes link
+11. After unselecting any selected category, the url field should display the store link
 
 Filter by price
 1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed

@@ -45,6 +45,7 @@ export interface AccountAddressShippingTD {
 
 export interface StoreTD {
     searchProduct: any;
+    browserLink: any;
 }
 
 export interface StoreSortingTD {

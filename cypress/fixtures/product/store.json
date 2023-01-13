@@ -111,6 +111,20 @@
     "searchProduct": {
         "denimWithMultipleSpace": "denim        ",
         "blue": "blue",
-        "Dark Grey Jeans": "Dark Grey Jeans"
+        "Dark Grey Jeans": "Dark Grey Jeans",
+        "darkGreyJeansLink": "product/dark-grey-jeans/"
+    },
+    "browserLink": {
+        "accessories": "product-category/accessories/",
+        "men": "product-category/men/",
+        "mensJean": "product-category/mens-jeans/",
+        "mensShirt": "product-category/mens-shirts/",
+        "mensShoes": "product-category/mens-shoes/",
+        "pursesAndHandBags": "product-category/purses-and-handbags/",
+        "women": "product-category/women/",
+        "womensJean": "product-category/womens-jeans/",
+        "womensShirt": "product-category/womens-shirts/",
+        "womensShoes": "product-category/womens-shoes/",
+        "store": "store/"
     }
 }

@@ -11,8 +11,19 @@ class Products extends Main {
     private bestSellersPrice: string;
 
     private browseByCategoriesText: string = "";
-    private selectCategoriesField: string = "";
-    private selectCategoriesTextField: string = "";
+    private categoriesSelectField: string = "#product_cat";
+    private categoriesAccessoriesText: string = "accessories";
+    private categoriesMenText: string = "men";
+    private categoriesMensJeanText: string = "mens-jeans";
+    private categoriesMensShirtText: string = "mens-shirts";
+    private categoriesMensShoesText: string = "mens-shoes";
+    private categoriesPursesAndHandBagsText: string = "purses-and-handbags";
+    private categoriesWomenText: string = "women";
+    private categoriesWomensJeanText: string = "womens-jeans";
+    private categoriesWomensShirtText: string = "womens-shirts";
+    private categoriesWomensShoesText: string = "womens-shoes";
+    private categoriesClearButton: string = ".select2-selection__clear";
+    // private categoriesTextField: string = "";
     private selectCategoriesdropdownItem: string = "";
 
     private filterbyPriceText: string = "";
@@ -52,6 +63,54 @@ class Products extends Main {
 
     get searchButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.searchButton);
+    }
+
+    get categoriesSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.categoriesSelectField);
+    }
+
+    get categoriesAccessoriesTextOptionValue(): string {
+        return this.categoriesAccessoriesText;
+    }
+
+    get categoriesMenTextOptionValue(): string {
+        return this.categoriesMenText;
+    }
+
+    get categoriesMensJeanTextOptionValue(): string {
+        return this.categoriesMensJeanText;
+    }
+
+    get categoriesMensShirtTextOptionValue(): string {
+        return this.categoriesMensShirtText;
+    }
+
+    get categoriesMensShoesTextOptionValue(): string {
+        return this.categoriesMensShoesText;
+    }
+
+    get categoriesPursesAndHandBagsTextOptionValue(): string {
+        return this.categoriesPursesAndHandBagsText;
+    }
+
+    get categoriesWomenTextOptionValue(): string {
+        return this.categoriesWomenText;
+    }
+
+    get categoriesWomensJeanTextOptionValue(): string {
+        return this.categoriesWomensJeanText;
+    }
+
+    get categoriesWomensShirtTextOptionValue(): string {
+        return this.categoriesWomensShirtText;
+    }
+
+    get categoriesWomensShoesTextOptionValue(): string {
+        return this.categoriesWomensShoesText;
+    }
+
+    get categoriesClearButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.categoriesClearButton);
     }
 
     get productHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
