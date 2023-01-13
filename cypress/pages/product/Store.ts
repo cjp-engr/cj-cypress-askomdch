@@ -67,6 +67,24 @@ class Store extends Products {
 
         return isSorted;
     }
+
+    sliderLeftToRight(moveToRight: number) {
+        let sliderLeft: string = '';
+        for (let i = 0; i < moveToRight; i++) {
+            sliderLeft = sliderLeft + '{rightarrow}';
+        }
+        StorePage.filterbyPriceLeftSliderElement
+            .type(sliderLeft);
+    }
+
+    sliderRightToLeft(moveToLeft: number) {
+        let sliderRight: string = '';
+        for (let i = 0; i < moveToLeft; i++) {
+            sliderRight = sliderRight + '{leftarrow}';
+        }
+        StorePage.filterbyPriceRightSliderElement
+            .type(sliderRight);
+    }
 }
 
 export const StorePage = new Store();

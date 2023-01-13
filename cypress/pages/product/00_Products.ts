@@ -27,9 +27,9 @@ class Products extends Main {
     private selectCategoriesdropdownItem: string = "";
 
     private filterbyPriceText: string = "";
-    private filterbyPriceSlider: string = "";
-    private filterByPriceButton: string = "";
-
+    private filterbyPriceLeftSlider: string = "div.price_slider > span:nth-child(2)";
+    private filterbyPriceRightSlider: string = "div.price_slider > span:nth-child(3)";
+    private filterByPriceButton: string = "div.price_slider_amount > button";
 
     private productHeaderText: string = ".woocommerce-products-header__title";
     private showingNumberOfItemsResultsText: string = ".woocommerce-result-count";
@@ -111,6 +111,18 @@ class Products extends Main {
 
     get categoriesClearButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.categoriesClearButton);
+    }
+
+    get filterbyPriceLeftSliderElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.filterbyPriceLeftSlider);
+    }
+
+    get filterbyPriceRightSliderElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.filterbyPriceRightSlider);
+    }
+
+    get filterByPriceButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.filterByPriceButton);
     }
 
     get productHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {

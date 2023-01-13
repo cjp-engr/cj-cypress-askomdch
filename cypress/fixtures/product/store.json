@@ -126,5 +126,9 @@
         "womensShirt": "product-category/womens-shirts/",
         "womensShoes": "product-category/womens-shoes/",
         "store": "store/"
+    },
+    "slider": {
+        "sliderRight30": "",
+        "sliderLeft140": "{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}{rightarrow}"
     }
 }
