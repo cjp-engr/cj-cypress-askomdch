@@ -1,4 +1,6 @@
-class Store {
+import { Products } from "./00_Products";
+
+class Store extends Products {
 
 }
 

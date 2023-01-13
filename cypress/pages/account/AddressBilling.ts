@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "./00_Account";
 
 class AddressBilling extends Account {
     private addressesNavigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-address";

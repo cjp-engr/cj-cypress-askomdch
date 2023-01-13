@@ -1,0 +1,41 @@
+{
+    "bestSellers": [
+        "Blue Shoes",
+        "Blue Tshirt",
+        "Red Shoes"
+    ],
+    "defaultSortingPageOne": [
+        "Anchor Bracelet",
+        "Basic Blue Jeans",
+        "Black Over-the-shoulder Handbag",
+        "Blue Denim Shorts",
+        "Blue Shoes",
+        "Blue Tshirt",
+        "Boho Bangle Bracelet",
+        "Dark Brown Jeans"
+    ],
+    "defaultSortingPageTwo": [
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Green Tshirt",
+        "Red Shoes"
+    ],
+    "sortPopularityPageOne": [
+        "Basic Blue Jeans",
+        "Blue Shoes",
+        "Anchor Bracelet",
+        "Denim Blue Jeans",
+        "Blue Tshirt",
+        "Boho Bangle Bracelet",
+        "Faint Blue Jeans",
+        "Blue Denim Shorts"
+    ],
+    "sortPopularityPageTwo": [
+        "Dark Brown Jeans",
+        "Black Over-the-shoulder Handbag",
+        "Dark Grey Jeans",
+        "Red Shoes",
+        "Green Tshirt"
+    ]
+}

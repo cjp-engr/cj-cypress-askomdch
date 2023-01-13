@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "./00_Account";
 
 class LostPassword extends Account {
     private resetPasswordUsernameOrEmailTextField: string = "#user_login";

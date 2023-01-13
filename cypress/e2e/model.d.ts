@@ -43,3 +43,11 @@ export interface AccountAddressShippingTD {
     errorMessage: string;
 }
 
+export interface StoreTD {
+    bestSellers: string[];
+    defaultSortingPageOne: string[];
+    defaultSortingPageTwo: string[];
+    sortPopularityPageOne: string[];
+    sortPopularityPageTwo: string[];
+}
+

@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "./00_Account";
 
 class AccountDetails extends Account {
     private navigationLink: string = ".woocommerce-MyAccount-navigation-link--edit-account";

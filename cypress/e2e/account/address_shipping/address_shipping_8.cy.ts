@@ -124,9 +124,5 @@ describe('Account Shipping Address Page', () => {
                 AddressShippingPage.zipCodeErrorMessageTextElement.should('contain.text', data.errorMessage['postalCodeZip']);
             });
         });
-
-        it('', () => {
-
-        });
     });
 });

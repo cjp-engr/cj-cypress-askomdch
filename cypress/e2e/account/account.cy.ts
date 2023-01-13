@@ -1,4 +1,4 @@
-import { AccountPage } from "../../pages/account/Account";
+import { AccountPage } from "../../pages/account/00_Account";
 import { AccountTD } from "../model";
 
 describe('Account Page', function () {
