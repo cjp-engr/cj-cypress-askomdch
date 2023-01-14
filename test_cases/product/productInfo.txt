@@ -1,0 +1,12 @@
+1. After the user selected a product, the product information should be displayed
+2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated
+3. After successfully adding a product to cart, the user should be able to view the cart
+4. The breadcrumb should display the correct text
+5. The categories should be displayed correctly
+6. After the user entered a "0" value, the validation message should be displayed
+7. After the user entered a "0-+3" value, the validation message should be displayed
+8. After emptying the "number of items" field, the product should be successfully added to cart and the cart badge should be updated
+9. The description below the "description tab" and beside the product should match
+10. If the product is on sale, the "Sale!" badge, the old and new prices should display
+11. The image should not be broken
+12. The image should be zoomed in

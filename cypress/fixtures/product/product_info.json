@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "isSale": true,
+            "hasReview": false,
+            "name": "Anchor Bracelet",
+            "price": "$10.00",
+            "description": "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit sed.",
+            "categories": "Accessories, Women",
+            "breadCrumb": "Home / Accessories / Anchor Bracelet",
+            "weight": "1 kg",
+            "dimensions": "2 × 2 × 2 cm",
+            "reviews": ""
+        },
+        {
+            "isSale": false,
+            "hasReview": false,
+            "name": "Blue Shoes",
+            "price": "$45.00",
+            "description": "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit sed.",
+            "categories": "Men, Women's Shoes",
+            "breadCrumb": "Home / Men / Blue Shoes",
+            "weight": "1 kg",
+            "dimensions": "2 × 2 × 2 cm",
+            "reviews": ""
+        },
+        {
+            "isSale": true,
+            "hasReview": false,
+            "name": "Blue Denim Shorts",
+            "price": "$35.00",
+            "description": "Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit sed .",
+            "categories": "Women, Women's Jeans",
+            "breadCrumb": "Home / Women / Blue Denim Shorts",
+            "weight": "1 kg",
+            "dimensions": "2 × 2 × 2 cm",
+            "reviews": ""
+        }
+    ]
+}

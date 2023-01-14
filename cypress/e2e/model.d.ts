@@ -65,3 +65,16 @@ export interface StoreSortingTD {
     sortByPriceHighToLow60to100: string[];
 }
 
+export interface ProductInfoTD {
+    isSale: boolean;
+    hasReview: boolean;
+    name: string;
+    price: string;
+    description: string;
+    categories: string;
+    breadCrumb: string;
+    weight: string;
+    dimensions: string;
+    reviews: string;
+}
+

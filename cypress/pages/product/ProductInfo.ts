@@ -1,15 +1,21 @@
 class ProductInfo {
-    private productNameText: string = "";
-    private productPriceText: string = "";
-    private productImageText: string = "";
-    private productDescriptionText: string = "";
-    private productAddToCartButton: string = "";
-    private numberOfItemsTextField: string = "";
-    private categories: string = "";
-    private descriptionTab: string = "";
-    private additionalInformationTab: string = "";
-    private reviewsTab: string = "";
+    private productBreadCrumb: string = ".woocommerce-breadcrumb";
+    private productNameText: string = ".product_title.entry-title";
+    private productPriceText: string = "div[class='summary entry-summary'] bdi:nth-child(1)";
+    private productImageText: string = "img[role='presentation']";
+    private productDescriptionText: string = "div[class='woocommerce-product-details__short-description'] p";
+    private productAddToCartButton: string = "button[name='add-to-cart']";
+    private numberOfItemsTextField: string = "#quantity_63c26ae407dee";
+    private categories: string = ".posted_in";
+    private descriptionTab: string = "a[href='#tab-description']";
+
+    private additionalInformationTab: string = "a[href='#tab-additional_information']";
+    private reviewsTab: string = "a[href='#tab-reviews']";
     private allRelatedProducts: string = "";
+
+    get productBreadCrumbElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productBreadCrumb);
+    }
 
     get productNameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.productNameText);

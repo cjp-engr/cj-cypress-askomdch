@@ -15,12 +15,22 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
+
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.defaultSorting60to100);
@@ -33,12 +43,22 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.sortByPopularityTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
+
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortPopularity60to100);
@@ -51,12 +71,21 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.sortByAverageRatingTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByAverageRating60to100);
@@ -69,12 +98,21 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.sortByLatestTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByLatest60to100);
@@ -87,12 +125,21 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.sortByPriceLowToHighTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByPriceLowToHigh60to100);
@@ -105,12 +152,21 @@ describe('Store Page', () => {
             let sliderMoveToLeft: number = 5;
             let sliderMoveToRight: number = 5;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.sortByPriceHighToLowTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                    })
+                }
+            });
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByPriceHighToLow60to100);
@@ -122,11 +178,20 @@ describe('Store Page', () => {
             let maxPrice: number = 10;
             let sliderMoveToLeft: number = 14;
             let productNames: string[] = [];
+            let priceList: number[] = [];
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
-            StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+            priceList = StorePage.convertedToNumberPriceList();
+
+            cy.wrap(priceList.length).then(() => {
+                for (let i = 0; i < priceList.length; i++) {
+                    cy.wrap(i).then(() => {
+                        expect(priceList[i]).to.be.least(minPrice);
+                    })
+                }
+            });
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.defaultSorting10);

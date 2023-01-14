@@ -94,7 +94,7 @@ class Store extends Products {
     }
 
 
-    checkIfPricesAreWithinTheRange(minPrice: number, maxPrice: number) {
+    convertedToNumberPriceList(): number[] {
         let productPrices: string[] = [];
         let productPricesNum: number[] = [];
 
@@ -106,9 +106,9 @@ class Store extends Products {
             } else {
                 productPricesNum[index] = parseFloat(productPrices[index].replace('$', ''));
             }
-            expect(minPrice <= productPricesNum[index] && maxPrice >= productPricesNum[index]).to.be.true
+            // expect(minPrice <= productPricesNum[index] && maxPrice >= productPricesNum[index]).to.be.true
         });
-
+        return productPricesNum;
     }
 }
 
