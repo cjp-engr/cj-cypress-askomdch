@@ -1,4 +1,6 @@
-class Accessories {
+import { Main } from "../Main";
+
+class Accessories extends Main {
 
 }
 

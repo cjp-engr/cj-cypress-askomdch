@@ -1,4 +1,6 @@
-class Women {
+import { Main } from "../Main";
+
+class Women extends Main {
 
 }
 
