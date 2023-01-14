@@ -51,10 +51,17 @@ export interface StoreTD {
 export interface StoreSortingTD {
     bestSellers: string[];
     defaultSorting: string[];
+    defaultSorting60to100: string[];
+    defaultSorting10: string[];
     sortPopularity: string[];
+    sortPopularity60to100: string[];
     sortByAverageRating: string[];
+    sortByAverageRating60to100: string[];
     sortByLatest: string[];
+    sortByLatest60to100: string[];
     sortByPriceLowToHigh: string[];
+    sortByPriceLowToHigh60to100: string[];
     sortByPriceHighToLow: string[];
+    sortByPriceHighToLow60to100: string[];
 }
 

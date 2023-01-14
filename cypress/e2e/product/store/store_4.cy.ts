@@ -11,9 +11,11 @@ describe('Store Page', () => {
         it('1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed', () => {
             let minPrice: number = 10;
             let maxPrice: number = 30;
+
             StorePage.sliderRightToLeft(12);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
             StorePage.checkIfPricesAreWithinTheRange(minPrice, maxPrice);
+
         });
 
         it('2. After filtering the price to "$140 - $150", all the products within the $140 - $150 should be displayed', () => {

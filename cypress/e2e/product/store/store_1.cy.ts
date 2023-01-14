@@ -16,7 +16,7 @@ describe('Store Page', () => {
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });
-        it.only('1. After selecting the "Default sorting", the products should be sorted in alphabetically and ascending order', () => {
+        it('1. After selecting the "Default sorting", the products should be sorted in alphabetically and ascending order', () => {
             let productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep

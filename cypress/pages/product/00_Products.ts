@@ -1,6 +1,7 @@
 import { Main } from "../Main";
 
 class Products extends Main {
+    private parentContainer = ".ast-woocommerce-container";
     private searchProductsTextField: string = "#woocommerce-product-search-field-0";
     private searchButton: string = "button[value='Search']";
 
@@ -55,6 +56,10 @@ class Products extends Main {
     private pageOneButton: string = "ul > li:nth-child(2) > a[href*='page/1/']";
     private pageTwoButton: string = "ul > li:nth-child(2) > a[href*='page/2/']";
     private paginationButtons: string = ".page-numbers";
+
+    get parentContainerElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.parentContainer);
+    }
 
     get searchProductsTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.searchProductsTextField);

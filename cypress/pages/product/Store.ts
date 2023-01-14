@@ -14,11 +14,18 @@ class Store extends Products {
 
         });
 
-        StorePage.pageTwoButtonElement.click();
+        StorePage.parentContainerElement.then(($ele) => {
+            if ($ele.find('.page-numbers').length > 0) {
+                cy.log('With Pagination');
+                StorePage.pageTwoButtonElement.click();
+                StorePage.allProductNameTextElement.each(($el, index, list) => {
+                    productNames[index + pageTwoFirstIndex] = $el.text();
+                });
 
-        StorePage.allProductNameTextElement.each(($el, index, list) => {
-            productNames[index + pageTwoFirstIndex] = $el.text();
-        });
+            } else {
+                cy.log('No Pagination');
+            }
+        })
 
         return productNames;
     }

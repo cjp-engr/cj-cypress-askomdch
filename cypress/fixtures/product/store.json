@@ -19,12 +19,14 @@
         "Green Tshirt",
         "Red Shoes"
     ],
-    "defaultSortingPageTwo": [
+    "defaultSorting60to100": [
+        "Black Over-the-shoulder Handbag",
         "Dark Grey Jeans",
         "Denim Blue Jeans",
-        "Faint Blue Jeans",
-        "Green Tshirt",
-        "Red Shoes"
+        "Faint Blue Jeans"
+    ],
+    "defaultSorting10": [
+        "Anchor Bracelet"
     ],
     "sortPopularity": [
         "Basic Blue Jeans",
@@ -41,12 +43,11 @@
         "Red Shoes",
         "Green Tshirt"
     ],
-    "sortPopularityPageTwo": [
-        "Dark Brown Jeans",
+    "sortPopularity60to100": [
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
         "Black Over-the-shoulder Handbag",
-        "Dark Grey Jeans",
-        "Red Shoes",
-        "Green Tshirt"
+        "Dark Grey Jeans"
     ],
     "sortByAverageRating": [
         "Blue Shoes",
@@ -61,6 +62,12 @@
         "Boho Bangle Bracelet",
         "Anchor Bracelet",
         "Blue Tshirt",
+        "Black Over-the-shoulder Handbag"
+    ],
+    "sortByAverageRating60to100": [
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
         "Black Over-the-shoulder Handbag"
     ],
     "sortByLatest": [
@@ -78,6 +85,12 @@
         "Blue Tshirt",
         "Black Over-the-shoulder Handbag"
     ],
+    "sortByLatest60to100": [
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Black Over-the-shoulder Handbag"
+    ],
     "sortByPriceLowToHigh": [
         "Anchor Bracelet",
         "Green Tshirt",
@@ -93,6 +106,12 @@
         "Dark Grey Jeans",
         "Dark Brown Jeans"
     ],
+    "sortByPriceLowToHigh60to100": [
+        "Black Over-the-shoulder Handbag",
+        "Faint Blue Jeans",
+        "Denim Blue Jeans",
+        "Dark Grey Jeans"
+    ],
     "sortByPriceHighToLow": [
         "Dark Brown Jeans",
         "Dark Grey Jeans",
@@ -107,6 +126,12 @@
         "Boho Bangle Bracelet",
         "Green Tshirt",
         "Anchor Bracelet"
+    ],
+    "sortByPriceHighToLow60to100": [
+        "Dark Grey Jeans",
+        "Denim Blue Jeans",
+        "Faint Blue Jeans",
+        "Black Over-the-shoulder Handbag"
     ],
     "searchProduct": {
         "denimWithMultipleSpace": "denim        ",
