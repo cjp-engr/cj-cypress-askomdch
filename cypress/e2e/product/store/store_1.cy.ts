@@ -1,20 +1,27 @@
 import { StorePage } from "../../../pages/product/Store";
 import { StoreSortingTD, StoreTD } from "../../model";
 
+let data1: any;
+
 describe('Store Page', () => {
     describe('Sorting of products scenario', () => {
         beforeEach(() => {
             cy.fixture('product/store.json').as('store')
+            cy.fixture<{ data: StoreSortingTD }>('product/store.json')
+
+                .then((data) => {
+                    data1 = data;
+                });
+
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });
-        it('1. After selecting the "Default sorting", the products should be sorted in alphabetically and ascending order', () => {
+        it.only('1. After selecting the "Default sorting", the products should be sorted in alphabetically and ascending order', () => {
             let productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.defaultSorting);
             });
-
         });
 
         it('2. After selecting the "Sort by popularity", the products should be sorted according to popularity', () => {

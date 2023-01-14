@@ -48,14 +48,13 @@ class Products extends Main {
     private allProductImages: string = ".astra-shop-thumbnail-wrap";
     private allProductNameText: string = ".woocommerce-loop-product__title";
     private allProductCategoriesText: string = ".ast-woo-product-category";
-    // private allProductPricesWithSaleText: string = "div.astra-shop-summary-wrap > span.price > ins > span > bdi";
-    // private allProductPricesWithoutSaleText: string = "div.astra-shop-summary-wrap > span.price > span > bdi";
     private allProductPrices: string = "div.astra-shop-summary-wrap > span.price";
     private allProductStarRatings: string;
     private allProductAddToCartButton: string;
 
     private pageOneButton: string = "ul > li:nth-child(2) > a[href*='page/1/']";
     private pageTwoButton: string = "ul > li:nth-child(2) > a[href*='page/2/']";
+    private paginationButtons: string = ".page-numbers";
 
     get searchProductsTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.searchProductsTextField);
@@ -163,6 +162,10 @@ class Products extends Main {
 
     get pageTwoButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.pageTwoButton);
+    }
+
+    get paginationButtonsElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.paginationButtons);
     }
 
     get allProductNameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {

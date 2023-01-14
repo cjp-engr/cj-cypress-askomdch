@@ -14,23 +14,23 @@ Done - 2. After entering the "blue" to text field and clicking the Search, the p
 Done - 3. 3. After entering the "Dark Grey Jeans" to text field and clicking the Search, the user should be redirected to "product\'s info page"
 
 Browse by categories
-1. After selecting the "Accessories", the url field should display the Accessories link
-2. After selecting the "Men", the url field should display the Men link
-3. After selecting the "Men's Jeans", the url field should display the Men's Jeans link
-4. After selecting the "Men's Shirts", the url field should display the Men's Shirts link
-5. After selecting the "Men's Shoes", the url field should display the Men's Shoes link
-6. After selecting the "Purses And Handbags", the url field should display the Purses And Handbags link
-7. After selecting the "Women", the url field should display the Women link
-8. After selecting the "Women's Jeans", the url field should display the Women's Jeans link
-9. After selecting the "Women's Shirts", the url field should display the Women's Shirts link
-10. After selecting the "Women's Shoes", the url field should display the Women's Shoes link
-11. After unselecting any selected category, the url field should display the store link
+Done - 1. After selecting the "Accessories", the url field should display the Accessories link
+Done - 2. After selecting the "Men", the url field should display the Men link
+Done - 3. After selecting the "Men's Jeans", the url field should display the Men's Jeans link
+Done - 4. After selecting the "Men's Shirts", the url field should display the Men's Shirts link
+Done - 5. After selecting the "Men's Shoes", the url field should display the Men's Shoes link
+Done - 6. After selecting the "Purses And Handbags", the url field should display the Purses And Handbags link
+Done - 7. After selecting the "Women", the url field should display the Women link
+Done - 8. After selecting the "Women's Jeans", the url field should display the Women's Jeans link
+Done - 9. After selecting the "Women's Shirts", the url field should display the Women's Shirts link
+Done - 10. After selecting the "Women's Shoes", the url field should display the Women's Shoes link
+Done - 11. After unselecting any selected category, the url field should display the store link
 
 Filter by price
-1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed
-2. After filtering the price to "$140 - $150", all the products within the $140 - $150 should be displayed
-3. After filtering the price to "$10", all the products that are worth $10 should be displayed
-4. After filtering the price to "$100", all the products that are worth $100 should be displayed
+Done - 1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed
+Done - 2. After filtering the price to "$140 - $150", all the products within the $140 - $150 should be displayed
+Done - 3. After filtering the price to "$10", all the products that are worth $10 should be displayed
+Done - 4. After filtering the price to "$100", all the products that are worth $100 should be displayed
 
 Filter by price and Sorting
 1. After filtering the price to "$60 - $100" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order

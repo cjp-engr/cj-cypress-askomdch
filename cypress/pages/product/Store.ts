@@ -85,6 +85,24 @@ class Store extends Products {
         StorePage.filterbyPriceRightSliderElement
             .type(sliderRight);
     }
+
+
+    checkIfPricesAreWithinTheRange(minPrice: number, maxPrice: number) {
+        let productPrices: string[] = [];
+        let productPricesNum: number[] = [];
+
+        StorePage.allProductPricesElement.each(($el, index, list) => {
+            productPrices[index] = $el.text();
+
+            if (productPrices[index].includes(' ')) {
+                productPricesNum[index] = parseFloat(productPrices[index].split(' ')[1].replace('$', ''));
+            } else {
+                productPricesNum[index] = parseFloat(productPrices[index].replace('$', ''));
+            }
+            expect(minPrice <= productPricesNum[index] && maxPrice >= productPricesNum[index]).to.be.true
+        });
+
+    }
 }
 
 export const StorePage = new Store();
