@@ -1,5 +1,5 @@
-import { AccountPage } from "../../pages/account/00_Account";
-import { AccountTD } from "../model";
+import { AccountPage } from "../../../pages/account/00_Account";
+import { AccountTD } from "../../model";
 
 describe('Account Page', function () {
     beforeEach(function () {

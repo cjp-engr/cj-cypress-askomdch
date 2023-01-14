@@ -11,7 +11,7 @@ export default defineConfig({
       username: 'cj75yo',
       password: 'Test750!!'
     },
-    viewportHeight: 1080,
-    viewportWidth: 1920,
+    viewportHeight: 1500,
+    viewportWidth: 1500,
   },
 });
