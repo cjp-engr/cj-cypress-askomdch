@@ -171,7 +171,7 @@ describe('Account Page', function () {
         });
 
 
-        it('9. Registration should fail after the user entered an invalid email address - "invalid"', function () {
+        it.only('9. Registration should fail after the user entered an invalid email address - "invalid"', function () {
             cy.get<AccountTD>('@account').then((data) => {
                 AccountPage.registerUsernameTextFieldElement.type(data.credentials['registeringUsername']);
                 AccountPage.registerEmailAddressTextFieldElement.type(data.credentials['invalidEmail_1']);
@@ -179,7 +179,7 @@ describe('Account Page', function () {
                 AccountPage.registerButtonElement.contains('Register').click();
                 AccountPage.registerEmailAddressTextFieldElement.invoke('prop', 'validationMessage')
                     .then((validationMessage) => {
-                        expect(validationMessage).to.contain(data.errorMessage['registeringInvalidEmail']);
+                        expect(validationMessage).to.equal(data.errorMessage['registeringInvalidEmail']);
                     });
             });
         });

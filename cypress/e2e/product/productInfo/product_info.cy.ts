@@ -60,75 +60,133 @@ describe('Product Info Page', () => {
 
         });
 
-        it.only('2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated', function () {
+        it('2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated', function () {
             let numberOfItems: string = '5';
             ProductInfoPage.cartBadgeElement.realHover();
-            ProductInfoPage.cartEmptyMessageTextElement.each(($el, index, $list) => {
-                if ($el.text().trim() !== 'No products in the cart.') {
-                    ProductInfoPage.cartProductsListElement.find('li')
-                        .then((row) => {
-                            console.log(row.length);
-                            for (let x = 1; x <= row.length; x++) {
-                                ProductInfoPage.cartFirstRemoveButtonElement.click();
-                            }
-                        });
-                }
-            });
-
+            ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
             ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}${numberOfItems}`);
             ProductInfoPage.productAddToCartButtonElement.click();
             ProductInfoPage.getCartBadgeTotalItems.each(($el, index, $list) => {
-                //TODO
-                // expect($el.text().trim()).to.equal(numberOfItems);
+                expect($el.text().trim()).to.equal(numberOfItems);
             });
 
-            // ProductInfoPage.cartEmptyMessageTextElement.each(($el, index, $list) => {
-            //     if ($el.text().trim() !== 'No products in the cart.') {
-            //         console.log($el.text().trim());
-            //     }
-            // });
-
-
         });
 
-        it('3. After successfully adding a product to cart, the user should be able to view the cart', () => {
-
+        it('2.2. After the user entered a number of items and clicked "Add to Cart", the success message should be displayed - "<NUMBER OF ITEM ADDED> x “<PRODUCT NAME>” has been added to your cart."', function () {
+            let numberOfItems: string = '5';
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}${numberOfItems}`);
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.successMessageTextElement.each(($el, index, $list) => {
+                expect($el.text().trim().replace('View cart ', '')).to.equal(`${numberOfItems} × “${this.data[1].name}” have been added to your cart.`);
+            });
         });
 
-        it('4. The breadcrumb should display the correct text', () => {
-
+        it('2.3. After the user clicked "Add to Cart", the success message should be displayed - "“<PRODUCT NAME>” has been added to your cart."', function () {
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.successMessageTextElement.each(($el, index, $list) => {
+                expect($el.text().trim().replace('View cart ', '')).to.equal(`“${this.data[1].name}” has been added to your cart.`);
+            });
         });
 
-        it('5. The categories should be displayed correctly', () => {
-
+        it('3. After the user added a product to cart and clicked the view cart, the user should be redirected Cart Page', function () {
+            let numberOfItems: string = '5';
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}${numberOfItems}`);
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.productInfoViewCartButtonElement.click();
+            cy.url().should('eq', `${Cypress.env('onlineStore')}cart/`)
         });
 
-        it('6. After the user entered a "0" value, the validation message should be displayed', () => {
-
+        //! issue here - The expected and actual are match but still showing an error
+        it('4. The breadcrumb should display the correct text', function () {
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[0].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.productBreadCrumbElement.should('contain.text', this.data[0].breadCrumb);
         });
 
-        it('7. After the user entered a "0-+3" value, the validation message should be displayed', () => {
-
+        it('5. The categories should be displayed correctly', function () {
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[0].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.categoriesElement.should('contain.text', this.data[0].categories);
         });
 
-        it('8. After emptying the "number of items" field, the product should be successfully added to cart and the cart badge should be updated', () => {
-
+        it('6. After the user entered a "0" value, the validation message should be displayed', function () {
+            let numberOfItems: string = '0';
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}${numberOfItems}`);
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.invoke('prop', 'validationMessage')
+                .then((validationMessage) => {
+                    console.log(validationMessage);
+                    expect(validationMessage).to.equal('Value must be greater than or equal to 1.');
+                });
         });
 
-        it('9. The description below the "description tab" and beside the product should match', () => {
-
+        //! issue here - special chars can be entered manually but not on this test
+        it('7. After the user entered a "0-+3" value, the validation message should be displayed', function () {
+            let numberOfItems: string = '1++';
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}${numberOfItems}`);
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.invoke('prop', 'validationMessage')
+                .then((validationMessage) => {
+                    console.log(validationMessage);
+                    expect(validationMessage).to.equal('Please enter a number.');
+                });
         });
 
+        it('8. After emptying the "number of items" field, the product should be successfully added to cart and the cart badge should be updated', function () {
+            ProductInfoPage.cartBadgeElement.realHover();
+            ProductInfoPage.emptyTheCartIfNotEmpty();
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.numberOfItemsTextFieldElement.type(`{backspace}`);
+            ProductInfoPage.productAddToCartButtonElement.click();
+            ProductInfoPage.getCartBadgeTotalItems.each(($el, index, $list) => {
+                expect($el.text().trim()).to.equal('1');
+            });
+            ProductInfoPage.successMessageTextElement.each(($el, index, $list) => {
+                expect($el.text().trim().replace('View cart ', '')).to.equal(`“${this.data[1].name}” has been added to your cart.`);
+            });
+        });
+
+        it('9. The description below the "description tab" and beside the product should match', function () {
+            ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
+            ProductInfoPage.searchButtonElement.click();
+            ProductInfoPage.descriptionTabTextElement.should('have.text', this.data[1].description);
+            ProductInfoPage.productDescriptionTextElement.should('have.text', this.data[1].description);
+        });
+
+        //TODO
         it('10. If the product is on sale, the "Sale!" badge, the old and new prices should display', () => {
 
         });
 
+        //TODO
         it('11. The image should not be broken', () => {
 
         });
 
+        //TODO
         it('12. The image should be zoomed in', () => {
 
         });

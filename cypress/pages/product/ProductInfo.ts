@@ -21,6 +21,9 @@ class ProductInfo extends Products {
 
     private cartBadge: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] span[class='count']";
 
+    private productInfoViewCartButton: string = ".woocommerce-message  a[href*='/cart/']";
+    private successMessageText: string = "div[role='alert']";
+
     private productID: string;
 
 
@@ -60,6 +63,9 @@ class ProductInfo extends Products {
         return cy.get(this.numberOfItemsTextField);
     }
 
+    get categoriesElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.categories);
+    }
 
     get descriptionTabElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.descriptionTab);
@@ -89,6 +95,14 @@ class ProductInfo extends Products {
         return cy.get(this.cartBadge);
     }
 
+    get productInfoViewCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productInfoViewCartButton);
+    }
+
+    get successMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.successMessageText);
+    }
+
     set setProductID(id: string) {
         this.productID = id;
         console.log(this.productID);
@@ -102,11 +116,23 @@ class ProductInfo extends Products {
         return cy.get("div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container']").find("span[class='count']");
     }
 
-    setBadgeToInitialValue() {
-        ProductInfoPage.getCartBadgeTotalItems.each(($el, index, $list) => {
-            // expect($el.text().trim()).to.equal(numberOfItems);
-            if ($el.text().trim() !== '0') {
+    emptyTheCartIfNotEmpty() {
+        ProductInfoPage.cartProductsListElement.then(($body) => {
+            if ($body.find('li').length > 0) {
+                //element exists do something
+                ProductInfoPage.cartProductsListElement.find('li')
+                    .then((row) => {
+                        if (row.length != 0) {
+                            for (let x = 1; x <= row.length; x++) {
+                                ProductInfoPage.cartFirstRemoveButtonElement.click();
+                            }
+                        }
+                    });
+            } else {
+                ProductInfoPage.cartEmptyMessageTextElement.each(($el, index, $list) => {
+                    expect($el.text().trim()).to.equal('No products in the cart.')
 
+                });
             }
         });
     }
