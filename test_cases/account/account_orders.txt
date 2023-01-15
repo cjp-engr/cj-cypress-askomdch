@@ -1,0 +1,4 @@
+Done - 1. The "order number" in the Orders Page should match on the View Orders Page
+Done - 2. The "order date" in the Orders Page should match on the View Orders Page
+Done - 3. The "order status" in the Orders Page should match on the View Orders Page
+Done - 4. The "order total" in the Orders Page should match on the View Orders Page

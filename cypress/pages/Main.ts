@@ -9,7 +9,6 @@ class Main {
     private navigationBarAccount: string = "ul[id='ast-hf-menu-1'] li[id='menu-item-1237']";
     private navigationBarAbout: string = "ul[id='ast-hf-menu-1'] li[id='menu-item-1232']";
     private navigationBarContactUs: string = "ul[id='ast-hf-menu-1'] li[id='menu-item-1233']";
-    private cart: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[title='View your shopping cart']";
     private headerTitle: string = "h1[itemprop='name'] a[href='https://askomdch.com/']";
     //--end navigation bar--//
 
@@ -31,6 +30,14 @@ class Main {
     private menuForHimMensShirts: string = "ul[id='menu-for-him'] li[id='menu-item-1260']";
     private menuForHimMensShoes: string = "ul[id='menu-for-him'] li[id='menu-item-1261']";
     private menuForHimAccessories: string = "ul[id='menu-for-him'] li[id='menu-item-1262']";
+
+    private cart: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[title='View your shopping cart']";
+    private cartFirstRemoveButton: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart'] li:nth-child(1) a:nth-child(1)";
+    private cartViewCartButton: string = "";
+    private cartCheckoutButton: string = "";
+    private cartEmptyMessageText: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] p[class='woocommerce-mini-cart__empty-message']";
+    private cartProductsList: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart']";
+
 
     //--end footer--//
 
@@ -132,6 +139,31 @@ class Main {
 
     get menuForHimAccessoriesElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.menuForHimAccessories);
+    }
+
+    get cartFirstRemoveButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartFirstRemoveButton);
+    }
+
+    get cartViewCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartViewCartButton);
+    }
+
+    get cartCheckoutButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartCheckoutButton);
+    }
+
+    get cartEmptyMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartEmptyMessageText);
+    }
+
+    get cartProductsListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartProductsList);
+    }
+
+    //desktop
+    get dynamicCartRemoveButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get("div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart'] li:nth-child(1) a:nth-child(1)");
     }
 
 }

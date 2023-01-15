@@ -66,6 +66,7 @@ export interface StoreSortingTD {
 }
 
 export interface ProductInfoTD {
+    productID: string;
     isSale: boolean;
     hasReview: boolean;
     name: string;

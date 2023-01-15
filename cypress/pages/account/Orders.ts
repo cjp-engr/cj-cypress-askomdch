@@ -1,6 +1,6 @@
 import { Main } from "../Main";
 
-class Orders extends Main {
+class AccountOrders extends Main {
     private navigationLink: string = ".woocommerce-MyAccount-navigation-link--orders";
     private orderTable: string = ".woocommerce-orders-table";
     // private rowNumberIndex: number;
@@ -25,7 +25,7 @@ class Orders extends Main {
                         cy.get('div.wp-block-group.alignfull > div > div.woocommerce > div > p')
                             .should('contain.text', orderNumber)
                     });
-                    OrdersPage.navigationLinkElement.click();
+                    AccountOrdersPage.navigationLinkElement.click();
                 });
 
         });
@@ -44,7 +44,7 @@ class Orders extends Main {
                         cy.get('div.wp-block-group.alignfull > div > div.woocommerce > div > p')
                             .should('contain.text', orderDate);
                     });
-                    OrdersPage.navigationLinkElement.click();
+                    AccountOrdersPage.navigationLinkElement.click();
                 });
 
         });
@@ -63,7 +63,7 @@ class Orders extends Main {
                         cy.get('div.wp-block-group.alignfull > div > div.woocommerce > div > p')
                             .should('contain.text', orderStatus);
                     });
-                    OrdersPage.navigationLinkElement.click();
+                    AccountOrdersPage.navigationLinkElement.click();
                 });
 
         });
@@ -83,7 +83,7 @@ class Orders extends Main {
                         cy.get('tr:nth-child(4) > td > span')
                             .should('contain.text', total.split(' ')[0]);
                     });
-                    OrdersPage.navigationLinkElement.click();
+                    AccountOrdersPage.navigationLinkElement.click();
                 });
 
         });
@@ -107,4 +107,4 @@ class Orders extends Main {
 
 }
 
-export const OrdersPage = new Orders();
+export const AccountOrdersPage = new AccountOrders();

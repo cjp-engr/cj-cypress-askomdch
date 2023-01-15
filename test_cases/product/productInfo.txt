@@ -1,4 +1,5 @@
 1. After the user selected a product, the product information should be displayed
+1.2. After the user selected a product without sale, the product information should be displayed
 2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated
 3. After successfully adding a product to cart, the user should be able to view the cart
 4. The breadcrumb should display the correct text

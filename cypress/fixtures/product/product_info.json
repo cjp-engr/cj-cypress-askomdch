@@ -1,6 +1,7 @@
 {
     "products": [
         {
+            "productID": "#product-1198",
             "isSale": true,
             "hasReview": false,
             "name": "Anchor Bracelet",
@@ -13,6 +14,7 @@
             "reviews": ""
         },
         {
+            "productID": "#product-1215",
             "isSale": false,
             "hasReview": false,
             "name": "Blue Shoes",
@@ -25,6 +27,7 @@
             "reviews": ""
         },
         {
+            "productID": "#product-1206",
             "isSale": true,
             "hasReview": false,
             "name": "Blue Denim Shorts",
