@@ -1,7 +1,9 @@
 1. After the user selected a product, the product information should be displayed
 1.2. After the user selected a product without sale, the product information should be displayed
 2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated
-3. After successfully adding a product to cart, the user should be able to view the cart
+2.2. After the user entered a number of items and clicked "Add to Cart", the success message should be displayed - "<NUMBER OF ITEM ADDED> x “<PRODUCT NAME>” has been added to your cart."
+2.3. After the user clicked "Add to Cart", the success message should be displayed - "“<PRODUCT NAME>” has been added to your cart."
+3. After the user added a product to cart and clicked the view cart, the user should be redirected Cart Page
 4. The breadcrumb should display the correct text
 5. The categories should be displayed correctly
 6. After the user entered a "0" value, the validation message should be displayed

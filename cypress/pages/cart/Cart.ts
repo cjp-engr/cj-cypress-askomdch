@@ -7,20 +7,22 @@ class Cart extends Main {
     private priceText: string = "";
     private quantityTextField: string = "";
     private productSubtotalText: string = "";
-    private updateCartButton: string = "";
+    private updateCartButton: string = "button[value='Update cart']";
 
-    private allProductsSubtotalText: string = "";
-    private shippingFeeText: string = "";
-    private changeAddressButton: string = "";
-    private countrySelectField: string = "";
-    private stateSelectField: string = "";
-    private cityTextField: string = "";
-    private zipCodeTextField: string = "";
-    private updateAddressButton: string = "";
+    private allProductsSubtotalText: string = "tr[class='cart-subtotal'] bdi:nth-child(1)";
+    private flatRateText: string = "label[for='shipping_method_0_flat_rate3'] bdi";
+    private changeAddressButton: string = ".shipping-calculator-button";
+    private countrySelectField: string = "#select2-calc_shipping_country-container";
+    private countryTextField: string = "input[role='combobox']";
+    private stateSelectField: string = "#select2-calc_shipping_state-container";
+    private stateTextField: string = "input[role='combobox']";
+    private cityTextField: string = "#calc_shipping_city";
+    private zipCodeTextField: string = "#calc_shipping_postcode";
+    private updateAddressButton: string = "button[name='calc_shipping']";
 
-    private allTotal: string = "";
+    private allTotal: string = "td[data-title='Total'] bdi";
 
-    private proceedToCheckoutButton: string = "";
+    private proceedToCheckoutButton: string = ".checkout-button.button.alt.wc-forward";
 
     private couponCodeTextField: string = "";
     private applyCouponButton: string = "";
@@ -57,8 +59,8 @@ class Cart extends Main {
         return cy.get(this.allProductsSubtotalText);
     }
 
-    get shippingFeeTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingFeeText);
+    get flatRateTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.flatRateText);
     }
 
     get changeAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {

@@ -33,11 +33,35 @@ Done - 3. After filtering the price to "$10", all the products that are worth $1
 Done - 4. After filtering the price to "$100", all the products that are worth $100 should be displayed
 
 Filter by price and Sorting
-1. After filtering the price to "$60 - $100" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order
-2. After filtering the price to "$60 - $100" and selecting the "Sort by popularity", the products should be sorted according to popularity
-3. After filtering the price to "$60 - $100" and selecting the "Sort by average rating", the products should be sorted according to the average rating
-4. After filtering the price to "$60 - $100" and selecting the "Sort by latest", the products should be sorted according to what are the latest products
-5. After filtering the price to "$60 - $100" and selecting the "Sort by price: low to high", the products should be sorted according to price from low to high
-6. After filtering the price to "$60 - $100" and selecting the "Sort by price: high to low", the products should be sorted according to price from high to low
-7. After filtering the price to "$10" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order
+Done - 1. After filtering the price to "$60 - $100" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order
+Done - 2. After filtering the price to "$60 - $100" and selecting the "Sort by popularity", the products should be sorted according to popularity
+Done - 3. After filtering the price to "$60 - $100" and selecting the "Sort by average rating", the products should be sorted according to the average rating
+Done - 4. After filtering the price to "$60 - $100" and selecting the "Sort by latest", the products should be sorted according to what are the latest products
+Done - 5. After filtering the price to "$60 - $100" and selecting the "Sort by price: low to high", the products should be sorted according to price from low to high
+Done - 6. After filtering the price to "$60 - $100" and selecting the "Sort by price: high to low", the products should be sorted according to price from high to low
+Done - 7. After filtering the price to "$10" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order
+
+Add to Cart
+1. After clicking the "add to cart" multiple times for a single product, the cart badge should be updated
+2. After clicking the "add to cart" to random products once, the cart badge should be updated
+3. After clicking the "add to cart" multiple times to random products, the cart badge should be updated
+4. After clicking the "add to cart" multiple times for a single product, the added product should be displayed correctly in the cart list
+5. After clicking the "add to cart" to random products once, the added product should be displayed correctly in the cart list
+6. After clicking the "add to cart" multiple times to random products, the added products should be displayed correctly in the cart list 
+7. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button below the Add to Cart button
+8. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button in the cart list
+9. Adding a product, the user should be redirected to Checkout page after clicking the Checkout button in the cart list
+10. After adding a single product, the subtotal should be computed correctly
+11. After adding products, the subtotal should be computed correctly
+
+Display
+1. All the images should be not broken and displayed correctly
+2. All the product names should be visible
+3. All the categories should be visible
+4. All the price should be visible
+5. All the ratings should be visible
+6. All the Add to Cart should be visible
+7. If the products are more than 8, the pagination should be visible
+8. If the products are less than 8, the pagination should not be visible
+
 

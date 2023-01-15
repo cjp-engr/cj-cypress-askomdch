@@ -46,7 +46,7 @@ class Products extends Main {
     private sortByPriceHighToLowText: string = "price-desc";
     //end - sorting
 
-    private allProductImages: string = ".astra-shop-thumbnail-wrap";
+    private allProductImages: string = "div.astra-shop-thumbnail-wrap > a > img";
     private allProductNameText: string = ".woocommerce-loop-product__title";
     private allProductCategoriesText: string = ".ast-woo-product-category";
     private allProductPrices: string = "div.astra-shop-summary-wrap > span.price";
