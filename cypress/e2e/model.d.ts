@@ -48,6 +48,12 @@ export interface StoreTD {
     browserLink: any;
 }
 
+export interface StoreProductListTD {
+    index: number;
+    name: string;
+    price: string;
+}
+
 export interface StoreSortingTD {
     bestSellers: string[];
     defaultSorting: string[];

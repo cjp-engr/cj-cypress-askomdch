@@ -112,10 +112,6 @@ class ProductInfo extends Products {
         return cy.get(`${this.productID} > .onsale`);
     }
 
-    // get getCartBadgeTotalItems(): Cypress.Chainable<JQuery<HTMLElement>> {
-    //     return cy.get("div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container']").find("span[class='count']");
-    // }
-
     emptyTheCartIfNotEmpty() {
         ProductInfoPage.cartProductsListElement.then(($body) => {
             if ($body.find('li').length > 0) {

@@ -4,7 +4,7 @@ import { StoreSortingTD, StoreTD } from "../../model";
 describe('Store Page', () => {
     describe('Browse by categories Scenario', () => {
         beforeEach(() => {
-            cy.fixture('product/store.json').as('store');
+            cy.fixture('product/store_1.json').as('store');
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });

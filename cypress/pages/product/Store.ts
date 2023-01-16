@@ -4,27 +4,6 @@ import { Products } from "./00_Products";
 
 class Store extends Products {
 
-    private blueTShirt: string = 'Blue Tshirt';
-    private redShoes: string = 'Red Shoes';
-    private denimBlueJeans: string = 'Denim Blue Jeans';
-    private faintBlueJeans: string = 'Faint Blue Jeans';
-
-    get blueTShirtText(): string {
-        return this.blueTShirt;
-    }
-
-    get redShoesText(): string {
-        return this.redShoes;
-    }
-
-    get denimBlueJeansText(): string {
-        return this.denimBlueJeans;
-    }
-
-    get faintBlueJeansText(): string {
-        return this.faintBlueJeans;
-    }
-
     nameSorted(optionValue: string): string[] {
         let productNames: string[] = [];
         let pageTwoFirstIndex: number;
@@ -181,6 +160,33 @@ class Store extends Products {
                         });
                     }
                 });
+        });
+    }
+
+    checkProductDetailsInCartList(index: number, productName: string, quantity: number, price: string) {
+        this.checkProductNameInCartList(index, productName);
+        this.checkProductQuantityInCartList(index, quantity);
+        this.checkProductPriceInCartList(index, price);
+    }
+
+    checkProductNameInCartList(index: number, productName: string) {
+        StorePage.setProductIndex = index;
+        StorePage.dynamicCartListProductName.each(($el, index, list) => {
+            expect($el.text().trim()).to.equal(productName);
+        });
+    }
+
+    checkProductQuantityInCartList(index: number, quantity: number) {
+        StorePage.setProductIndex = index;
+        StorePage.dynamicCartListProductQuantity.each(($el, index, list) => {
+            expect(Number($el.text().trim().split(' ')[0])).to.equal(quantity);
+        });
+    }
+
+    checkProductPriceInCartList(index: number, price: string) {
+        StorePage.setProductIndex = index;
+        StorePage.dynamicCartListProductPrice.each(($el, index, list) => {
+            expect($el.text().trim()).to.equal(price);
         });
     }
 

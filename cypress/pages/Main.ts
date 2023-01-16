@@ -31,13 +31,14 @@ class Main {
     private menuForHimMensShoes: string = "ul[id='menu-for-him'] li[id='menu-item-1261']";
     private menuForHimAccessories: string = "ul[id='menu-for-him'] li[id='menu-item-1262']";
 
-    private cart: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[title='View your shopping cart']";
+    private cartButton: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[title='View your shopping cart']";
     private cartFirstRemoveButton: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart'] li:nth-child(1) a:nth-child(1)";
-    private cartViewCartButton: string = "";
-    private cartCheckoutButton: string = "";
+    private cartViewCartButton: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[class='button wc-forward']";
+    private cartCheckoutButton: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] a[class='button checkout wc-forward']";
     private cartEmptyMessageText: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] p[class='woocommerce-mini-cart__empty-message']";
     private cartProductsList: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart']";
-
+    private cartSubtotal: string = "div[id='ast-desktop-header'] p[class='woocommerce-mini-cart__total total'] bdi:nth-child(1)";
+    private cartAllProductDetails: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart']";
     private productIndex: number;
 
     //--end footer--//
@@ -74,8 +75,8 @@ class Main {
         return cy.get(this.navigationBarContactUs);
     }
 
-    get cartElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.cart);
+    get cartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartButton);
     }
 
     get headerTitleElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -168,6 +169,27 @@ class Main {
 
     get dynamicCartListProductName(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(`div[id='ast-desktop-header'] li:nth-child(${this.productIndex}) a:nth-child(2)`);
+    }
+
+    get cartAllProductDetailsElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cartAllProductDetails);
+    }
+
+    cartAllProductLength(): number {
+        let length: number;
+        this.cartAllProductDetailsElement.then(($body) => {
+            if ($body.find('li').length > 0) {
+                //element exists do something
+                this.cartAllProductDetailsElement.find('li')
+                    .then((row) => {
+                        if (row.length != 0) {
+                            length = row.length;
+
+                        }
+                    });
+            }
+        });
+        return length;
     }
 
     get dynamicCartListProductPrice(): Cypress.Chainable<JQuery<HTMLElement>> {

@@ -62,7 +62,7 @@ describe('Product Info Page', () => {
 
         it('2. After the user entered a number of items and clicked "Add to Cart", the cart badge should be updated', function () {
             let numberOfItems: string = '5';
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -76,7 +76,7 @@ describe('Product Info Page', () => {
 
         it('2.2. After the user entered a number of items and clicked "Add to Cart", the success message should be displayed - "<NUMBER OF ITEM ADDED> x “<PRODUCT NAME>” has been added to your cart."', function () {
             let numberOfItems: string = '5';
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -88,7 +88,7 @@ describe('Product Info Page', () => {
         });
 
         it('2.3. After the user clicked "Add to Cart", the success message should be displayed - "“<PRODUCT NAME>” has been added to your cart."', function () {
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -100,7 +100,7 @@ describe('Product Info Page', () => {
 
         it('3. After the user added a product to cart and clicked the view cart, the user should be redirected Cart Page', function () {
             let numberOfItems: string = '5';
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -125,7 +125,7 @@ describe('Product Info Page', () => {
 
         it('6. After the user entered a "0" value, the validation message should be displayed', function () {
             let numberOfItems: string = '0';
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -141,7 +141,7 @@ describe('Product Info Page', () => {
         //! issue here - special chars can be entered manually but not on this test
         it('7. After the user entered a "0-+3" value, the validation message should be displayed', function () {
             let numberOfItems: string = '1++';
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
@@ -155,7 +155,7 @@ describe('Product Info Page', () => {
         });
 
         it('8. After emptying the "number of items" field, the product should be successfully added to cart and the cart badge should be updated', function () {
-            ProductInfoPage.cartElement.realHover();
+            ProductInfoPage.cartButtonElement.realHover();
             ProductInfoPage.emptyTheCartIfNotEmpty();
             ProductInfoPage.searchProductsTextFieldElement.type(this.data[1].name);
             ProductInfoPage.searchButtonElement.click();
