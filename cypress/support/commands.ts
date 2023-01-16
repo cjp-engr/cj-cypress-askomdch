@@ -31,6 +31,7 @@ Cypress.Commands.add('visitOnlineStore', () => {
     cy.visit(`${Cypress.env('onlineStore')}`);
 });
 
+
 Cypress.Commands.add('login', () => {
     cy.visit(`${Cypress.env('onlineStore')}`);
     cy.visit(`${Cypress.env('onlineStore')}account`);

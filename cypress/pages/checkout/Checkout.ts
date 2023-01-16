@@ -1,37 +1,40 @@
 import { Main } from "../Main";
 
 class Checkout extends Main {
-    private billingFirstNameTextField: string = "";
-    private billingLastNameTextField: string = "";
-    private billingCompanyNameTextField: string = "";
-    private billingCountryRegionSelectField: string = "";
-    private billingStreetAddressFirstTextField: string = "";
-    private billingStreetAddressSecondTextField: string = "";
-    private billingTownCityTextField: string = "";
-    private billingStateCountySelectField: string = "";
-    private billingPostcodeZipTextField: string = "";
-    private billingPhoneTextField: string = "";
-    private billingEmailAddressTextField: string = "";
-    private shipToDifferentAddressCheckbox: string = "";
-    private shippingFirstNameTextField: string = "";
-    private shippingLastNameTextField: string = "";
-    private shippingCompanyNameTextField: string = "";
-    private shippingCountryRegionSelectField: string = "";
-    private shippingStreetAddressFirstTextField: string = "";
-    private shippingStreetAddressSecondTextField: string = "";
-    private shippingTownCityTextField: string = "";
-    private shippingStateCountySelectField: string = "";
-    private shippingPostcodeZipTextField: string = "";
-    private shippingPhoneTextField: string = "";
-    private orderNotesTextField: string = "";
+    private billingFirstNameTextField: string = "#billing_first_name";
+    private billingLastNameTextField: string = "#billing_last_name";
+    private billingCompanyNameTextField: string = "#billing_company";
+    private billingCountryRegionSelectField: string = "#select2-billing_country-container";
+    private billingCountryRegionTextField: string = "input[role='combobox']";
+    private billingStreetAddressFirstTextField: string = "#billing_address_1";
+    private billingStreetAddressSecondTextField: string = "#billing_address_2";
+    private billingTownCityTextField: string = "#billing_city";
+    private billingStateCountySelectField: string = "#select2-billing_state-container";
+    private billingStateCountyTextField: string = "input[role='combobox']";
+    private billingPostcodeZipTextField: string = "#billing_postcode";
+    private billingPhoneTextField: string = "#billing_phone";
+    private billingEmailAddressTextField: string = "#billing_email";
+    private shipToDifferentAddressCheckbox: string = "#ship-to-different-address-checkbox";
+    private shippingFirstNameTextField: string = "#shipping_first_name";
+    private shippingLastNameTextField: string = "#shipping_last_name";
+    private shippingCompanyNameTextField: string = "#shipping_company";
+    private shippingCountryRegionSelectField: string = "#select2-shipping_country-container";
+    private shippingCountryRegionTextField: string = "input[role='combobox']";
+    private shippingStreetAddressFirstTextField: string = "#shipping_address_1";
+    private shippingStreetAddressSecondTextField: string = "#shipping_address_2";
+    private shippingTownCityTextField: string = "#shipping_city";
+    private shippingStateCountySelectField: string = "#select2-shipping_state-container";
+    private shippingStateCountyTextField: string = "input[role='combobox']";
+    private shippingPostcodeZipTextField: string = "#shipping_postcode";
+    private orderNotesTextField: string = "#order_comments";
 
-    private totalItemsSubtotalText: string = "";
-    private subtotalText: string = "";
-    private flatRateText: string = "";
-    private totalText: string = "";
-    private directBankTransferRadiobox: string = "";
-    private cashOnDeliveryRadiobox: string = "";
-    private placeOrderButton: string = "";
+    // private totalItemsSubtotalText: string = "";
+    private subtotalText: string = "tr[class='cart-subtotal'] bdi:nth-child(1)";
+    private flatRateText: string = "tr[class='woocommerce-shipping-totals shipping'] bdi:nth-child(1)";
+    private totalText: string = "tr[class='order-total'] bdi:nth-child(1)";
+    private directBankTransferRadiobox: string = "#payment_method_bacs";
+    private cashOnDeliveryRadiobox: string = "#payment_method_cod";
+    private placeOrderButton: string = "#place_order";
 
     get billingFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.billingFirstNameTextField);
@@ -49,6 +52,10 @@ class Checkout extends Main {
         return cy.get(this.billingCountryRegionSelectField);
     }
 
+    get billingCountryRegionTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingCountryRegionTextField);
+    }
+
     get billingStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.billingStreetAddressFirstTextField);
     }
@@ -63,6 +70,10 @@ class Checkout extends Main {
 
     get billingStateCountySelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.billingStateCountySelectField);
+    }
+
+    get billingStateCountyTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingStateCountyTextField);
     }
 
     get billingPostcodeZipTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -97,6 +108,10 @@ class Checkout extends Main {
         return cy.get(this.shippingCountryRegionSelectField);
     }
 
+    get shippingCountryRegionTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingCountryRegionTextField);
+    }
+
     get shippingStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.shippingStreetAddressFirstTextField);
     }
@@ -113,21 +128,22 @@ class Checkout extends Main {
         return cy.get(this.shippingStateCountySelectField);
     }
 
+    get shippingStateCountyTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingStateCountyTextField);
+    }
+
     get shippingPostcodeZipTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.shippingPostcodeZipTextField);
     }
 
-    get shippingPhoneTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.shippingPhoneTextField);
-    }
 
     get orderNotesTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.orderNotesTextField);
     }
 
-    get totalItemsSubtotalTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.totalItemsSubtotalText);
-    }
+    // get totalItemsSubtotalTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.totalItemsSubtotalText);
+    // }
 
     get subtotalTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.subtotalText);

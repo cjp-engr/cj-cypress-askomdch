@@ -38,6 +38,7 @@ class Main {
     private cartEmptyMessageText: string = "div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container'] p[class='woocommerce-mini-cart__empty-message']";
     private cartProductsList: string = "div[id='ast-desktop-header'] div[class='ast-builder-layout-element site-header-focus-item ast-header-woo-cart']";
 
+    private productIndex: number;
 
     //--end footer--//
 
@@ -159,6 +160,26 @@ class Main {
 
     get cartProductsListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.cartProductsList);
+    }
+
+    set setProductIndex(index: number) {
+        this.productIndex = index;
+    }
+
+    get dynamicCartListProductName(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(`div[id='ast-desktop-header'] li:nth-child(${this.productIndex}) a:nth-child(2)`);
+    }
+
+    get dynamicCartListProductPrice(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(`.ast-builder-layout-element:nth-child(2) > #ast-site-header-cart .woocommerce-mini-cart-item:nth-child(${this.productIndex}) bdi`);
+    }
+
+    get dynamicCartListProductQuantity(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(`.ast-builder-layout-element:nth-child(2) > #ast-site-header-cart .woocommerce-mini-cart-item:nth-child(${this.productIndex}) > .quantity`);
+    }
+
+    get getCartBadgeTotalItems(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get("div[class='site-primary-header-wrap ast-builder-grid-row-container site-header-focus-item ast-container']").find("span[class='count']");
     }
 
     //desktop

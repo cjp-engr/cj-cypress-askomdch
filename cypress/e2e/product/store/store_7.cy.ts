@@ -1,5 +1,10 @@
 describe('Store Page', () => {
     describe('Display items scenario', () => {
+
+        beforeEach(() => {
+
+        });
+
         it('1. All the images should be not broken and displayed correctly', () => {
 
         });

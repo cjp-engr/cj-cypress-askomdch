@@ -6,7 +6,7 @@ let data1: any;
 describe('Store Page', () => {
     describe('Sorting of products scenario', () => {
         beforeEach(() => {
-            cy.fixture('product/store.json').as('store')
+            cy.fixture('product/store.json').as('store');
             cy.fixture<{ data: StoreSortingTD }>('product/store.json')
 
                 .then((data) => {

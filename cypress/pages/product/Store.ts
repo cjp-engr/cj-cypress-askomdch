@@ -1,6 +1,30 @@
 import { Products } from "./00_Products";
 
+
+
 class Store extends Products {
+
+    private blueTShirt: string = 'Blue Tshirt';
+    private redShoes: string = 'Red Shoes';
+    private denimBlueJeans: string = 'Denim Blue Jeans';
+    private faintBlueJeans: string = 'Faint Blue Jeans';
+
+    get blueTShirtText(): string {
+        return this.blueTShirt;
+    }
+
+    get redShoesText(): string {
+        return this.redShoes;
+    }
+
+    get denimBlueJeansText(): string {
+        return this.denimBlueJeans;
+    }
+
+    get faintBlueJeansText(): string {
+        return this.faintBlueJeans;
+    }
+
     nameSorted(optionValue: string): string[] {
         let productNames: string[] = [];
         let pageTwoFirstIndex: number;
@@ -25,9 +49,21 @@ class Store extends Products {
             } else {
                 cy.log('No Pagination');
             }
-        })
+        });
 
         return productNames;
+    }
+
+    clickIfPaginationIsVisible() {
+        StorePage.parentContainerElement.then(($ele) => {
+            if ($ele.find('.page-numbers').length > 0) {
+                cy.log('With Pagination');
+                StorePage.pageTwoButtonElement.click();
+
+            } else {
+                cy.log('No Pagination');
+            }
+        });
     }
 
     priceSorted(optionValue: string): boolean {
@@ -110,6 +146,44 @@ class Store extends Products {
         });
         return productPricesNum;
     }
+
+    emptyTheCartIfNotEmpty() {
+        StorePage.cartProductsListElement.then(($body) => {
+            if ($body.find('li').length > 0) {
+                //element exists do something
+                StorePage.cartProductsListElement.find('li')
+                    .then((row) => {
+                        if (row.length != 0) {
+                            for (let x = 1; x <= row.length; x++) {
+                                StorePage.cartFirstRemoveButtonElement.click();
+                            }
+                        }
+                    });
+            } else {
+                StorePage.cartEmptyMessageTextElement.each(($el, index, $list) => {
+                    expect($el.text().trim()).to.equal('No products in the cart.')
+
+                });
+            }
+        });
+    }
+
+    productsAddedToCart(product: string, numberOfClicks: number) {
+        cy.get('.add_to_cart_button').each(($el, index, list) => {
+
+            cy.wrap($el).invoke('attr', 'aria-label')
+                .then(($el) => {
+                    if ($el.includes(product)) {
+                        cy.wrap(numberOfClicks).then(() => {
+                            for (let i = 0; i < numberOfClicks; i++) {
+                                cy.get(`a[aria-label='Add ${product} to your cart']`).click();
+                            }
+                        });
+                    }
+                });
+        });
+    }
+
 }
 
 export const StorePage = new Store();

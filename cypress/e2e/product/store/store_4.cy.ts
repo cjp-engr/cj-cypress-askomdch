@@ -3,7 +3,7 @@ import { StorePage } from "../../../pages/product/Store";
 describe('Store Page', () => {
     describe('Filter by price scenario', () => {
         beforeEach(() => {
-            cy.fixture('product/store.json').as('store')
+            cy.fixture('product/store.json').as('store');
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });

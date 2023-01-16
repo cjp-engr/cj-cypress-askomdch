@@ -57,6 +57,16 @@ class Products extends Main {
     private pageTwoButton: string = "ul > li:nth-child(2) > a[href*='page/2/']";
     private paginationButtons: string = ".page-numbers";
 
+    // //first page
+    // private blueTShirtAddToCartButton: string = "a[aria-label*='Add “Blue Tshirt”']";
+    // //first page
+
+    // //second page
+    // private redShoesAddToCartButton: string = "a[aria-label*='Add “Red Shoes”']";
+    // private denimBlueJeansAddToCartButton: string = "a[aria-label*='Add “Denim Blue Jeans”']";
+    // private faintBlueJeansAddToCartButton: string = "a[aria-label*='Add “Faint Blue Jeans”']";
+    //second page
+
     get parentContainerElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.parentContainer);
     }
@@ -172,6 +182,22 @@ class Products extends Main {
     get paginationButtonsElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.paginationButtons);
     }
+
+    // get blueTShirtAddToCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.blueTShirtAddToCartButton);
+    // }
+
+    // get redShoesAddToCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.redShoesAddToCartButton);
+    // }
+
+    // get denimBlueJeansAddToCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.denimBlueJeansAddToCartButton);
+    // }
+
+    // get faintBlueJeansAddToCartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+    //     return cy.get(this.faintBlueJeansAddToCartButton);
+    // }
 
     get allProductNameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.allProductNameText);

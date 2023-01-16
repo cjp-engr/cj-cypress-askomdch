@@ -4,7 +4,7 @@ import { StoreSortingTD } from "../../model";
 describe('Store Page', () => {
     describe('Filter by price and Sorting', () => {
         beforeEach(() => {
-            cy.fixture('product/store.json').as('store')
+            cy.fixture('product/store.json').as('store');
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });
