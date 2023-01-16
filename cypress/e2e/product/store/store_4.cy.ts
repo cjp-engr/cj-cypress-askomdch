@@ -15,7 +15,7 @@ describe('Store Page', () => {
 
             StorePage.sliderRightToLeft(12);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertedToNumberPriceList();
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -34,7 +34,7 @@ describe('Store Page', () => {
 
             StorePage.sliderLeftToRight(13);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertedToNumberPriceList();
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -52,7 +52,7 @@ describe('Store Page', () => {
 
             StorePage.sliderRightToLeft(14);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertedToNumberPriceList();
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {

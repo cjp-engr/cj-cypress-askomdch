@@ -27,6 +27,8 @@ class Cart extends Main {
     private couponCodeTextField: string = "";
     private applyCouponButton: string = "";
 
+    private productsList: string = ".woocommerce-cart-form__cart-item";
+
     get cartHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.cartHeaderText);
     }
@@ -102,4 +104,51 @@ class Cart extends Main {
     get applyCouponButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.applyCouponButton);
     }
+
+    get productsListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productsList);
+    }
+
+    isActualSingleProductMatchExpected(productName: string) {
+        this.productsListElement.then(($body) => {
+            if ($body.find("td[class='product-name'] > a").length > 0) {
+                //element exists do something
+                this.productsListElement.find("td[class='product-name'] > a")
+                    .then((row) => {
+                        if (row.length != 0) {
+                            for (let x = 1; x <= row.length; x++) {
+                                cy.get(`:nth-child(${x}) > .product-name > a`).each(($el, index, $list) => {
+                                    expect($el.text()).to.be.equal(productName);
+                                });
+                            }
+                        }
+                    });
+            } else {
+            }
+        });
+    }
+
+    isActualSingleProductPriceMatchExpected(productPrice: number) {
+        this.productsListElement.then(($body) => {
+            if ($body.find("td[class='product-price'] > span").length > 0) {
+                //element exists do something
+                this.productsListElement.find("td[class='product-price'] > span")
+                    .then((row) => {
+                        if (row.length != 0) {
+                            for (let x = 1; x <= row.length; x++) {
+                                cy.get(`:nth-child(${x}) > td[class='product-price'] > span`).each(($el, index, $list) => {
+                                    if (x == row.length) {
+                                        expect($el.text().trim()).to.be.equal(productPrice);
+                                    }
+
+                                });
+                            }
+                        }
+                    });
+            } else {
+            }
+        });
+    }
 }
+
+export const CartPage = new Cart();

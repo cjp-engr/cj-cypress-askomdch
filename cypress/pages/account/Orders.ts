@@ -31,7 +31,7 @@ class AccountOrders extends Main {
         });
     }
 
-    checkDate(x: number) {
+    isActualDateMatchExpected(x: number) {
         let orderDate: string = '';
         cy.wrap(x).then(() => {
             cy.get('tbody')
@@ -50,7 +50,7 @@ class AccountOrders extends Main {
         });
     }
 
-    checkStatus(x: number) {
+    isActualOrderStatusMatchExpected(x: number) {
         let orderStatus: string = '';
         cy.wrap(x).then(() => {
             cy.get('tbody')
@@ -69,7 +69,7 @@ class AccountOrders extends Main {
         });
     }
 
-    checkTotal(x: number) {
+    isActualTotalMatchExpected(x: number) {
         let total: string = '';
         cy.wrap(x).then(() => {
             cy.get('tbody')

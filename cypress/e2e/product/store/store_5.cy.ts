@@ -20,8 +20,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.defaultSortingTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -48,8 +48,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.sortByPopularityTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.sortByPopularityTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -76,8 +76,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.sortByAverageRatingTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.sortByAverageRatingTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -103,8 +103,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.sortByLatestTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.sortByLatestTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -130,8 +130,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.sortByPriceLowToHighTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.sortByPriceLowToHighTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -157,8 +157,8 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.sliderLeftToRight(sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.sortByPriceHighToLowTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.sortByPriceHighToLowTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
@@ -182,8 +182,8 @@ describe('Store Page', () => {
 
             StorePage.sliderRightToLeft(sliderMoveToLeft);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
-            priceList = StorePage.convertedToNumberPriceList();
+            productNames = StorePage.sortName(StorePage.defaultSortingTextOptionValue);
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {

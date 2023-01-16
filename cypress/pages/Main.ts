@@ -175,22 +175,22 @@ class Main {
         return cy.get(this.cartAllProductDetails);
     }
 
-    cartAllProductLength(): number {
-        let length: number;
-        this.cartAllProductDetailsElement.then(($body) => {
-            if ($body.find('li').length > 0) {
-                //element exists do something
-                this.cartAllProductDetailsElement.find('li')
-                    .then((row) => {
-                        if (row.length != 0) {
-                            length = row.length;
+    // cartAllProductLength(): number {
 
-                        }
-                    });
-            }
-        });
-        return length;
-    }
+    //     this.cartAllProductDetailsElement.then(($body) => {
+    //         if ($body.find('li').length > 0) {
+    //             //element exists do something
+    //             this.cartAllProductDetailsElement.find('li')
+    //                 .then((row) => {
+    //                     if (row.length != 0) {
+    //                         cy.wrap(row.length).as("length");
+    //                     }
+    //                 });
+    //         }
+    //     });
+
+    //     return this.cartLength;
+    // }
 
     get dynamicCartListProductPrice(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(`.ast-builder-layout-element:nth-child(2) > #ast-site-header-cart .woocommerce-mini-cart-item:nth-child(${this.productIndex}) bdi`);

@@ -17,7 +17,7 @@ describe('Store Page', () => {
             StorePage.navigationBarStoreElement.click();
         });
         it('1. After selecting the "Default sorting", the products should be sorted in alphabetically and ascending order', () => {
-            let productNames = StorePage.nameSorted(StorePage.defaultSortingTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.defaultSortingTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.defaultSorting);
@@ -25,7 +25,7 @@ describe('Store Page', () => {
         });
 
         it('2. After selecting the "Sort by popularity", the products should be sorted according to popularity', () => {
-            let productNames = StorePage.nameSorted(StorePage.sortByPopularityTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.sortByPopularityTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortPopularity);
@@ -33,7 +33,7 @@ describe('Store Page', () => {
         });
 
         it('3. After selecting the "Sort by average rating", the products should be sorted according to the average rating', () => {
-            let productNames = StorePage.nameSorted(StorePage.sortByAverageRatingTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.sortByAverageRatingTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByAverageRating);
@@ -41,7 +41,7 @@ describe('Store Page', () => {
         });
 
         it('4. After selecting the "Sort by latest", the products should be sorted according to what are the latest products', () => {
-            let productNames = StorePage.nameSorted(StorePage.sortByLatestTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.sortByLatestTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByLatest);
@@ -49,7 +49,7 @@ describe('Store Page', () => {
         });
 
         it('5. After selecting the "Sort by price: low to high", the product names should be sorted according to price from low to high', () => {
-            let productNames = StorePage.nameSorted(StorePage.sortByPriceLowToHighTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.sortByPriceLowToHighTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByPriceLowToHigh);
@@ -58,7 +58,7 @@ describe('Store Page', () => {
         });
 
         it('6. After selecting the "Sort by price: high to low", the product names should be sorted according to price from high to low', () => {
-            let productNames = StorePage.nameSorted(StorePage.sortByPriceHighToLowTextOptionValue);
+            let productNames = StorePage.sortName(StorePage.sortByPriceHighToLowTextOptionValue);
             cy.get<StoreSortingTD>('@store').then((data) => {
                 expect(productNames).to.deep
                     .equal(data.sortByPriceHighToLow);
@@ -66,12 +66,12 @@ describe('Store Page', () => {
         });
 
         it('7. After selecting the "Sort by price: low to high", the product prices should be sorted according to price from low to high', () => {
-            let isPriceSorted = StorePage.priceSorted(StorePage.sortByPriceLowToHighTextOptionValue);
+            let isPriceSorted = StorePage.sortPrice(StorePage.sortByPriceLowToHighTextOptionValue);
             expect(isPriceSorted).to.be.true;
         });
 
         it('8. After selecting the "Sort by price: high to low", the products prices should be sorted according to price from high to low', () => {
-            let isPriceSorted = StorePage.priceSorted(StorePage.sortByPriceHighToLowTextOptionValue);
+            let isPriceSorted = StorePage.sortPrice(StorePage.sortByPriceHighToLowTextOptionValue);
             expect(isPriceSorted).to.be.true;
         });
     });

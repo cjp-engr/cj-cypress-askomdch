@@ -42,17 +42,17 @@ Done - 6. After filtering the price to "$60 - $100" and selecting the "Sort by p
 Done - 7. After filtering the price to "$10" and selecting the "Default sorting", the products should be sorted in alphabetically and ascending order
 
 Add to Cart
-1. After clicking the "add to cart" multiple times for a single product, the cart badge should be updated
-2. After clicking the "add to cart" to random products once, the cart badge should be updated
-3. After clicking the "add to cart" multiple times to random products, the cart badge should be updated
-4. After clicking the "add to cart" multiple times for a single product, the added product should be displayed correctly in the cart list
-5. After clicking the "add to cart" to random products once, the added product should be displayed correctly in the cart list
-6. After clicking the "add to cart" multiple times to random products, the added products should be displayed correctly in the cart list 
-7. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button below the Add to Cart button
-8. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button in the cart list
-9. Adding a product, the user should be redirected to Checkout page after clicking the Checkout button in the cart list
-10. After adding a single product, the subtotal should be computed correctly
-11. After adding products, the subtotal should be computed correctly
+Done - 1. After clicking the "add to cart" multiple times for a single product, the cart badge should be updated
+Done - 2. After clicking the "add to cart" to random products once, the cart badge should be updated
+Done - 3. After clicking the "add to cart" multiple times to random products, the cart badge should be updated
+Done - 4. After clicking the "add to cart" multiple times for a single product, the added product should be displayed correctly in the cart list
+Done - 5. After clicking the "add to cart" to random products once, the added product should be displayed correctly in the cart list
+Done - 6. After clicking the "add to cart" multiple times to random products, the added products should be displayed correctly in the cart list 
+Done - 7. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button below the Add to Cart button
+Done - 8. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button in the cart list
+Done - 9. Adding a product, the user should be redirected to Checkout page after clicking the Checkout button in the cart list
+Done - 10. After adding a single product, the subtotal should be computed correctly
+Done - 11. After adding products, the subtotal should be computed correctly
 
 Display
 1. All the images should be not broken and displayed correctly

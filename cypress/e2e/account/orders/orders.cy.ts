@@ -22,7 +22,7 @@ describe('Account Orders Page', () => {
             AccountOrdersPage.orderTableFindElement
                 .then((row) => {
                     for (let x = 1; x <= row.length; x++) {
-                        AccountOrdersPage.checkDate(x);
+                        AccountOrdersPage.isActualDateMatchExpected(x);
                     }
                 });
         });
@@ -31,7 +31,7 @@ describe('Account Orders Page', () => {
             AccountOrdersPage.orderTableFindElement
                 .then((row) => {
                     for (let x = 1; x <= row.length; x++) {
-                        AccountOrdersPage.checkStatus(x);
+                        AccountOrdersPage.isActualOrderStatusMatchExpected(x);
                     }
                 });
         });
@@ -40,7 +40,7 @@ describe('Account Orders Page', () => {
             AccountOrdersPage.orderTableFindElement
                 .then((row) => {
                     for (let x = 1; x <= row.length; x++) {
-                        AccountOrdersPage.checkTotal(x);
+                        AccountOrdersPage.isActualTotalMatchExpected(x);
                     }
                 });
         });

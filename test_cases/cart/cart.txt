@@ -1,0 +1,34 @@
+1. After the user added a product to cart, the product name should be displayed correctly
+2. After the user added a product to cart, the product price should be displayed correctly
+3. After the user added a product to cart, the product quantity should be displayed correctly
+4. After the user added a product to cart, the product subtotal should be displayed correctly
+5. After the user added products to cart, each product name should be displayed correctly
+6. After the user added products to cart, each product price should be displayed correctly
+7. After the user added products to cart, each product quantity should be displayed correctly
+8. After the user added products to cart, each product subtotal should be displayed correctly
+
+9. After the user updated the quantity of random product, the "update cart" should be enabled
+10. If the user did not update the quantity of random product, the "update cart" should be disabled
+11. If the user deleted a product, it should display “Product name” removed. Undo?
+12. If the user clicked the Undo button, the product should be listed again
+13. The Flat rate should display "$5.00" if the address is in US
+14. The Flat rate should display "$10.00" if the address is outside US
+
+15. After the user selected a country and clicked the update button, the update should display
+16. After the user clicked the country field and entered a keyword, any match should display in the list
+17. After the user selected a state and clicked the update button, the update should display
+18. After the user clicked the state field and entered a keyword, any match should display in the list
+19. After the user entered a city and clicked the update button, the update should display
+20. After the user entered a zip and clicked the update button, the update should display
+
+21. The subtotal should be computed correctly after deleting a product
+22. The subtotal should be computed correctly after deleting products
+23. The subtotal should be computed correctly after updating a product's quantity
+24. The subtotal should be computed correctly after updating each product's quantity
+
+25. The total should be computed correctly after deleting a product
+26. The total should be computed correctly after deleting products
+27. The total should be computed correctly after updating a product's quantity
+28. The total should be computed correctly after updating each product's quantity
+29. The total should be computed correctly after selecting a US country
+30. The total should be computed correctly after selecting not a US country

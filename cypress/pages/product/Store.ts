@@ -4,7 +4,7 @@ import { Products } from "./00_Products";
 
 class Store extends Products {
 
-    nameSorted(optionValue: string): string[] {
+    sortName(optionValue: string): string[] {
         let productNames: string[] = [];
         let pageTwoFirstIndex: number;
         StorePage.sortingFieldElement.select(optionValue);
@@ -45,7 +45,7 @@ class Store extends Products {
         });
     }
 
-    priceSorted(optionValue: string): boolean {
+    sortPrice(optionValue: string): boolean {
         let productPrices: string[] = [];
         let productPricesNum: number[] = [];
         let pageTwoFirstIndex: number;
@@ -109,7 +109,7 @@ class Store extends Products {
     }
 
 
-    convertedToNumberPriceList(): number[] {
+    convertStringToNumberPriceList(): number[] {
         let productPrices: string[] = [];
         let productPricesNum: number[] = [];
 
@@ -147,7 +147,7 @@ class Store extends Products {
         });
     }
 
-    productsAddedToCart(product: string, numberOfClicks: number) {
+    addProductToCart(product: string, numberOfClicks: number) {
         cy.get('.add_to_cart_button').each(($el, index, list) => {
 
             cy.wrap($el).invoke('attr', 'aria-label')
@@ -163,30 +163,58 @@ class Store extends Products {
         });
     }
 
-    checkProductDetailsInCartList(index: number, productName: string, quantity: number, price: string) {
-        this.checkProductNameInCartList(index, productName);
-        this.checkProductQuantityInCartList(index, quantity);
-        this.checkProductPriceInCartList(index, price);
+    isActualDetailsMatchExpected(index: number, productName: string, quantity: number, price: string) {
+        this.isActualNameMatchExpected(index, productName);
+        this.isActualQuantityMatchExpected(index, quantity);
+        this.isActualPriceMatchExpected(index, price);
     }
 
-    checkProductNameInCartList(index: number, productName: string) {
+    isActualNameMatchExpected(index: number, productName: string) {
         StorePage.setProductIndex = index;
         StorePage.dynamicCartListProductName.each(($el, index, list) => {
             expect($el.text().trim()).to.equal(productName);
         });
     }
 
-    checkProductQuantityInCartList(index: number, quantity: number) {
+    isActualQuantityMatchExpected(index: number, quantity: number) {
         StorePage.setProductIndex = index;
         StorePage.dynamicCartListProductQuantity.each(($el, index, list) => {
             expect(Number($el.text().trim().split(' ')[0])).to.equal(quantity);
         });
     }
 
-    checkProductPriceInCartList(index: number, price: string) {
+    isActualPriceMatchExpected(index: number, price: string) {
         StorePage.setProductIndex = index;
         StorePage.dynamicCartListProductPrice.each(($el, index, list) => {
             expect($el.text().trim()).to.equal(price);
+        });
+    }
+
+    isActualSubtotalMatchExpected() {
+        let subtotal: number = 0;
+        StorePage.cartAllProductDetailsElement.then(($body) => {
+            if ($body.find('li').length > 0) {
+                StorePage.cartAllProductDetailsElement.find('li')
+                    .then((row) => {
+                        if (row.length != 0) {
+                            cy.wrap(row.length).then(() => {
+                                for (let i = 1; i <= row.length; i++) {
+                                    cy.wrap(i).then(() => {
+                                        StorePage.setProductIndex = i;
+                                        StorePage.dynamicCartListProductPrice.each(($el, index, list) => {
+                                            subtotal += (Number($el.text().replace('$', '')) * 4);
+                                            if (i == row.length) {
+                                                cy.log(subtotal.toString());
+                                                expect(subtotal).to.be.equal(872);
+                                            }
+                                        });
+
+                                    });
+                                }
+                            });
+                        }
+                    });
+            }
         });
     }
 
