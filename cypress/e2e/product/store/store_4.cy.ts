@@ -20,10 +20,12 @@ describe('Store Page', () => {
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
-                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                        expect(StorePage.convertStringToNumberPriceList()[i]).to.be.within(minPrice, maxPrice);
                     })
                 }
             });
+
+
 
         });
 
@@ -43,6 +45,7 @@ describe('Store Page', () => {
                     })
                 }
             });
+
         });
 
         it('3. After filtering the price to "$10", all the products that are worth $10 should be displayed', () => {
@@ -61,6 +64,7 @@ describe('Store Page', () => {
                     })
                 }
             });
+
         });
 
         it('4. After filtering the price to "$100", all the products that are worth $100 should be displayed', () => {
@@ -70,6 +74,7 @@ describe('Store Page', () => {
             StorePage.sliderLeftToRight(9);
             StorePage.sliderRightToLeft(5);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
+            priceList = StorePage.convertStringToNumberPriceList();
 
             cy.wrap(priceList.length).then(() => {
                 for (let i = 0; i < priceList.length; i++) {

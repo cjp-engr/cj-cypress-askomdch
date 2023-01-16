@@ -20,7 +20,7 @@ describe('Cart Page', () => {
 
         });
 
-        it.only('1. After the user added a product to cart, the product name should be displayed correctly', function () {
+        it('1. After the user added a product to cart, the product name should be displayed correctly', function () {
             const productCount: number = 5;
 
             StorePage.addProductToCart(`“${this.data[0].name}”`, productCount);
