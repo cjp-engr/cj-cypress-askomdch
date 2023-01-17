@@ -1,11 +1,11 @@
-1. After the user added a product to cart, the product name should be displayed correctly
-2. After the user added a product to cart, the product price should be displayed correctly
-3. After the user added a product to cart, the product quantity should be displayed correctly
-4. After the user added a product to cart, the product subtotal should be displayed correctly
-5. After the user added products to cart, each product name should be displayed correctly
-6. After the user added products to cart, each product price should be displayed correctly
-7. After the user added products to cart, each product quantity should be displayed correctly
-8. After the user added products to cart, each product subtotal should be displayed correctly
+Done - 1. After the user added a product to cart, the product name should be displayed correctly
+Done - 2. After the user added a product to cart, the product price should be displayed correctly
+Done - 3. After the user added a product to cart, the product quantity should be displayed correctly
+Done - 4. After the user added a product to cart, the product subtotal should be displayed correctly
+Done - 5. After the user added products to cart, each product name should be displayed correctly
+Done - 6. After the user added products to cart, each product price should be displayed correctly
+Done - 7. After the user added products to cart, each product quantity should be displayed correctly
+Done - 8. After the user added products to cart, each product subtotal should be displayed correctly
 
 9. After the user updated the quantity of random product, the "update cart" should be enabled
 10. If the user did not update the quantity of random product, the "update cart" should be disabled

@@ -28,11 +28,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.defaultSorting60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.defaultSorting60to100);
             });
 
 
@@ -52,11 +50,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.sortPopularity60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.sortPopularity60to100);
             });
 
 
@@ -76,11 +72,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.sortByAverageRating60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.sortByAverageRating60to100);
             });
 
         });
@@ -99,11 +93,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.sortByLatest60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.sortByLatest60to100);
             });
 
         });
@@ -122,11 +114,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.sortByPriceLowToHigh60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.sortByPriceLowToHigh60to100);
             });
 
         });
@@ -136,9 +126,7 @@ describe('Store Page', () => {
             StorePage.sliderRightToLeft(this.sliderMoveToLeft);
             StorePage.sliderLeftToRight(this.sliderMoveToRight);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            // productNames = StorePage.sortName(StorePage.sortByPriceHighToLowTextOptionValue);
             cy.wrap(StorePage.sortName(StorePage.sortByPriceHighToLowTextOptionValue)).as('productNames');
-            // priceList = StorePage.convertStringToNumberPriceList();
             cy.wrap(StorePage.convertStringToNumberPriceList()).then((priceList) => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
@@ -146,11 +134,9 @@ describe('Store Page', () => {
                     });
                 }
             });
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.sortByPriceHighToLow60to100);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.sortByPriceHighToLow60to100);
             });
 
         });
@@ -172,11 +158,9 @@ describe('Store Page', () => {
                 }
             });
 
-            cy.get('@productNames').then(function (value) {
-                cy.get<StoreSortingTD>('@store').then((data) => {
-                    expect(value).to.deep
-                        .equal(data.defaultSorting10);
-                });
+            cy.get<StoreSortingTD>('@store').then((data) => {
+                expect(this.productNames).to.deep
+                    .equal(data.defaultSorting10);
             });
 
         });

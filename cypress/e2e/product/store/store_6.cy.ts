@@ -12,116 +12,128 @@ describe('Store Page', () => {
                 });
             cy.login();
             StorePage.navigationBarStoreElement.click();
-
             StorePage.cartButtonElement.realHover();
             StorePage.emptyTheCartIfNotEmpty();
             StorePage.sortingFieldElement.select(StorePage.defaultSortingTextOptionValue);
         });
 
         it('1. After clicking the "add to cart" multiple times for a single product, the cart badge should be updated', function () {
-            const numberOfClicks: number = 5;
 
-            StorePage.addProductToCart(`“${this.data[0].name}”`, numberOfClicks);
-            cy.wait(1000);
+            cy.wrap(7).as('numberOfClicks').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[0].name}”`, quantity);
+            });
+
+            cy.wait(1500);
             StorePage.getCartBadgeTotalItems.each(($el, index, $list) => {
-                expect(Number($el.text().trim())).to.equal(numberOfClicks);
+                expect(Number($el.text().trim())).to.equal(this.numberOfClicks);
             });
 
         });
 
         it('2. After clicking the "add to cart" to random products once, the cart badge should be updated', function () {
-            const numberOfClicks: number = 1;
 
-            StorePage.addProductToCart(`“${this.data[0].name}”`, numberOfClicks);
-            StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, numberOfClicks);
-            StorePage.addProductToCart(`“${this.data[2].name}”`, numberOfClicks);
-            StorePage.addProductToCart(`“${this.data[3].name}”`, numberOfClicks);
+            cy.wrap(1).as('numberOfClicks').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[0].name}”`, quantity);
+                StorePage.pageTwoButtonElement.click();
+                StorePage.addProductToCart(`“${this.data[1].name}”`, quantity);
+                StorePage.addProductToCart(`“${this.data[2].name}”`, quantity);
+                StorePage.addProductToCart(`“${this.data[3].name}”`, quantity);
+            });
+
             cy.wait(1000);
             StorePage.getCartBadgeTotalItems.each(($el, index, $list) => {
-                expect(Number($el.text().trim())).to.equal(numberOfClicks * 4);
+                expect(Number($el.text().trim())).to.equal(this.numberOfClicks * 4);
             });
         });
 
         it('3. After clicking the "add to cart" multiple times to random products, the cart badge should be updated', function () {
-            const blueTShirtCount: number = 1;
-            const redShoesCount: number = 2;
-            const denimBlueJeansCount: number = 2;
-            const faintBlueJeansCount: number = 4;
-
-            const totalItems: number = blueTShirtCount + redShoesCount + denimBlueJeansCount + faintBlueJeansCount;
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, redShoesCount);
+            cy.wrap(2).as('redShoesCount').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[1].name}”`, quantity);
+            });
+
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[3].name}”`, faintBlueJeansCount);
+            cy.wrap(4).as('faintBlueJeansCount').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[3].name}”`, quantity);
+            });
+
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[2].name}”`, denimBlueJeansCount);
+            cy.wrap(2).as('denimBlueJeansCount').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[2].name}”`, quantity);
+            });
+
             StorePage.pageOneButtonElement.click();
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[0].name}”`, blueTShirtCount);
+            cy.wrap(1).as('blueTShirtCount').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[0].name}”`, quantity);
+            });
+
             cy.wait(1000);
             StorePage.getCartBadgeTotalItems.each(($el, index, $list) => {
-                expect(Number($el.text().trim())).to.equal(totalItems);
+                expect(Number($el.text().trim())).to.equal(this.blueTShirtCount + this.redShoesCount + this.denimBlueJeansCount + this.faintBlueJeansCount);
             });
         });
 
         it('4. After clicking the "add to cart" multiple times for a single product, the added product should be displayed correctly in the cart list', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(4).as('numberOfItems');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[3].name}”`, numberOfItems);
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.numberOfItems);
             cy.wait(1000);
             StorePage.cartButtonElement.realHover();
-            StorePage.isActualDetailsMatchExpected(1, this.data[3].name, numberOfItems, this.data[3].price);
+            StorePage.isActualDetailsMatchExpected(1, this.data[3].name, this.numberOfItems, this.data[3].price);
         });
 
         it('5. After clicking the "add to cart" to random products once, the added product should be displayed correctly in the cart list', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(1).as('numberOfItems').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[0].name}”`, quantity);
+                StorePage.pageTwoButtonElement.click();
+                StorePage.addProductToCart(`“${this.data[1].name}”`, quantity);
+                StorePage.addProductToCart(`“${this.data[2].name}”`, quantity);
+                StorePage.addProductToCart(`“${this.data[3].name}”`, quantity);
+            });
 
-            StorePage.addProductToCart(`“${this.data[0].name}”`, 1);
-            StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, 1);
-            StorePage.addProductToCart(`“${this.data[2].name}”`, 1);
-            StorePage.addProductToCart(`“${this.data[3].name}”`, 1);
             cy.wait(1000);
             StorePage.cartButtonElement.realHover();
-            StorePage.isActualDetailsMatchExpected(1, this.data[0].name, 1, this.data[0].price);
-            StorePage.isActualDetailsMatchExpected(2, this.data[1].name, 1, this.data[1].price);
-            StorePage.isActualDetailsMatchExpected(3, this.data[2].name, 1, this.data[2].price);
-            StorePage.isActualDetailsMatchExpected(4, this.data[3].name, 1, this.data[3].price);
+            StorePage.isActualDetailsMatchExpected(1, this.data[0].name, this.numberOfItems, this.data[0].price);
+            StorePage.isActualDetailsMatchExpected(2, this.data[1].name, this.numberOfItems, this.data[1].price);
+            StorePage.isActualDetailsMatchExpected(3, this.data[2].name, this.numberOfItems, this.data[2].price);
+            StorePage.isActualDetailsMatchExpected(4, this.data[3].name, this.numberOfItems, this.data[3].price);
 
         });
 
         it('6. After clicking the "add to cart" multiple times to random products, the added products should be displayed correctly in the cart list', function () {
-            const blueShirt: number = 1;
-            const redShoes: number = 2;
-            const denimBlueJeans: number = 2;
-            const faintBlueJeans: number = 4;
-            const totalItems: number = blueShirt + redShoes + denimBlueJeans + faintBlueJeans;
+            cy.wrap(1).as('blueTShirtCount');
+            cy.wrap(2).as('redShoesCount');
+            cy.wrap(2).as('denimBlueJeansCount');
+            cy.wrap(4).as('faintBlueJeansCount');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, redShoes);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.redShoes);
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[3].name}”`, faintBlueJeans);
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.faintBlueJeans);
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[2].name}”`, denimBlueJeans);
+            StorePage.addProductToCart(`“${this.data[2].name}”`, this.denimBlueJeans);
 
             StorePage.pageOneButtonElement.click();
             cy.wait(1000);
-            StorePage.addProductToCart(`“${this.data[0].name}”`, blueShirt);
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.blueShirt);
             cy.wait(1000);
 
             StorePage.cartButtonElement.realHover();
-            StorePage.isActualDetailsMatchExpected(1, this.data[1].name, redShoes, this.data[1].price);
-            StorePage.isActualDetailsMatchExpected(2, this.data[3].name, faintBlueJeans, this.data[3].price);
-            StorePage.isActualDetailsMatchExpected(3, this.data[2].name, denimBlueJeans, this.data[2].price);
-            StorePage.isActualDetailsMatchExpected(4, this.data[0].name, blueShirt, this.data[0].price);
+            StorePage.isActualDetailsMatchExpected(1, this.data[1].name, this.redShoes, this.data[1].price);
+            StorePage.isActualDetailsMatchExpected(2, this.data[3].name, this.faintBlueJeans, this.data[3].price);
+            StorePage.isActualDetailsMatchExpected(3, this.data[2].name, this.denimBlueJeans, this.data[2].price);
+            StorePage.isActualDetailsMatchExpected(4, this.data[0].name, this.blueShirt, this.data[0].price);
         });
 
         it('7. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button below the Add to Cart button', function () {
-            const numberOfItems: number = 4;
-            StorePage.addProductToCart(`“${this.data[0].name}”`, numberOfItems);
+
+            cy.wrap(4).as('numberOfItems').then((quantity) => {
+                StorePage.addProductToCart(`“${this.data[0].name}”`, quantity);
+            });
+
             StorePage.allViewCartButtonElement.click();
             cy.url().then((url) => {
                 expect(url).to.be.equal(`${Cypress.env('onlineStore')}cart/`);
@@ -129,10 +141,10 @@ describe('Store Page', () => {
         });
 
         it('8. Adding a product, the user should be redirected to View Cart page after clicking the View Cart button in the cart list', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(4).as('numberOfItems');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[2].name}”`, numberOfItems);
+            StorePage.addProductToCart(`“${this.data[2].name}”`, this.numberOfItems);
             StorePage.cartButtonElement.realHover();
             StorePage.cartButtonElement.click();
             cy.url().then((url) => {
@@ -141,10 +153,10 @@ describe('Store Page', () => {
         });
 
         it('9. Adding a product, the user should be redirected to Checkout page after clicking the Checkout button in the cart list', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(4).as('numberOfItems');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, numberOfItems);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.numberOfItems);
             StorePage.cartButtonElement.realHover();
             StorePage.cartCheckoutButtonElement.click();
             cy.url().then((url) => {
@@ -153,20 +165,20 @@ describe('Store Page', () => {
         });
 
         it('10. After adding a single product, the subtotal should be computed correctly', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(4).as('numberOfItems');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, numberOfItems);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.numberOfItems);
             StorePage.isActualPriceMatchExpected(1, this.data[1].price);
         });
 
         it('11. After adding products, the subtotal should be computed correctly', function () {
-            const numberOfItems: number = 4;
+            cy.wrap(4).as('numberOfItems');
 
             StorePage.pageTwoButtonElement.click();
-            StorePage.addProductToCart(`“${this.data[1].name}”`, numberOfItems);
-            StorePage.addProductToCart(`“${this.data[3].name}”`, numberOfItems);
-            StorePage.addProductToCart(`“${this.data[2].name}”`, numberOfItems);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.numberOfItems);
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.numberOfItems);
+            StorePage.addProductToCart(`“${this.data[2].name}”`, this.numberOfItems);
             StorePage.cartButtonElement.realHover();
             cy.wait(1000);
             StorePage.isActualSubtotalMatchExpected();

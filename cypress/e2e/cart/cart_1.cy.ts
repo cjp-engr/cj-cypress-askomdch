@@ -6,12 +6,12 @@ describe('Cart Page', () => {
     describe('Adding a single product', () => {
 
         beforeEach(function () {
-
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")
                 .then((data) => {
                     this.data = data;
                 });
+            cy.wrap(5).as('quantity');
             cy.login();
             StorePage.navigationBarStoreElement.click();
             StorePage.cartButtonElement.realHover();
@@ -21,31 +21,29 @@ describe('Cart Page', () => {
         });
 
         it('1. After the user added a product to cart, the product name should be displayed correctly', function () {
-            const productCount: number = 5;
 
-            StorePage.addProductToCart(`“${this.data[0].name}”`, productCount);
-            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            cy.wait(1000);
-            CartPage.isActualSingleProductMatchExpected(this.data[0].name);
+            CartPage.isActualProductNameMatchExpected(this.data[0].name, 1);
         });
 
         it('2. After the user added a product to cart, the product price should be displayed correctly', function () {
-            const productCount: number = 5;
 
-            StorePage.addProductToCart(`“${this.data[0].name}”`, productCount);
-            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            cy.wait(1000);
-            CartPage.isActualSingleProductPriceMatchExpected(this.data[0].price);
+            CartPage.isActualProductPriceMatchExpected(this.data[0].price, 1);
         });
 
-        it('3. After the user added a product to cart, the product quantity should be displayed correctly', () => {
-
+        it('3. After the user added a product to cart, the product quantity should be displayed correctly', function () {
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
+            CartPage.isActualProductQuantityMatchExpected(this.quantity, 1);
         });
 
-        it('4. After the user added a product to cart, the product subtotal should be displayed correctly', () => {
-
+        it('4. After the user added a product to cart, the product subtotal should be displayed correctly', function () {
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
+            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
         });
 
 
@@ -53,32 +51,65 @@ describe('Cart Page', () => {
 
     describe('Adding a multiple products', () => {
         beforeEach(function () {
-            const numberOfClicks: number = 5;
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")
                 .then((data) => {
                     this.data = data;
                 });
+            cy.wrap(5).as('quantity');
             cy.login();
             StorePage.navigationBarStoreElement.click();
             StorePage.cartButtonElement.realHover();
             StorePage.emptyTheCartIfNotEmpty();
             StorePage.sortingFieldElement.select(StorePage.defaultSortingTextOptionValue);
         });
-        it('5. After the user added products to cart, each product name should be displayed correctly', () => {
+        it('5. After the user added products to cart, each product name should be displayed correctly', function () {
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
+            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
+
+            CartPage.isActualProductNameMatchExpected(this.data[0].name, 1);
+            CartPage.isActualProductNameMatchExpected(this.data[1].name, 2);
+            CartPage.isActualProductNameMatchExpected(this.data[2].name, 3);
+            CartPage.isActualProductNameMatchExpected(this.data[3].name, 4);
 
         });
 
-        it('6. After the user added products to cart, each product price should be displayed correctly', () => {
+        it('6. After the user added products to cart, each product price should be displayed correctly', function () {
+            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
 
+            CartPage.isActualProductPriceMatchExpected(this.data[1].price, 1);
+            CartPage.isActualProductPriceMatchExpected(this.data[2].price, 2);
+            CartPage.isActualProductPriceMatchExpected(this.data[3].price, 3);
         });
 
-        it('7. After the user added products to cart, each product quantity should be displayed correctly', () => {
+        it('7. After the user added products to cart, each product quantity should be displayed correctly', function () {
+            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
 
+            CartPage.isActualProductQuantityMatchExpected(this.quantity, 1);
+            CartPage.isActualProductQuantityMatchExpected(this.quantity, 2);
         });
 
-        it('8. After the user added products to cart, each product subtotal should be displayed correctly', () => {
+        it('8. After the user added products to cart, each product subtotal should be displayed correctly', function () {
+            StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
+            StorePage.pageTwoButtonElement.click();
+            StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
+            StorePage.cartButtonElement.click();
 
+            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
+            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[3].price, 2);
+            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[1].price, 3);
         });
     });
 });

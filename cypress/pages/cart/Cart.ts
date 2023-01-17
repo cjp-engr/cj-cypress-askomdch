@@ -109,44 +109,92 @@ class Cart extends Main {
         return cy.get(this.productsList);
     }
 
-    isActualSingleProductMatchExpected(productName: string) {
+    isActualProductNameMatchExpected(productName: string, nthChild: number) {
+        // cy.wrap("td[class='product-name'] > a").as('locator')
+        let locator = "td[class='product-name'] > a";
         this.productsListElement.then(($body) => {
-            if ($body.find("td[class='product-name'] > a").length > 0) {
-                //element exists do something
-                this.productsListElement.find("td[class='product-name'] > a")
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
                     .then((row) => {
                         if (row.length != 0) {
-                            for (let x = 1; x <= row.length; x++) {
-                                cy.get(`:nth-child(${x}) > .product-name > a`).each(($el, index, $list) => {
-                                    expect($el.text()).to.be.equal(productName);
-                                });
-                            }
+                            cy.get(`:nth-child(${nthChild}) > ${locator}`).then(($el) => {
+                                expect($el.text()).to.be.equal(productName);
+                            });
                         }
                     });
-            } else {
-            }
+            } else { }
         });
     }
 
-    isActualSingleProductPriceMatchExpected(productPrice: number) {
+    isActualProductPriceMatchExpected(productPrice: string, nthChild: number) {
+        let locator = "td[class='product-price'] > span";
         this.productsListElement.then(($body) => {
-            if ($body.find("td[class='product-price'] > span").length > 0) {
-                //element exists do something
-                this.productsListElement.find("td[class='product-price'] > span")
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
                     .then((row) => {
                         if (row.length != 0) {
-                            for (let x = 1; x <= row.length; x++) {
-                                cy.get(`:nth-child(${x}) > td[class='product-price'] > span`).each(($el, index, $list) => {
-                                    if (x == row.length) {
-                                        expect($el.text().trim()).to.be.equal(productPrice);
-                                    }
-
-                                });
-                            }
+                            cy.get(`:nth-child(${nthChild}) > ${locator}`).then(($el) => {
+                                expect($el.text().trim()).to.be.equal(productPrice);
+                            });
                         }
                     });
-            } else {
-            }
+            } else { }
+        });
+    }
+
+    isActualProductQuantityMatchExpected(productQuantity: number, nthChild: number) {
+        let locator = "td[class='product-quantity'] .quantity input[title='Qty']";
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .then((row) => {
+                        if (row.length != 0) {
+                            cy.get(`:nth-child(${nthChild}) > ${locator}`)
+                                .invoke('val')
+                                .then((value) => {
+                                    expect(value.toString()).to.be.equal(productQuantity.toString());
+                                });
+                        }
+                    });
+            } else { }
+        });
+    }
+
+    isActualProductSubtotalMatchExpected(productQuantity: number, productPrice: string, nthChild: number) {
+        let locator = "td[class='product-subtotal'] > span > bdi";
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .then((row) => {
+                        if (row.length != 0) {
+                            cy.get(`:nth-child(${nthChild}) > ${locator}`)
+                                .then(($el) => {
+                                    expect(Number($el.text().trim().replace('$', ''))).to.be.equal(productQuantity * Number(productPrice.replace('$', '')));
+                                });
+                        }
+                    });
+            } else { }
+        });
+    }
+
+    isActualMultipleProductMatchExpected(productName: string[]) {
+        // cy.wrap("td[class='product-name'] > a").as('locator')
+        let locator = "td[class='product-name'] > a";
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .then((row) => {
+                        if (row.length != 0) {
+                            for (let x = 1; x <= 4; x++) {
+                                cy.get(`:nth-child(${x}) > ${locator}`).then(($el) => {
+                                    expect($el.text()).to.be.equal(productName);
+                                });
+
+                            }
+
+                        }
+                    });
+            } else { }
         });
     }
 }
