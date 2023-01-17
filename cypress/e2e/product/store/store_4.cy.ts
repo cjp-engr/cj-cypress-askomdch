@@ -8,78 +8,65 @@ describe('Store Page', () => {
             StorePage.navigationBarStoreElement.click();
         });
 
-        it('1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed', () => {
-            let minPrice: number = 10;
-            let maxPrice: number = 30;
-            let priceList: number[] = [];
+        it('1. After filtering the price to "$10 - $30", all the products within the $10 - $30 should be displayed', function () {
+            cy.wrap(10).as('minPrice');
+            cy.wrap(30).as('maxPrice');
 
             StorePage.sliderRightToLeft(12);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertStringToNumberPriceList();
-
-            cy.wrap(priceList.length).then(() => {
+            cy.wrap(StorePage.convertStringToNumberPriceList()).then((priceList) => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
-                        expect(StorePage.convertStringToNumberPriceList()[i]).to.be.within(minPrice, maxPrice);
+                        expect(priceList[i]).to.be.within(this.minPrice, this.maxPrice);
                     })
                 }
             });
-
-
-
         });
 
-        it('2. After filtering the price to "$140 - $150", all the products within the $140 - $150 should be displayed', () => {
-            let minPrice: number = 140;
-            let maxPrice: number = 150;
-            let priceList: number[] = [];
+        it('2. After filtering the price to "$140 - $150", all the products within the $140 - $150 should be displayed', function () {
+            cy.wrap(140).as('minPrice');
+            cy.wrap(150).as('maxPrice');
 
             StorePage.sliderLeftToRight(13);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertStringToNumberPriceList();
 
-            cy.wrap(priceList.length).then(() => {
+            cy.wrap(StorePage.convertStringToNumberPriceList()).then((priceList) => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
-                        expect(priceList[i]).to.be.within(minPrice, maxPrice);
+                        expect(priceList[i]).to.be.within(this.minPrice, this.maxPrice);
                     })
                 }
             });
 
         });
 
-        it('3. After filtering the price to "$10", all the products that are worth $10 should be displayed', () => {
-            let minPrice: number = 10;
-            let maxPrice: number = 10;
-            let priceList: number[] = [];
+        it('3. After filtering the price to "$10", all the products that are worth $10 should be displayed', function () {
+            cy.wrap(10).as('price');
 
             StorePage.sliderRightToLeft(14);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertStringToNumberPriceList();
 
-            cy.wrap(priceList.length).then(() => {
+            cy.wrap(StorePage.convertStringToNumberPriceList()).then((priceList) => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
-                        expect(priceList[i]).to.be.least(minPrice);
+                        expect(priceList[i]).to.be.least(this.price);
                     })
                 }
             });
 
         });
 
-        it('4. After filtering the price to "$100", all the products that are worth $100 should be displayed', () => {
-            let minPrice: number = 100;
-            let maxPrice: number = 100;
-            let priceList: number[] = [];
+        it('4. After filtering the price to "$100", all the products that are worth $100 should be displayed', function () {
+            cy.wrap(100).as('price');
+
             StorePage.sliderLeftToRight(9);
             StorePage.sliderRightToLeft(5);
             StorePage.filterByPriceButtonElement.contains('Filter').click();
-            priceList = StorePage.convertStringToNumberPriceList();
 
-            cy.wrap(priceList.length).then(() => {
+            cy.wrap(StorePage.convertStringToNumberPriceList()).then((priceList) => {
                 for (let i = 0; i < priceList.length; i++) {
                     cy.wrap(i).then(() => {
-                        expect(priceList[i]).to.be.least(minPrice);
+                        expect(priceList[i]).to.be.least(this.price);
                     })
                 }
             });

@@ -79,7 +79,6 @@ class Store extends Products {
             }
         });
 
-        console.log(productPricesNum);
         if (optionValue == StorePage.sortByPriceLowToHighTextOptionValue) {
             isSorted = productPricesNum.sort() === productPricesNum;
 

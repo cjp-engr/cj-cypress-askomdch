@@ -1,6 +1,6 @@
 import { StorePage } from "../../../pages/product/Store";
 import { StoreProductListTD } from "../../model";
-let tae: number = 0;
+
 describe('Store Page', () => {
     describe('Add to Cart Scenario', () => {
 
@@ -19,7 +19,6 @@ describe('Store Page', () => {
         });
 
         it('1. After clicking the "add to cart" multiple times for a single product, the cart badge should be updated', function () {
-            const productName: string = 'Blue Tshirt';
             const numberOfClicks: number = 5;
 
             StorePage.addProductToCart(`“${this.data[0].name}”`, numberOfClicks);
