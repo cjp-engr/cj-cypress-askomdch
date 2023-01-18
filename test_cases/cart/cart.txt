@@ -21,14 +21,18 @@ Done - 18. After the user clicked the state field and entered a keyword, any mat
 Done - 19. After the user entered a city and clicked the update button, the update should display
 Done - 20. After the user entered a zip and clicked the update button, the update should display
 
-21. The subtotal should be computed correctly after deleting a product
-22. The subtotal should be computed correctly after deleting products
-23. The subtotal should be computed correctly after updating a product's quantity
-24. The subtotal should be computed correctly after updating each product's quantity
+21. The cart subtotal should be computed correctly after deleting a product
+22. The cart subtotal should be computed correctly after deleting products
+23. The cart subtotal should be computed correctly after updating a product's quantity
+24. The cart subtotal should be computed correctly after updating each product's quantity
+25. The cart subtotal should be computed correctly after adding the products
+26. The cart subtotal should be computed correctly after adding a product
+27. The product subtotal should be computed correctly after updating a product's quantity
+28. The product subtotal should be computed correctly after updating each product's quantity
 
-25. The total should be computed correctly after deleting a product
-26. The total should be computed correctly after deleting products
-27. The total should be computed correctly after updating a product's quantity
-28. The total should be computed correctly after updating each product's quantity
-29. The total should be computed correctly after selecting a US country
-30. The total should be computed correctly after selecting not a US country
+29. The total should be computed correctly after deleting a product
+30. The total should be computed correctly after deleting products
+31. The total should be computed correctly after updating a product's quantity
+32. The total should be computed correctly after updating each product's quantity
+33. The total should be computed correctly after selecting a US country
+34. The total should be computed correctly after selecting not a US country

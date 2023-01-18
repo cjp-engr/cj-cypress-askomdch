@@ -4,10 +4,18 @@ class Cart extends Main {
     private cartHeaderText: string = "";
     private nameText: string = "";
     private priceText: string = "";
-    private removeProductFirstButton: string = ":nth-child(1) > .product-remove > .remove";
-    private productNameFirstText: string = ":nth-child(1) > .product-name > a";
-    private productPriceFirstText: string = ":nth-child(1) > .product-price > .woocommerce-Price-amount > bdi";
-    private productSubtotalFirstText: string = ":nth-child(1) > .product-subtotal > .woocommerce-Price-amount > bdi";
+
+    private firstProductRemoveButton: string = ":nth-child(1) > .product-remove > .remove";
+    private firstProductNameText: string = ":nth-child(1) > .product-name > a";
+    private firstProductPriceText: string = ":nth-child(1) > .product-price > .woocommerce-Price-amount > bdi";
+    private firstQuantityTextField: string = ":nth-child(1) > .product-quantity > .quantity > input";
+    private firstProductSubtotalText: string = ":nth-child(1) > .product-subtotal > .woocommerce-Price-amount > bdi";
+
+    private thirdProductRemoveButton: string = ":nth-child(3) > .product-remove > .remove";
+    private thirdProductNameText: string = ":nth-child(3) > .product-name > a";
+    private thirdProductPriceText: string = ":nth-child(3) > .product-price > .woocommerce-Price-amount > bdi";
+    private thirdQuantityTextField: string = ":nth-child(3) > .product-quantity > .quantity > input";
+    private thirdProductSubtotalText: string = ":nth-child(3) > .product-subtotal > .woocommerce-Price-amount > bdi";
 
     private quantityTextField: string = "[id*='quantity']";
     private productSubtotalText: string = "";
@@ -44,20 +52,44 @@ class Cart extends Main {
         return cy.get(this.cartHeaderText);
     }
 
-    get removeProductFirstButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.removeProductFirstButton);
+    get firstProductRemoveButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstProductRemoveButton, { timeout: 5000 });
     }
 
-    get productNameFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.productNameFirstText);
+    get firstProductNameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstProductNameText);
     }
 
-    get productPriceFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.productPriceFirstText);
+    get firstProductPriceTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstProductPriceText);
     }
 
-    get productSubtotalFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.productSubtotalFirstText);
+    get firstQuantityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstQuantityTextField);
+    }
+
+    get firstProductSubtotalTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.firstProductSubtotalText);
+    }
+
+    get thirdProductRemoveButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.thirdProductRemoveButton, { timeout: 5000 });
+    }
+
+    get thirdProductNameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.thirdProductNameText);
+    }
+
+    get thirdProductPriceTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.thirdProductPriceText);
+    }
+
+    get thirdQuantityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.thirdQuantityTextField);
+    }
+
+    get thirdProductSubtotalTextTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.thirdProductSubtotalText);
     }
 
     get nameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -225,7 +257,8 @@ class Cart extends Main {
                         if (row.length != 0) {
                             cy.get(`:nth-child(${nthChild}) > ${locator}`)
                                 .then(($el) => {
-                                    expect(Number($el.text().trim().replace('$', ''))).to.be.equal(productQuantity * Number(productPrice.replace('$', '')));
+                                    expect(Number($el.text().trim().replace('$', '').replace(',', '')))
+                                        .to.be.equal(productQuantity * Number(productPrice.replace('$', '').replace(',', '')));
                                 });
                         }
                     });
@@ -249,6 +282,40 @@ class Cart extends Main {
                             }
 
                         }
+                    });
+            } else { }
+        });
+    }
+
+    isComputedMatchDisplayedCartSubtotal() {
+        let locator = "td[class='product-subtotal'] > span > bdi";
+        let computedTotal: number = 0;
+
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .each(($el, index, $list) => {
+                        computedTotal += Number($el.text().trim().replace('$', '').replace(',', ''));
+                    });
+            }
+        });
+        this.allProductsSubtotalTextElement.then(($el) => {
+            expect(Number($el.text().trim().replace('$', '').replace(',', '')))
+                .to.be.equal(computedTotal);
+        });
+    }
+
+    updateEachProductQuantity() {
+        let locator = "td[class='product-subtotal'] > span > bdi";
+        let min = 1;
+        let max = 10;
+        let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .each(($el, index, $list) => {
+                        cy.get(`:nth-child(${index + 1}) > .product-quantity > .quantity > input`)
+                            .type(`{selectAll}${randomNumber.toString()}`);
                     });
             } else { }
         });

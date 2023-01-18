@@ -2,8 +2,8 @@ import { CartPage } from "../../pages/cart/Cart";
 import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
-describe('', () => {
-    describe('', () => {
+describe('Cart Page', () => {
+    describe('Updating the address scenario', () => {
         beforeEach(function () {
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")
@@ -36,6 +36,7 @@ describe('', () => {
                 CartPage.countryFirstInListElement.click();
             });
             CartPage.updateAddressButtonElement.click();
+            cy.wait(1000);
             CartPage.shippingAddressTextElement.then(($el) => {
                 expect($el.text()).to.contain(this.countrySelected);
             });
@@ -92,7 +93,6 @@ describe('', () => {
                     cy.wrap('Testing').as('stateSelected');
                 }
                 CartPage.updateAddressButtonElement.click();
-                cy.wait(1000);
                 CartPage.shippingAddressTextElement.then(($el) => {
                     expect($el.text()).to.contain(this.stateSelected);
                 });
@@ -149,7 +149,7 @@ describe('', () => {
             });
         });
 
-        it.only('19. After the user entered a city and clicked the update button, the update should display', function () {
+        it('19. After the user entered a city and clicked the update button, the update should display', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.changeAddressButtonElement.click();
@@ -172,7 +172,6 @@ describe('', () => {
             });
 
             CartPage.updateAddressButtonElement.click();
-            cy.wait(1000);
             CartPage.shippingAddressTextElement.then(($el) => {
                 expect($el.text()).to.contain(this.city);
             });
@@ -206,7 +205,6 @@ describe('', () => {
             });
 
             CartPage.updateAddressButtonElement.click();
-            cy.wait(1000);
             CartPage.changeAddressButtonElement.click();
             CartPage.zipCodeTextFieldElement.invoke('val')
                 .then((value) => {

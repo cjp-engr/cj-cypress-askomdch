@@ -154,8 +154,8 @@ class Store extends Products {
                     if ($el.includes(product)) {
                         cy.wrap(numberOfClicks).then(() => {
                             for (let i = 0; i < numberOfClicks; i++) {
-                                cy.get(`a[aria-label='Add ${product} to your cart']`).click();
-                                cy.wait(1000);
+                                cy.get(`a[aria-label='Add ${product} to your cart']`, { timeout: 5000 }).click();
+
                             }
                         });
                     }

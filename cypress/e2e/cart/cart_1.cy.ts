@@ -3,7 +3,7 @@ import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
 describe('Cart Page', () => {
-    describe('Adding a single product', () => {
+    describe('Adding a single product Scenario', () => {
 
         beforeEach(function () {
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')

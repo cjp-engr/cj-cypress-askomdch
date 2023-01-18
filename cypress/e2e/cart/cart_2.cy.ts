@@ -2,8 +2,8 @@ import { CartPage } from "../../pages/cart/Cart";
 import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
-describe('', () => {
-    describe('', () => {
+describe('Cart Page', () => {
+    describe('Updating the details in the Cart Page Scenario', () => {
         beforeEach(function () {
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")
@@ -21,7 +21,7 @@ describe('', () => {
         it('9. After the user updated the quantity of random product, the "update cart" should be enabled', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            CartPage.quantityTextFieldElement.type('{selectAll}20');
+            CartPage.firstQuantityTextFieldElement.type('{selectAll}20');
             CartPage.updateCartButtonElement.should('be.enabled');
         });
 
@@ -34,22 +34,22 @@ describe('', () => {
         it('11. If the user deleted a product, it should display “Product name” removed. Undo?', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            CartPage.removeProductFirstButtonElement.click();
+            CartPage.firstProductRemoveButtonElement.click();
             CartPage.removeProductMessageTextElement.should('be.visible');
         });
 
         it('12. If the user clicked the Undo button, the product should be listed again', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            CartPage.removeProductFirstButtonElement.click();
+            CartPage.firstProductRemoveButtonElement.click();
             CartPage.undoButtonElement.click();
-            CartPage.productNameFirstTextElement.should('have.text', this.data[0].name);
-            CartPage.productPriceFirstTextElement.should('have.text', this.data[0].price);
-            CartPage.quantityTextFieldElement.invoke('val')
+            CartPage.firstProductNameTextElement.should('have.text', this.data[0].name);
+            CartPage.firstProductPriceTextElement.should('have.text', this.data[0].price);
+            CartPage.firstQuantityTextFieldElement.invoke('val')
                 .then((value) => {
                     expect(value.toString()).to.be.equal(this.quantity.toString());
                 });
-            CartPage.productSubtotalFirstTextElement.each(($el) => {
+            CartPage.firstProductSubtotalTextElement.each(($el) => {
                 cy.wrap(Number(this.data[0].price.replace('$', ''))).then((test) => {
                     expect(Number($el.text().replace('$', ''))).to.be.equal(test * this.quantity);
                 });
