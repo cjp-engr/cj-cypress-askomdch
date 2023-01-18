@@ -7,19 +7,19 @@ Done - 6. After the user added products to cart, each product price should be di
 Done - 7. After the user added products to cart, each product quantity should be displayed correctly
 Done - 8. After the user added products to cart, each product subtotal should be displayed correctly
 
-9. After the user updated the quantity of random product, the "update cart" should be enabled
-10. If the user did not update the quantity of random product, the "update cart" should be disabled
-11. If the user deleted a product, it should display “Product name” removed. Undo?
-12. If the user clicked the Undo button, the product should be listed again
-13. The Flat rate should display "$5.00" if the address is in US
-14. The Flat rate should display "$10.00" if the address is outside US
+Done - 9. After the user updated the quantity of random product, the "update cart" should be enabled
+Done - 10. If the user did not update the quantity of random product, the "update cart" should be disabled
+Done - 11. If the user deleted a product, it should display “Product name” removed. Undo?
+Done - 12. If the user clicked the Undo button, the product should be listed again
+Done - 13. The Flat rate should display "$5.00" if the address is in US
+Done - 14. The Flat rate should display "$10.00" if the address is outside US
 
-15. After the user selected a country and clicked the update button, the update should display
-16. After the user clicked the country field and entered a keyword, any match should display in the list
-17. After the user selected a state and clicked the update button, the update should display
-18. After the user clicked the state field and entered a keyword, any match should display in the list
-19. After the user entered a city and clicked the update button, the update should display
-20. After the user entered a zip and clicked the update button, the update should display
+Done - 15. After the user selected a country and clicked the update button, the update should display
+Done - 16. After the user clicked the country field and entered a keyword, any match should display in the list
+Done - 17. After the user selected a state and clicked the update button, the update should display
+Done - 18. After the user clicked the state field and entered a keyword, any match should display in the list
+Done - 19. After the user entered a city and clicked the update button, the update should display
+Done - 20. After the user entered a zip and clicked the update button, the update should display
 
 21. The subtotal should be computed correctly after deleting a product
 22. The subtotal should be computed correctly after deleting products

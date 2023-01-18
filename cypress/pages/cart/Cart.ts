@@ -2,20 +2,28 @@ import { Main } from "../Main";
 
 class Cart extends Main {
     private cartHeaderText: string = "";
-    private deleteProductButton: string = "";
     private nameText: string = "";
     private priceText: string = "";
-    private quantityTextField: string = "";
+    private removeProductFirstButton: string = ":nth-child(1) > .product-remove > .remove";
+    private productNameFirstText: string = ":nth-child(1) > .product-name > a";
+    private productPriceFirstText: string = ":nth-child(1) > .product-price > .woocommerce-Price-amount > bdi";
+    private productSubtotalFirstText: string = ":nth-child(1) > .product-subtotal > .woocommerce-Price-amount > bdi";
+
+    private quantityTextField: string = "[id*='quantity']";
     private productSubtotalText: string = "";
     private updateCartButton: string = "button[value='Update cart']";
 
     private allProductsSubtotalText: string = "tr[class='cart-subtotal'] bdi:nth-child(1)";
-    private flatRateText: string = "label[for='shipping_method_0_flat_rate3'] bdi";
+    private flatRateText: string = "label > .woocommerce-Price-amount > bdi";
+    private shippingAddressText: string = "p[class='woocommerce-shipping-destination'] strong";
     private changeAddressButton: string = ".shipping-calculator-button";
     private countrySelectField: string = "#select2-calc_shipping_country-container";
-    private countryTextField: string = "input[role='combobox']";
-    private stateSelectField: string = "#select2-calc_shipping_state-container";
-    private stateTextField: string = "input[role='combobox']";
+    private countrySearchTextField: string = "input[role='combobox']";
+    private countryFirstInList: string = ".select2-results__options li:first-child";
+    private stateSelectField: string = ".select2-selection__placeholder";
+    private stateSearchTextField: string = "input[role='combobox']";
+    private stateTextField: string = "#calc_shipping_state";
+    private stateFirstInList: string = ".select2-results__options li:first-child";
     private cityTextField: string = "#calc_shipping_city";
     private zipCodeTextField: string = "#calc_shipping_postcode";
     private updateAddressButton: string = "button[name='calc_shipping']";
@@ -29,12 +37,27 @@ class Cart extends Main {
 
     private productsList: string = ".woocommerce-cart-form__cart-item";
 
+    private removeProductMessageText = ".woocommerce-message";
+    private undoButton = ".restore-item";
+
     get cartHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.cartHeaderText);
     }
 
-    get deleteProductButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.deleteProductButton);
+    get removeProductFirstButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.removeProductFirstButton);
+    }
+
+    get productNameFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productNameFirstText);
+    }
+
+    get productPriceFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productPriceFirstText);
+    }
+
+    get productSubtotalFirstTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.productSubtotalFirstText);
     }
 
     get nameTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -65,6 +88,10 @@ class Cart extends Main {
         return cy.get(this.flatRateText);
     }
 
+    get shippingAddressTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingAddressText);
+    }
+
     get changeAddressButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.changeAddressButton);
     }
@@ -73,8 +100,28 @@ class Cart extends Main {
         return cy.get(this.countrySelectField);
     }
 
+    get countrySearchTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.countrySearchTextField);
+    }
+
+    get countryFirstInListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.countryFirstInList);
+    }
+
     get stateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.stateSelectField);
+    }
+
+    get stateSearchTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.stateSearchTextField);
+    }
+
+    get stateTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.stateTextField);
+    }
+
+    get stateFirstInListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.stateFirstInList);
     }
 
     get cityTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -109,6 +156,14 @@ class Cart extends Main {
         return cy.get(this.productsList);
     }
 
+    get removeProductMessageTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.removeProductMessageText);
+    }
+
+    get undoButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.undoButton);
+    }
+
     isActualProductNameMatchExpected(productName: string, nthChild: number) {
         // cy.wrap("td[class='product-name'] > a").as('locator')
         let locator = "td[class='product-name'] > a";
@@ -125,6 +180,7 @@ class Cart extends Main {
             } else { }
         });
     }
+
 
     isActualProductPriceMatchExpected(productPrice: string, nthChild: number) {
         let locator = "td[class='product-price'] > span";
