@@ -1,0 +1,33 @@
+1. Placing an order should be successful after clicking the "Place Order"
+Billing
+2. Placing an order should fail if the "First name" is empty
+3. Placing an order should fail if the  "Last Name" is empty
+4. Placing an order should fail if there is no "Country/Region" selected
+5. Placing an order should fail if the "Street address" is empty
+6. Placing an order should fail if the "Town/City" is empty
+7. Placing an order should fail if there is no "State/County" selected
+8. Placing an order should fail if the "Postcode / ZIP" is empty
+9. Placing an order should fail if the "Email address" is empty
+Shipping
+10. Placing an order should fail if the "First name" is empty
+11. Placing an order should fail if the  "Last Name" is empty
+12. Placing an order should fail if there is no "Country/Region" selected
+13. Placing an order should fail if the "Street address" is empty
+14. Placing an order should fail if the "Town/City" is empty
+15. Placing an order should fail if there is no "State/County" selected
+16. Placing an order should fail if the "Postcode / ZIP" is empty
+Products details
+17. The products details from cart should display correctly
+18. The user should be able to select "Direct bank transfer"
+19. The user should be able to select "Cash on delivery"
+20. The shipping form should display after checking the "Ship to a different address?"
+21. The "Product subtotal" should be computed correctly
+22. The "Total subtotal" should be computed correctly
+23. The "Flat Rate" should be displayed correctly
+24. The "Total" should be computed correctly
+25. 
+26. 
+27. 
+28. 
+29. 
+30. 

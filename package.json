@@ -4,7 +4,8 @@
   "description": "online shopping app with cypress",
   "main": "index.js",
   "scripts": {
-    "runner": "cypress open"
+    "open": "cypress open",
+    "runner": "cypress run"
   },
   "repository": {
     "type": "git",

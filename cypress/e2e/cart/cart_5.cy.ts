@@ -2,8 +2,8 @@ import { CartPage } from "../../pages/cart/Cart";
 import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
-describe('', () => {
-    describe('', () => {
+describe('Cart Page', () => {
+    describe('Total Scenarios', () => {
         beforeEach(() => {
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")

@@ -3,7 +3,7 @@ import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
 describe('Cart Page', () => {
-    describe('Updating the address scenario', () => {
+    describe('Updating the address scenarios', () => {
         beforeEach(function () {
             cy.fixture<{ data: StoreProductListTD[] }>('product/store_2.json')
                 .its("products")

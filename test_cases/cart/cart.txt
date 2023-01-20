@@ -28,11 +28,16 @@ Done - 24. The cart subtotal should be computed correctly after updating each pr
 Done - 25. The cart subtotal should be computed correctly after adding the products
 Done - 26. The cart subtotal should be computed correctly after adding a product
 Done - 27. The product subtotal should be computed correctly after updating a product's quantity
-28. The product subtotal should be computed correctly after updating each product's quantity
+Done - 28. The product subtotal should be computed correctly after updating each product's quantity
 
-29. The total should be computed correctly after deleting a product
-30. The total should be computed correctly after deleting products
-31. The total should be computed correctly after updating a product's quantity
-32. The total should be computed correctly after updating each product's quantity
-33. The total should be computed correctly after selecting not a US country
-34. The total should be computed correctly after adding products
+Done - 29. The total should be computed correctly after deleting a product
+Done - 30. The total should be computed correctly after deleting products
+Done - 31. The total should be computed correctly after updating a product's quantity
+Done - 32. The total should be computed correctly after updating each product's quantity
+Done - 33. The total should be computed correctly after selecting not a US country
+Done - 34. The total should be computed correctly after adding products
+
+35. The user should be able to redirect to checkout page after clicking the "Proceed to Checkout"
+36. The "Proceed to Checkout" should be hidden after all the products in the cart are removed
+37. The "Proceed to Checkout" should be displayed after clicking the "Undo" and the product is added on the list again
+
