@@ -12,6 +12,10 @@ describe('Lost Password Page', () => {
             LostPasswordPage.loginLostYourPasswordLinkElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. The user should be redirected to the reset password page after clicking the "Lost your password" link', function () {
 
             cy.get<AccountLostPasswordTD>('@account').then((data) => {

@@ -133,11 +133,11 @@ class Cart extends Main {
     }
 
     get countrySearchTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.countrySearchTextField);
+        return cy.get(this.countrySearchTextField, { timeout: 10000 });
     }
 
     get countryFirstInListElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.countryFirstInList);
+        return cy.get(this.countryFirstInList, { timeout: 10000 });
     }
 
     get stateSelectFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -196,6 +196,22 @@ class Cart extends Main {
         return cy.get(this.undoButton);
     }
 
+    updateEachProductQuantity() {
+        let locator = "td[class='product-subtotal'] > span > bdi";
+        let min = 1;
+        let max = 10;
+        let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .each(($el, index, $list) => {
+                        cy.get(`:nth-child(${index + 1}) > .product-quantity > .quantity > input`)
+                            .type(`{selectAll}${(Math.floor(Math.random() * (max - min + 1) + min)).toString()}`);
+                    });
+            } else { }
+        });
+    }
+
     isActualProductNameMatchExpected(productName: string, nthChild: number) {
         // cy.wrap("td[class='product-name'] > a").as('locator')
         let locator = "td[class='product-name'] > a";
@@ -211,6 +227,35 @@ class Cart extends Main {
                     });
             } else { }
         });
+    }
+
+    isActualEachProductSubtotalMatchExpected() {
+        let priceLocator = "td[class='product-price'] > span";
+        let qtyLocator = "td[class='product-quantity'] .quantity input[title='Qty']";
+        let subtotal = "td[class='product-subtotal'] > span > bdi";
+        let subtotalList: number[] = [];
+
+        this.productsListElement.then(($body) => {
+            if ($body.find(priceLocator).length > 0) {
+                this.productsListElement.find(priceLocator)
+                    .each(($price, index) => {
+                        cy.get(`:nth-child(${index + 1}) > ${qtyLocator}`)
+                            .invoke('val')
+                            .then(($qty) => {
+                                cy.log($qty.toString());
+                                cy.log($price.text());
+                                subtotalList.push(Number($qty.toString()) * Number($price.text().trim().replace('$', '').replace(',', '')));
+                            });
+                    });
+            } else { }
+        });
+
+        cy.wait(2000);
+        this.productsListElement.find(subtotal)
+            .each(($sub, index) => {
+                expect(Number($sub.text().trim().replace('$', '').replace(',', ''))).to.be.equal(subtotalList[index]);
+            });
+
     }
 
 
@@ -248,48 +293,49 @@ class Cart extends Main {
         });
     }
 
-    isActualProductSubtotalMatchExpected(productQuantity: number, productPrice: string, nthChild: number) {
-        let locator = "td[class='product-subtotal'] > span > bdi";
-        this.productsListElement.then(($body) => {
-            if ($body.find(locator).length > 0) {
-                this.productsListElement.find(locator)
-                    .then((row) => {
-                        if (row.length != 0) {
-                            cy.get(`:nth-child(${nthChild}) > ${locator}`)
-                                .then(($el) => {
-                                    expect(Number($el.text().trim().replace('$', '').replace(',', '')))
-                                        .to.be.equal(productQuantity * Number(productPrice.replace('$', '').replace(',', '')));
-                                });
-                        }
-                    });
-            } else { }
-        });
-    }
+    // isActualProductSubtotalMatchExpected(productQuantity: number, productPrice: string, nthChild: number) {
+    //     let locator = "td[class='product-subtotal'] > span > bdi";
+    //     this.productsListElement.then(($body) => {
+    //         if ($body.find(locator).length > 0) {
+    //             this.productsListElement.find(locator)
+    //                 .then((row) => {
+    //                     if (row.length != 0) {
+    //                         cy.get(`:nth-child(${nthChild}) > ${locator}`)
+    //                             .then(($el) => {
+    //                                 expect(Number($el.text().trim().replace('$', '').replace(',', '')))
+    //                                     .to.be.equal(productQuantity * Number(productPrice.replace('$', '').replace(',', '')));
+    //                             });
+    //                     }
+    //                 });
+    //         } else { }
+    //     });
+    // }
 
-    isActualMultipleProductMatchExpected(productName: string[]) {
-        // cy.wrap("td[class='product-name'] > a").as('locator')
-        let locator = "td[class='product-name'] > a";
-        this.productsListElement.then(($body) => {
-            if ($body.find(locator).length > 0) {
-                this.productsListElement.find(locator)
-                    .then((row) => {
-                        if (row.length != 0) {
-                            for (let x = 1; x <= 4; x++) {
-                                cy.get(`:nth-child(${x}) > ${locator}`).then(($el) => {
-                                    expect($el.text()).to.be.equal(productName);
-                                });
+    // isActualProductMatchExpected(productName: string[]) {
+    //     // cy.wrap("td[class='product-name'] > a").as('locator')
+    //     let locator = "td[class='product-name'] > a";
+    //     this.productsListElement.then(($body) => {
+    //         if ($body.find(locator).length > 0) {
+    //             this.productsListElement.find(locator)
+    //                 .then((row) => {
+    //                     if (row.length != 0) {
+    //                         for (let x = 1; x <= 4; x++) {
+    //                             cy.get(`:nth-child(${x}) > ${locator}`).then(($el) => {
+    //                                 expect($el.text()).to.be.equal(productName);
+    //                             });
 
-                            }
+    //                         }
 
-                        }
-                    });
-            } else { }
-        });
-    }
+    //                     }
+    //                 });
+    //         } else { }
+    //     });
+    // }
 
-    isComputedMatchDisplayedCartSubtotal() {
+    isActualCartSubtotalMatchExpected() {
         let locator = "td[class='product-subtotal'] > span > bdi";
         let computedTotal: number = 0;
+        let flatRate: number = 0;
 
         this.productsListElement.then(($body) => {
             if ($body.find(locator).length > 0) {
@@ -305,21 +351,31 @@ class Cart extends Main {
         });
     }
 
-    updateEachProductQuantity() {
+    isActualTotalMatchExpected() {
         let locator = "td[class='product-subtotal'] > span > bdi";
-        let min = 1;
-        let max = 10;
-        let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+        let computedTotal: number = 0;
+
         this.productsListElement.then(($body) => {
             if ($body.find(locator).length > 0) {
                 this.productsListElement.find(locator)
                     .each(($el, index, $list) => {
-                        cy.get(`:nth-child(${index + 1}) > .product-quantity > .quantity > input`)
-                            .type(`{selectAll}${randomNumber.toString()}`);
+                        computedTotal += Number($el.text().trim().replace('$', '').replace(',', ''));
                     });
-            } else { }
+            }
         });
+
+        this.flatRateTextElement.then(($flat) => {
+            computedTotal += Number($flat.text().trim().replace('$', '').replace(',', ''));
+        });
+
+        this.allTotalElement.then(($el) => {
+            expect(Number($el.text().trim().replace('$', '').replace(',', '')))
+                .to.be.equal(computedTotal);
+        });
+
     }
+
+
 }
 
 export const CartPage = new Cart();

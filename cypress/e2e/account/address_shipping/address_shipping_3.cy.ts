@@ -10,6 +10,10 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('17. The information should not be saved if the "last name" and "country/region" are empty and the other required fields are filled', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {

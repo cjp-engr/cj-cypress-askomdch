@@ -11,6 +11,10 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         // *If no "country / region" is selected, the error message is "State is a required field."
         // *If there is "country / region" selected, the error message is "State / County is a required field."
         it('18. The information should not be saved if the "last name" and "country/region" are empty and the other required fields are filled', () => {

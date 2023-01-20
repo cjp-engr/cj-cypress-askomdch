@@ -13,6 +13,10 @@ describe('Account Page', function () {
             AccountPage.navigationBarAccountElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. The login attempt should be successful after the user entered a valid email or username and password', function () {
             cy.get<AccountTD>('@account').then((data) => {
 

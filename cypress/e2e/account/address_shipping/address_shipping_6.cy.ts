@@ -10,6 +10,10 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('34. The information should not be saved if the "town/city" and "first name" are empty and the other required fields are filled', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {

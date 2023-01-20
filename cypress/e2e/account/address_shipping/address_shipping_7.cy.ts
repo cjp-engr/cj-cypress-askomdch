@@ -11,6 +11,9 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
 
         it('40. The information should not be saved if the "state" and "first name" are empty and the other required fields are filled', () => {
             AddressShippingPage.clearAllFields();

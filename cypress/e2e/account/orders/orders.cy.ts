@@ -8,6 +8,10 @@ describe('Account Orders Page', () => {
             AccountOrdersPage.navigationLinkElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. The "order number" in the Orders Page should match on the View Orders Page', function () {
             AccountOrdersPage.orderTableFindElement
                 .then((row) => {

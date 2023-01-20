@@ -10,6 +10,10 @@ describe('Account Shipping Address Page', () => {
             AddressShippingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. The information should be saved succesfully after the user entered data to all the required and optional fields', () => {
             AddressShippingPage.clearAllFields();
             cy.get<AccountAddressShippingTD>('@shipping').then((data) => {

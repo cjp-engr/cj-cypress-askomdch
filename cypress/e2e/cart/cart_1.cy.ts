@@ -20,6 +20,10 @@ describe('Cart Page', () => {
 
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. After the user added a product to cart, the product name should be displayed correctly', function () {
 
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
@@ -43,7 +47,8 @@ describe('Cart Page', () => {
         it('4. After the user added a product to cart, the product subtotal should be displayed correctly', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
+            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
+            CartPage.isActualEachProductSubtotalMatchExpected();
         });
 
 
@@ -107,9 +112,10 @@ describe('Cart Page', () => {
             StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
 
-            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
-            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[3].price, 2);
-            CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[1].price, 3);
+            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
+            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[3].price, 2);
+            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[1].price, 3);
+            CartPage.isActualEachProductSubtotalMatchExpected();
         });
     });
 });

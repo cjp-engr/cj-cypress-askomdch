@@ -9,6 +9,11 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addressesNavigationLinkElement.click();
             AddressBillingPage.addButtonElement.click();
         });
+
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('52. The information should not be saved if the "postcode/zip" and "first name" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {

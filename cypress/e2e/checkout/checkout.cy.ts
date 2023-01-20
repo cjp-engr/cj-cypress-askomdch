@@ -12,6 +12,11 @@ describe('Checkout Page', () => {
             cy.login();
             StorePage.navigationBarStoreElement.click();
         });
+
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('Test', function () {
             const numberOfClicks: number = 5;
             StorePage.cartButtonElement.realHover();

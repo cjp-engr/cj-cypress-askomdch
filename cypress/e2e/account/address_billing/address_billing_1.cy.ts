@@ -9,6 +9,11 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addressesNavigationLinkElement.click();
             AddressBillingPage.addButtonElement.click();
         });
+
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('1. The information should be saved succesfully after the user entered data to all the required and optional fields', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {

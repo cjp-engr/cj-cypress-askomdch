@@ -12,6 +12,10 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('11. The information should not be saved if the "first name" and "last name" are empty and the other required fields are filled', () => {
             // cy.get<AccountAddressBillingTD>('@billing').then((data) => {});
             AddressBillingPage.clearAllFields();

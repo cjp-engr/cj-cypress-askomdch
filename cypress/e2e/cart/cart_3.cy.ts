@@ -20,6 +20,10 @@ describe('Cart Page', () => {
 
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('15. After the user selected a country and clicked the update button, the update should display', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();

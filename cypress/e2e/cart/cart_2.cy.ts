@@ -18,6 +18,10 @@ describe('Cart Page', () => {
             StorePage.sortingFieldElement.select(StorePage.defaultSortingTextOptionValue);
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('9. After the user updated the quantity of random product, the "update cart" should be enabled', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.cartButtonElement.click();

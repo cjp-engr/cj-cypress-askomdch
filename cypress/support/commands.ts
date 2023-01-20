@@ -40,11 +40,18 @@ Cypress.Commands.add('login', () => {
     cy.get(`button[value='Log in']`).click();
 });
 
+Cypress.Commands.add('logout', () => {
+    cy.visit(`${Cypress.env('onlineStore')}account/`);
+    cy.get('.woocommerce-MyAccount-navigation-link--customer-logout > a').click();
+});
+
 declare global {
     namespace Cypress {
         interface Chainable {
             visitOnlineStore(): Chainable<void>
             login(): Chainable<void>
+            logout(): Chainable<void>
+
             //   drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
             //   dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
             //   visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>

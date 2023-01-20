@@ -11,6 +11,10 @@ describe('Account Billing Address Page', () => {
             AddressBillingPage.addButtonElement.click();
         });
 
+        afterEach(() => {
+            cy.logout();
+        });
+
         it('24. The information should not be saved if the "country/region" and "first name" are empty and the other required fields are filled', () => {
             AddressBillingPage.clearAllFields();
             cy.get<AccountAddressBillingTD>('@billing').then((data) => {
