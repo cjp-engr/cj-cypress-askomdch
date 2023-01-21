@@ -111,10 +111,6 @@ describe('Cart Page', () => {
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
-
-            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[0].price, 1);
-            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[3].price, 2);
-            // CartPage.isActualProductSubtotalMatchExpected(this.quantity, this.data[1].price, 3);
             CartPage.isActualEachProductSubtotalMatchExpected();
         });
     });

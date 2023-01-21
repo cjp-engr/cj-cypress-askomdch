@@ -45,8 +45,10 @@ class Cart extends Main {
 
     private productsList: string = ".woocommerce-cart-form__cart-item";
 
-    private removeProductMessageText = ".woocommerce-message";
-    private undoButton = ".restore-item";
+    private removeProductMessageText: string = ".woocommerce-message";
+    private undoButton: string = ".restore-item";
+
+    private loadingIcon: string = ".woocommerce-cart-form > .blockOverlay";
 
     get cartHeaderTextElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.cartHeaderText);
@@ -196,17 +198,32 @@ class Cart extends Main {
         return cy.get(this.undoButton);
     }
 
+    get loadingIconElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.loadingIcon);
+    }
+
     updateEachProductQuantity() {
         let locator = "td[class='product-subtotal'] > span > bdi";
         let min = 1;
         let max = 10;
-        let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
         this.productsListElement.then(($body) => {
             if ($body.find(locator).length > 0) {
                 this.productsListElement.find(locator)
                     .each(($el, index, $list) => {
                         cy.get(`:nth-child(${index + 1}) > .product-quantity > .quantity > input`)
                             .type(`{selectAll}${(Math.floor(Math.random() * (max - min + 1) + min)).toString()}`);
+                    });
+            } else { }
+        });
+    }
+
+    removeAllProducts() {
+        let locator = "td[class='product-remove'] > .remove";
+        this.productsListElement.then(($body) => {
+            if ($body.find(locator).length > 0) {
+                this.productsListElement.find(locator)
+                    .each(() => {
+                        cy.get(`:nth-child(1) > ${locator}`).click();
                     });
             } else { }
         });
@@ -292,45 +309,6 @@ class Cart extends Main {
             } else { }
         });
     }
-
-    // isActualProductSubtotalMatchExpected(productQuantity: number, productPrice: string, nthChild: number) {
-    //     let locator = "td[class='product-subtotal'] > span > bdi";
-    //     this.productsListElement.then(($body) => {
-    //         if ($body.find(locator).length > 0) {
-    //             this.productsListElement.find(locator)
-    //                 .then((row) => {
-    //                     if (row.length != 0) {
-    //                         cy.get(`:nth-child(${nthChild}) > ${locator}`)
-    //                             .then(($el) => {
-    //                                 expect(Number($el.text().trim().replace('$', '').replace(',', '')))
-    //                                     .to.be.equal(productQuantity * Number(productPrice.replace('$', '').replace(',', '')));
-    //                             });
-    //                     }
-    //                 });
-    //         } else { }
-    //     });
-    // }
-
-    // isActualProductMatchExpected(productName: string[]) {
-    //     // cy.wrap("td[class='product-name'] > a").as('locator')
-    //     let locator = "td[class='product-name'] > a";
-    //     this.productsListElement.then(($body) => {
-    //         if ($body.find(locator).length > 0) {
-    //             this.productsListElement.find(locator)
-    //                 .then((row) => {
-    //                     if (row.length != 0) {
-    //                         for (let x = 1; x <= 4; x++) {
-    //                             cy.get(`:nth-child(${x}) > ${locator}`).then(($el) => {
-    //                                 expect($el.text()).to.be.equal(productName);
-    //                             });
-
-    //                         }
-
-    //                     }
-    //                 });
-    //         } else { }
-    //     });
-    // }
 
     isActualCartSubtotalMatchExpected() {
         let locator = "td[class='product-subtotal'] > span > bdi";

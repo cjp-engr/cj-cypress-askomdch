@@ -19,6 +19,16 @@
             "index": 3,
             "name": "Faint Blue Jeans",
             "price": "$86.00"
+        },
+        {
+            "index": 4,
+            "name": "Red Shoes",
+            "price": "$32.00"
+        },
+        {
+            "index": 5,
+            "name": "Dark Grey Jeans",
+            "price": "$100.00"
         }
     ]
 }

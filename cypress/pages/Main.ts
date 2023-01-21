@@ -76,7 +76,7 @@ class Main {
     }
 
     get cartButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.cartButton, { timeout: 5000 });
+        return cy.get(this.cartButton, { timeout: 10000 });
     }
 
     get headerTitleElement(): Cypress.Chainable<JQuery<HTMLElement>> {

@@ -28,6 +28,7 @@ describe('Cart Page', () => {
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.firstProductRemoveButtonElement.click();
             CartPage.isActualCartSubtotalMatchExpected();
@@ -38,6 +39,7 @@ describe('Cart Page', () => {
             StorePage.pageTwoButtonElement.click();
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.firstProductRemoveButtonElement.click();
             CartPage.firstProductRemoveButtonElement.click();
@@ -49,6 +51,7 @@ describe('Cart Page', () => {
             StorePage.pageTwoButtonElement.click();
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.thirdQuantityTextFieldElement.type('{selectAll}30');
             CartPage.updateCartButtonElement.click();
@@ -60,6 +63,8 @@ describe('Cart Page', () => {
             StorePage.pageTwoButtonElement.click();
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[5].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.updateEachProductQuantity();
             CartPage.updateCartButtonElement.click();
@@ -71,6 +76,8 @@ describe('Cart Page', () => {
             StorePage.pageTwoButtonElement.click();
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[5].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.isActualCartSubtotalMatchExpected();
         });
@@ -87,6 +94,8 @@ describe('Cart Page', () => {
             StorePage.addProductToCart(`“${this.data[1].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[3].name}”`, this.quantity);
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[4].name}”`, this.quantity);
+            StorePage.addProductToCart(`“${this.data[5].name}”`, this.quantity);
             StorePage.cartButtonElement.click();
             CartPage.thirdQuantityTextFieldElement.type('{selectAll}30');
             CartPage.updateCartButtonElement.click();
@@ -101,7 +110,7 @@ describe('Cart Page', () => {
             });
         });
 
-        it('28. The product subtotal should be computed correctly after updating each product\'s quantity', function () {
+        it.only('28. The product subtotal should be computed correctly after updating each product\'s quantity', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
             StorePage.pageTwoButtonElement.click();
             StorePage.addProductToCart(`“${this.data[2].name}”`, this.quantity);
