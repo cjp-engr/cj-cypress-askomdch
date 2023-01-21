@@ -36,6 +36,20 @@ class Checkout extends Main {
     private cashOnDeliveryRadiobox: string = "#payment_method_cod";
     private placeOrderButton: string = "#place_order";
 
+    //errorMessage
+    private billingFirstNameErrorMessage: string = "li[data-id='billing_first_name']";
+    private billingLastNameErrorMessage: string = "li[data-id='billing_last_name']";
+    private billingStreetAddressErrorMessage: string = "li[data-id='billing_address_1']";
+    private billingTownCityErrorMessage: string = "li[data-id='billing_city']";
+    private billingPostcodeZipErrorMessage: string = "li[data-id='billing_postcode']";
+    private billingEmailAddressErrorMessage: string = "li[data-id='billing_email']";
+
+    private shippingFirstNameErrorMessage: string = "li[data-id='shipping_first_name']";
+    private shippingLastNameErrorMessage: string = "li[data-id='shipping_last_name']";
+    private shippingStreetAddressErrorMessage: string = "li[data-id='shipping_address_1']";
+    private shippingTownCityErrorMessage: string = "li[data-id='shipping_city']";
+    private shippingPostcodeZipErrorMessage: string = "li[data-id='shipping_postcode']";
+
     get billingFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.billingFirstNameTextField);
     }
@@ -166,7 +180,54 @@ class Checkout extends Main {
     }
 
     get placeOrderButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
-        return cy.get(this.placeOrderButton);
+        return cy.get(this.placeOrderButton, { timeout: 10000 });
+    }
+
+    //
+    get billingFirstNameErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingFirstNameErrorMessage);
+    }
+
+    get billingLastNameErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingLastNameErrorMessage);
+    }
+
+    get billingStreetAddressErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingStreetAddressErrorMessage);
+    }
+
+    get billingTownCityErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingTownCityErrorMessage);
+    }
+
+    get billingPostcodeZipErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingPostcodeZipErrorMessage);
+    }
+
+    get billingEmailAddressErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingEmailAddressErrorMessage);
+    }
+
+    get shippingFirstNameErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingFirstNameErrorMessage);
+    }
+
+    get shippingLastNameErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingLastNameErrorMessage);
+    }
+
+    get shippingStreetAddressErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingStreetAddressErrorMessage);
+    }
+
+    get shippingTownCityErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingTownCityErrorMessage);
+    }
+
+    get shippingPostcodeZipErrorMessageElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingPostcodeZipErrorMessage);
     }
 
 }
+
+export const CheckoutPage = new Checkout();

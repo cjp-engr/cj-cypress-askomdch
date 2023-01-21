@@ -1,21 +1,24 @@
 1. Placing an order should be successful after clicking the "Place Order"
 Billing
-2. Placing an order should fail if the "First name" is empty
-3. Placing an order should fail if the  "Last Name" is empty
-4. Placing an order should fail if there is no "Country/Region" selected
-5. Placing an order should fail if the "Street address" is empty
-6. Placing an order should fail if the "Town/City" is empty
-7. Placing an order should fail if there is no "State/County" selected
-8. Placing an order should fail if the "Postcode / ZIP" is empty
-9. Placing an order should fail if the "Email address" is empty
+Done - 2. Placing an order should fail if the "First name" is empty
+Done - 3. Placing an order should fail if the  "Last Name" is empty
+Done - 4. Placing an order should fail if there is no "Country/Region" selected
+Done - 5. Placing an order should fail if the "Street address" is empty
+Done - 6. Placing an order should fail if the "Town/City" is empty
+Done - 7. Placing an order should fail if there is no "State/County" selected
+Done - 8. Placing an order should fail if the "Postcode / ZIP" is empty
+Done - 9. Placing an order should fail if the "Email address" is empty
+Done - 9.1. Placing an order should fail if all the billing required fields are empty
 Shipping
-10. Placing an order should fail if the "First name" is empty
-11. Placing an order should fail if the  "Last Name" is empty
-12. Placing an order should fail if there is no "Country/Region" selected
-13. Placing an order should fail if the "Street address" is empty
-14. Placing an order should fail if the "Town/City" is empty
-15. Placing an order should fail if there is no "State/County" selected
-16. Placing an order should fail if the "Postcode / ZIP" is empty
+Done - 10. Placing an order should fail if the "First name" is empty
+Done - 11. Placing an order should fail if the  "Last Name" is empty
+Done - 12. Placing an order should fail if there is no "Country/Region" selected
+Done - 13. Placing an order should fail if the "Street address" is empty
+Done - 14. Placing an order should fail if the "Town/City" is empty
+Done - 15. Placing an order should fail if there is no "State/County" selected
+Done - 16. Placing an order should fail if the "Postcode / ZIP" is empty
+Done - 16.1. Placing an order should fail if all the shipping required fields are empty
+Done - 16.2. Placing an order should fail if all the billing and shipping required fields are empty
 Products details
 17. The products details from cart should display correctly
 18. The user should be able to select "Direct bank transfer"

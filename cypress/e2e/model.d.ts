@@ -85,3 +85,8 @@ export interface ProductInfoTD {
     reviews: string;
 }
 
+export interface CheckoutTD {
+    billingErrorMessage: any;
+    shippingErrorMessage: any;
+}
+

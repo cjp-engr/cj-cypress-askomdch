@@ -1,0 +1,21 @@
+{
+    "billingErrorMessage": {
+        "firstName": "Billing First name is a required field.",
+        "lastName": "Billing Last name is a required field.",
+        "countryRegion": "",
+        "streetAddress": "Billing Street address is a required field.",
+        "townCity": "Billing Town / City is a required field.",
+        "stateCounty": "",
+        "postcodeZip": "Billing Postcode / ZIP is a required field.",
+        "emailAddress": "Billing Email address is a required field."
+    },
+    "shippingErrorMessage": {
+        "firstName": "Shipping First name is a required field.",
+        "lastName": "Shipping Last name is a required field.",
+        "countryRegion": "",
+        "streetAddress": "Shipping Street address is a required field.",
+        "townCity": "Shipping Town / City is a required field.",
+        "stateCounty": "",
+        "postcodeZip": "Shipping Postcode / ZIP is a required field."
+    }
+}
