@@ -26,11 +26,11 @@ Products details
 20. The shipping form should display after checking the "Ship to a different address?"
 21. The "Product subtotal" should be computed correctly
 22. The "Total subtotal" should be computed correctly
-23. The "Flat Rate" should be displayed correctly
-24. The "Total" should be computed correctly
-25. 
-26. 
-27. 
+23. The "Flat Rate" should be displayed correctly after selecting the non-US country and the shipping is as same as the billing address
+24. The "Flat Rate" should be displayed correctly after selecting the US country and the shipping is as same as the billing address
+25. The "Flat Rate" should be displayed correctly after selecting the non-US country and the shipping is different to billing address
+26. The "Flat Rate" should be displayed correctly after selecting the US country and the shipping is different to billing address
+27. The "Total" should be computed correctly
 28. 
 29. 
 30. 

@@ -1,3 +1,5 @@
+import { CartPage } from "../../pages/cart/Cart";
+import { CheckoutPage } from "../../pages/checkout/Checkout";
 import { StorePage } from "../../pages/product/Store";
 import { StoreProductListTD } from "../model";
 
@@ -21,11 +23,19 @@ describe('Checkout Page', () => {
             cy.logout();
         });
 
-        it('', function () {
-
+        it('Placing an order should be successful after clicking the "Place Order"', function () {
             StorePage.addProductToCart(`“${this.data[0].name}”`, this.quantity);
-            StorePage.cartCheckoutButtonElement.click();
-
+            StorePage.cartButtonElement.click();
+            CartPage.proceedToCheckoutButtonElement.click();
+            CheckoutPage.placeOrderButtonElement.click();
+            cy.request({
+                url: `${Cypress.env('onlineStore')}checkout/order-received/`,
+            }).then((resp) => {
+                expect(resp.status).to.eq(200);
+                cy.url().then((url) => {
+                    expect(url).to.contain(`${Cypress.env('onlineStore')}checkout/order-received/`);
+                });
+            });
         });
 
 

@@ -6,6 +6,7 @@ class Checkout extends Main {
     private billingCompanyNameTextField: string = "#billing_company";
     private billingCountryRegionSelectField: string = "#select2-billing_country-container";
     private billingCountryRegionTextField: string = "input[role='combobox']";
+    private billingCountryRegionFirst: string = ".select2-results__option:nth-child(1)";
     private billingStreetAddressFirstTextField: string = "#billing_address_1";
     private billingStreetAddressSecondTextField: string = "#billing_address_2";
     private billingTownCityTextField: string = "#billing_city";
@@ -15,6 +16,7 @@ class Checkout extends Main {
     private billingPhoneTextField: string = "#billing_phone";
     private billingEmailAddressTextField: string = "#billing_email";
     private shipToDifferentAddressCheckbox: string = "#ship-to-different-address-checkbox";
+    private shippingForm: string = ".shipping_address";
     private shippingFirstNameTextField: string = "#shipping_first_name";
     private shippingLastNameTextField: string = "#shipping_last_name";
     private shippingCompanyNameTextField: string = "#shipping_company";
@@ -33,7 +35,9 @@ class Checkout extends Main {
     private flatRateText: string = "tr[class='woocommerce-shipping-totals shipping'] bdi:nth-child(1)";
     private totalText: string = "tr[class='order-total'] bdi:nth-child(1)";
     private directBankTransferRadiobox: string = "#payment_method_bacs";
+    private directBankTransferMessageBox: string = ".payment_method_bacs .payment_box";
     private cashOnDeliveryRadiobox: string = "#payment_method_cod";
+    private cashOnDeliveryMessageBox: string = ".payment_method_cod .payment_box";
     private placeOrderButton: string = "#place_order";
 
     //errorMessage
@@ -70,6 +74,10 @@ class Checkout extends Main {
         return cy.get(this.billingCountryRegionTextField);
     }
 
+    get billingCountryRegionFirstElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.billingCountryRegionFirst);
+    }
+
     get billingStreetAddressFirstTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.billingStreetAddressFirstTextField);
     }
@@ -104,6 +112,10 @@ class Checkout extends Main {
 
     get shipToDifferentAddressCheckboxElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.shipToDifferentAddressCheckbox);
+    }
+
+    get shippingFormElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.shippingForm);
     }
 
     get shippingFirstNameTextFieldElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -175,8 +187,16 @@ class Checkout extends Main {
         return cy.get(this.directBankTransferRadiobox);
     }
 
+    get directBankTransferMessageBoxElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.directBankTransferMessageBox);
+    }
+
     get cashOnDeliveryRadioboxElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.cashOnDeliveryRadiobox);
+    }
+
+    get cashOnDeliveryMessageBoxElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+        return cy.get(this.cashOnDeliveryMessageBox);
     }
 
     get placeOrderButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -228,6 +248,40 @@ class Checkout extends Main {
         return cy.get(this.shippingPostcodeZipErrorMessage);
     }
 
+    isActualProductDetailsMatchExpected(nameIndex: number, name: string,
+        quantity: string, price: string) {
+        let productName = 'td[class="product-name"]:nth-child(1)';
+        let productSubtotal = 'td[class="product-total"]';
+        cy.get(`tr[class="cart_item"]:nth-child(${nameIndex}) ${productName}`)
+            .each(($el) => {
+                expect($el.text().trim()).to.contain(name);
+                expect($el.text().trim()).to.contain(quantity);
+            });
+
+        cy.get(`tr[class="cart_item"]:nth-child(${nameIndex}) ${productSubtotal}`)
+            .each(($el) => {
+                expect(Number($el.text().trim().replace('$', '')))
+                    .to.equal(Number(price.replace('$', '')) * Number(quantity));
+
+            });
+    }
+
+    computeSubTotal() {
+        let sumSubtotal = 0;
+        cy.get('tbody').then(($body) => {
+            if ($body.find('tr[class="cart_item"]').length > 0) {
+                cy.get('tbody').find('tr[class="cart_item"]')
+                    .each(($el, index, $list) => {
+                        sumSubtotal += Number($el.text().trim().split('$')[1]);
+                    });
+
+                this.subtotalTextElement.then(($subtotal) => {
+                    expect(sumSubtotal)
+                        .to.be.equal(Number($subtotal.text().trim().replace('$', '')));
+                });
+            } else { }
+        });
+    }
 }
 
 export const CheckoutPage = new Checkout();
